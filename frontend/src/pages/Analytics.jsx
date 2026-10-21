@@ -1,66 +1,60 @@
 import React from "react";
 import { riskColor } from "../components/RiskStamp";
 
-export default function Analytics({ analytics }) {
-  if (!analytics) return <div className="p-10 text-ink-dim font-serif">Loading…</div>;
+export default function Analytics({ analytics, error }) {
+  if (!analytics) return <main className="page-state"><span className="page-kicker">FRAUD OPERATIONS / PERFORMANCE</span><h1>Analytics</h1><p>{error || "Loading case analytics…"}</p></main>;
 
-  const total = analytics.total_cases || 1;
-  const investigated = Math.max(0, analytics.total_cases - analytics.unscored);
+  const total = analytics.total_cases || 0;
+  const investigated = Math.max(0, total - analytics.unscored);
   const bars = [
-    { label: "Escalated", value: analytics.escalated, color: riskColor("HIGH") },
-    { label: "Human review", value: analytics.human_review, color: riskColor("MEDIUM") },
-    { label: "Auto-closed", value: analytics.auto_close_monitor, color: riskColor("LOW") },
-    { label: "Not yet investigated", value: analytics.unscored, color: "#4B5A70" },
+    { label: "Escalated", value: analytics.escalated, color: riskColor("HIGH"), description: "Priority investigation" },
+    { label: "Human review", value: analytics.human_review, color: riskColor("MEDIUM"), description: "Analyst decision required" },
+    { label: "Monitoring", value: analytics.auto_close_monitor, color: riskColor("LOW"), description: "Routine follow-up" },
+    { label: "Awaiting analysis", value: analytics.unscored, color: "#87958c", description: "Not yet investigated" },
   ];
 
   return (
-    <div className="max-w-3xl mx-auto p-10">
-      <h1 className="font-serif text-2xl text-ink-text mb-1">Analytics</h1>
-      <p className="text-sm text-ink-dim mb-8">
-        Computed live from the case database. Demonstration scale — see the note below.
-      </p>
+    <main className="analytics-page">
+      <header className="page-heading">
+        <div><span className="page-kicker">FRAUD OPERATIONS / PERFORMANCE</span><h1>Analytics</h1><p>Live status and risk summaries from the case register.</p></div>
+        <div className="analytics-updated"><i /> LIVE CASE DATA</div>
+      </header>
 
-      <div className="border border-ink-750 p-6 mb-6">
-        <div className="analytics-completion-summary"><div><strong>{investigated}</strong><span>investigations complete</span></div><div><strong>{analytics.unscored}</strong><span>awaiting analysis</span></div></div>
-        <h2 className="font-serif text-base text-ink-text mb-4">Case disposition</h2>
-        <div className="space-y-3">
-          {bars.map((b) => (
-            <div key={b.label}>
-              <div className="flex justify-between text-xs font-mono text-ink-dim mb-1">
-                <span>{b.label}</span>
-                <span>{b.value}</span>
-              </div>
-              <div className="h-2 bg-ink-850 border border-ink-750">
-                <div className="h-full" style={{ width: `${(b.value / total) * 100}%`, background: b.color }} />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      <section className="analytics-metrics" aria-label="Case summary">
+        <Metric label="Cases in register" value={total} detail="All sources" />
+        <Metric label="Investigations complete" value={investigated} detail={`${total ? Math.round((investigated / total) * 100) : 0}% of cases`} tone="green" />
+        <Metric label="Awaiting analysis" value={analytics.unscored} detail="Queued for review" tone="neutral" />
+        <Metric label="Average risk score" value={Number(analytics.avg_risk_score || 0).toFixed(2)} detail="Scored cases only" tone="gold" />
+      </section>
 
-      <div className="grid grid-cols-2 gap-4">
-        <div className="border border-ink-750 p-5">
-          <div className="text-[11px] font-mono text-ink-faint uppercase tracking-wide mb-1">Average risk score</div>
-          <div className="font-serif text-3xl text-ink-text">{analytics.avg_risk_score.toFixed(2)}</div>
-          <p className="text-xs text-ink-dim font-serif mt-1">across all investigated cases</p>
-        </div>
-        <div className="border border-ink-750 p-5">
-          <div className="text-[11px] font-mono text-ink-faint uppercase tracking-wide mb-1">
-            Scenario ground-truth misses
+      <div className="analytics-content">
+        <section className="analytics-panel disposition-panel">
+          <div className="panel-heading"><div><span className="page-kicker">CURRENT WORKLOAD</span><h2>Case disposition</h2></div><span className="panel-total">{total} total</span></div>
+          <div className="disposition-list">
+            {bars.map((bar) => (
+              <div className="disposition-row" key={bar.label}>
+                <div className="disposition-copy"><span className="disposition-mark" style={{ background: bar.color }} /><div><strong>{bar.label}</strong><small>{bar.description}</small></div></div>
+                <div className="disposition-track" aria-label={`${bar.value} ${bar.label}`}><i style={{ width: `${total ? (bar.value / total) * 100 : 0}%`, background: bar.color }} /></div>
+                <b className="disposition-value">{bar.value}</b>
+              </div>
+            ))}
           </div>
-          <div className="font-serif text-3xl text-ink-text">{analytics.known_fraud_scenarios_missed}</div>
-          <p className="text-xs text-ink-dim font-serif mt-1">
-            demonstration-only, checked against the synthetic scenario library
-          </p>
-        </div>
+        </section>
+
+        <aside className="analytics-panel quality-panel">
+          <span className="page-kicker">DEMO SCENARIO CHECK</span>
+          <h2>Known scenario misses</h2>
+          <strong className="quality-value">{analytics.known_fraud_scenarios_missed}</strong>
+          <p>Cases where the current disposition differs from the expected synthetic scenario outcome.</p>
+          <div className="quality-footnote">Demonstration measure · not a real-world performance estimate</div>
+        </aside>
       </div>
 
-      <p className="text-[11px] text-ink-faint font-serif italic mt-8 border-t border-ink-750 pt-4">
-        These figures reflect the current case database, which in a demo/development environment
-        is small (the 30-case synthetic scenario library). They are not a claim about real-world
-        detection performance — see docs/EXPERIMENTS.md for the actual measured model metrics on
-        IEEE-CIS and carclaims.
-      </p>
-    </div>
+      <p className="analytics-note">These figures describe the current local case database. The synthetic scenario library is for demonstration; the project documentation contains benchmark measurements on IEEE-CIS and carclaims data.</p>
+    </main>
   );
+}
+
+function Metric({ label, value, detail, tone = "" }) {
+  return <article className={`analytics-metric ${tone ? `metric-${tone}` : ""}`}><span>{label}</span><strong>{value}</strong><small>{detail}</small></article>;
 }

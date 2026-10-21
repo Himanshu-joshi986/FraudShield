@@ -22,20 +22,31 @@ export default function App() {
   const [analytics, setAnalytics] = useState(null);
   const [loading, setLoading] = useState(false);
   const [showNewCase, setShowNewCase] = useState(false);
+  const [appError, setAppError] = useState("");
 
   const refresh = useCallback(async () => {
-    const [c, a] = await Promise.all([api.listCases({ limit: 100 }), api.analytics()]);
-    setCases(c);
-    setAnalytics(a);
+    const [caseResult, analyticsResult] = await Promise.allSettled([
+      api.listCases({ limit: 100 }),
+      api.analytics(),
+    ]);
+    const errors = [];
+    if (caseResult.status === "fulfilled") setCases(caseResult.value);
+    else errors.push(`Cases: ${caseResult.reason.message}`);
+    if (analyticsResult.status === "fulfilled") setAnalytics(analyticsResult.value);
+    else errors.push(`Analytics: ${analyticsResult.reason.message}`);
+    setAppError(errors.join(" · "));
   }, []);
 
   useEffect(() => { refresh(); }, [refresh]);
 
   async function handleSeed() {
     setLoading(true);
+    setAppError("");
     try {
       await api.seedSynthetic();
       await refresh();
+    } catch (error) {
+      setAppError(`Could not load the project case file: ${error.message}`);
     } finally {
       setLoading(false);
     }
@@ -91,11 +102,13 @@ export default function App() {
           </button>
         </div>
 
+        {appError && <div className="app-error" role="alert"><strong>Connection problem</strong><span>{appError}</span><button onClick={refresh}>Retry</button></div>}
+
         {page === "home" && (
           <CommandCenter cases={cases} analytics={analytics} onSeed={handleSeed} onOpenCase={openCase} loading={loading} />
         )}
         {page === "case" && activeCaseId && <CaseDetail caseId={activeCaseId} onBack={goHome} onCaseUpdated={refresh} />}
-        {page === "analytics" && <Analytics analytics={analytics} />}
+        {page === "analytics" && <Analytics analytics={analytics} error={appError} />}
         {page === "knowledge" && <KnowledgeBase />}
         {page === "data" && <DataIntake onImported={refresh} />}
       </div>

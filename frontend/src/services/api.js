@@ -1,4 +1,8 @@
-const BASE = "/api";
+// In development, call the API directly. This avoids a stale or separately
+// launched Vite server silently serving index.html for /api requests.
+const BASE = import.meta.env.DEV
+  ? "http://127.0.0.1:8000/api"
+  : (import.meta.env.VITE_API_BASE || "/api");
 
 async function handle(res) {
   if (!res.ok) {

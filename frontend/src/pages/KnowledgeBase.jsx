@@ -6,68 +6,72 @@ export default function KnowledgeBase() {
   const [question, setQuestion] = useState("");
   const [results, setResults] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [loadingKb, setLoadingKb] = useState(true);
+  const [error, setError] = useState("");
 
-  useEffect(() => { api.knowledgeBase().then(setKb); }, []);
+  async function loadKnowledge() {
+    setLoadingKb(true);
+    setError("");
+    try { setKb(await api.knowledgeBase()); }
+    catch (e) { setError(e.message || "Could not load the knowledge base."); }
+    finally { setLoadingKb(false); }
+  }
+
+  useEffect(() => { loadKnowledge(); }, []);
 
   async function handleQuery(e) {
     e.preventDefault();
     if (!question.trim()) return;
-    setLoading(true);
-    const r = await api.knowledgeQuery(question);
-    setResults(r.results);
-    setLoading(false);
+    setLoading(true); setError("");
+    try {
+      const response = await api.knowledgeQuery(question);
+      setResults(response.results);
+    } catch (e) {
+      setError(e.message || "Knowledge search failed.");
+    } finally { setLoading(false); }
   }
 
   return (
-    <div className="max-w-3xl mx-auto p-10">
-      <h1 className="font-serif text-2xl text-ink-text mb-1">Knowledge Base</h1>
-      <p className="text-sm text-ink-dim mb-8">
-        Regulatory and policy documents the Investigation Agent draws on.
-      </p>
+    <main className="knowledge-page">
+      <header className="page-heading">
+        <div><span className="page-kicker">REFERENCE LIBRARY / POLICY</span><h1>Knowledge Base</h1><p>Regulatory guidance and internal policy used to support investigations.</p></div>
+        {kb && <div className="knowledge-count"><strong>{kb.documents.length}</strong><span>DOCUMENTS<br />{kb.stats.n_chunks} indexed passages</span></div>}
+      </header>
 
-      <div className="border border-ink-750 p-6 mb-6">
-        <h2 className="font-serif text-base text-ink-text mb-4">
-          Indexed documents {kb ? `(${kb.stats.n_chunks} chunks)` : ""}
-        </h2>
-        <div className="space-y-3">
-          {kb?.documents.map((d) => (
-            <div key={d.document_id} className="border-l-2 border-forensic pl-4">
-              <div className="text-xs font-mono text-ink-dim">{d.document_id} &middot; {d.jurisdiction}</div>
-              <div className="font-serif text-ink-text">{d.title}</div>
-              <div className="text-[11px] text-ink-faint mt-0.5">{d.source}</div>
+      {error && <div className="page-error" role="alert"><span>{error}</span>{!kb && <button onClick={loadKnowledge}>Retry</button>}</div>}
+
+      <div className="knowledge-layout">
+        <section className="knowledge-panel documents-panel">
+          <div className="panel-heading"><div><span className="page-kicker">SOURCE MATERIAL</span><h2>Indexed documents</h2></div><span className="panel-total">{kb?.documents.length ?? "—"}</span></div>
+          {loadingKb ? <div className="knowledge-state">Loading policy documents…</div> : (
+            <div className="document-list">
+              {(kb?.documents || []).map((doc) => (
+                <article className="document-item" key={doc.document_id}>
+                  <span className="document-id">{doc.document_id}</span>
+                  <div className="document-copy"><h3>{doc.title}</h3><p>{doc.source}</p></div>
+                  <span className="document-jurisdiction">{doc.jurisdiction}</span>
+                </article>
+              ))}
+              {kb?.documents.length === 0 && <div className="knowledge-state">No documents have been indexed yet.</div>}
             </div>
-          ))}
-        </div>
-      </div>
+          )}
+        </section>
 
-      <div className="border border-ink-750 p-6">
-        <h2 className="font-serif text-base text-ink-text mb-4">Search</h2>
-        <form onSubmit={handleQuery} className="flex gap-2 mb-4">
-          <input
-            value={question}
-            onChange={(e) => setQuestion(e.target.value)}
-            placeholder="e.g. how long do we have to file a SAR?"
-            className="flex-1 bg-ink-850 border border-ink-750 px-3 py-2 text-sm text-ink-text font-serif focus:outline-none focus:border-forensic"
-          />
-          <button
-            type="submit" disabled={loading}
-            className="text-sm font-mono px-4 py-2 border border-forensic text-forensic hover:bg-forensic/10 disabled:opacity-50"
-          >
-            {loading ? "Searching…" : "Search"}
-          </button>
-        </form>
-        {results && (
-          <div className="space-y-3">
-            {results.length === 0 && <p className="text-sm text-ink-dim font-serif italic">No relevant passages found.</p>}
-            {results.map((r, i) => (
-              <div key={i} className="border-l-2 border-ink-750 pl-4">
-                <div className="text-xs font-mono text-ink-faint">{r.document_id} &middot; distance {r.distance}</div>
-                <p className="text-sm font-serif text-ink-text mt-1">{r.snippet}</p>
-              </div>
-            ))}
-          </div>
-        )}
+        <section className="knowledge-panel search-panel">
+          <div className="panel-heading"><div><span className="page-kicker">ASK THE LIBRARY</span><h2>Search guidance</h2></div><span className="search-symbol" aria-hidden="true">⌕</span></div>
+          <p className="search-description">Search the indexed policies for relevant passages and source references.</p>
+          <form onSubmit={handleQuery} className="knowledge-search-form">
+            <label htmlFor="knowledge-question">Your question</label>
+            <textarea id="knowledge-question" value={question} onChange={(e) => setQuestion(e.target.value)} placeholder="For example: when should a suspicious activity report be filed?" rows={4} />
+            <button type="submit" disabled={loading || !question.trim()}>{loading ? "Searching…" : "Search documents"}<span aria-hidden="true">→</span></button>
+          </form>
+          {results && <div className="search-results">
+            <div className="results-heading">{results.length ? `${results.length} relevant passage${results.length === 1 ? "" : "s"}` : "No matching passages"}</div>
+            {results.map((result, i) => <article className="search-result" key={`${result.document_id}-${i}`}><div><strong>{result.title || result.document_id}</strong><span>{result.document_id} · {result.jurisdiction} · match {Math.max(0, 1 - result.distance).toFixed(2)}</span></div><p>{result.snippet}</p></article>)}
+          </div>}
+        </section>
       </div>
-    </div>
+      <p className="knowledge-footnote">Search results provide reference material for analysts. Verify applicable requirements and use your organization’s review process before taking action.</p>
+    </main>
   );
 }

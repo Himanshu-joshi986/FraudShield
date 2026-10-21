@@ -40,7 +40,8 @@ export default function CaseDetail({ caseId, onBack, onCaseUpdated }) {
     // Connect the live agent-activity WebSocket BEFORE triggering the
     // investigation, so no early events are missed.
     const proto = window.location.protocol === "https:" ? "wss" : "ws";
-    const ws = new WebSocket(`${proto}://${window.location.host}/ws/cases/${caseId}`);
+    const wsHost = import.meta.env.DEV ? "127.0.0.1:8000" : window.location.host;
+    const ws = new WebSocket(`${proto}://${wsHost}/ws/cases/${caseId}`);
     wsRef.current = ws;
     ws.onmessage = (msg) => {
       try {
