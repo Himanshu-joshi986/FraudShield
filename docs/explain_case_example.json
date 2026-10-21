@@ -1,0 +1,74 @@
+{
+  "case_id": "FS-SYN-00011",
+  "risk_score": 0.7037,
+  "risk_level": "HIGH",
+  "headline": "Flagged with risk score 0.70 (HIGH) based on 6 evidence item(s).",
+  "reasons": [
+    {
+      "rank": 1,
+      "reason": "10 other customer(s) connected via shared entities.",
+      "evidence_id": "E-FS-SYN-00011-001",
+      "evidence_type": "graph",
+      "confidence": 1.0,
+      "source": "graph_analytics (kuzu Cypher query)"
+    },
+    {
+      "rank": 2,
+      "reason": "Risk score 0.70 derived from signals: ['graph_risk', 'temporal_risk'] (weights: {'temporal_risk': 0.15, 'graph_risk': 0.3}).",
+      "evidence_id": "E-FS-SYN-00011-006",
+      "evidence_type": "model_explanation",
+      "confidence": 1.0,
+      "source": "risk_fusion (Phase 9; full SHAP breakdown added in Phase 10)"
+    },
+    {
+      "rank": 3,
+      "reason": "Graph query found 5 other customer(s) connected to this case via shared account/device/address.",
+      "evidence_id": "E-FS-SYN-00011-005",
+      "evidence_type": "model_explanation",
+      "confidence": 0.5,
+      "source": "investigation_agent (deterministic_fallback)"
+    },
+    {
+      "rank": 4,
+      "reason": "[Common Indicators of Coordinated Insurance Fraud Rings] COMMON INDICATORS OF COORDINATED INSURANCE FRAUD RINGS",
+      "evidence_id": "E-FS-SYN-00011-004",
+      "evidence_type": "regulatory",
+      "confidence": 0.4204,
+      "source": "rag_knowledge_base (ChromaDB)"
+    },
+    {
+      "rank": 5,
+      "reason": "[Internal Case Routing Policy v1] OVERRIDE RULE: any case where the fraud-ring subgraph contains 3 or more\nconnected claimants sharing a strong entity (account or device) is\nescalated to HIGH regardless of the computed risk score. Not",
+      "evidence_id": "E-FS-SYN-00011-002",
+      "evidence_type": "regulatory",
+      "confidence": 0.40490000000000004,
+      "source": "rag_knowledge_base (ChromaDB)"
+    },
+    {
+      "rank": 6,
+      "reason": "[Common Indicators of Coordinated Insurance Fraud Rings] IMPORTANT CAVEAT: shared infrastructure (a broker, a household address,\nan email provider) is common among entirely legitimate claimants and is\nnot, by itself, evidence of fraud. These indicators desc",
+      "evidence_id": "E-FS-SYN-00011-003",
+      "evidence_type": "regulatory",
+      "confidence": 0.39095,
+      "source": "rag_knowledge_base (ChromaDB)"
+    }
+  ],
+  "signals_available": [
+    "graph_risk",
+    "temporal_risk"
+  ],
+  "signals_not_applicable": [
+    "tabular_ml_risk",
+    "document_risk"
+  ],
+  "routing_decision": {
+    "decision": "ESCALATE",
+    "reason": "risk_score 0.70 >= HIGH threshold 0.65",
+    "policy_conditions_triggered": [
+      "risk_score 0.70 >= HIGH threshold 0.65"
+    ],
+    "policy_version": "v1",
+    "policy_source": "KB-003 (case_routing_policy.txt)"
+  },
+  "disclaimer": "This explanation describes model and evidence signals. It does not establish that fraud actually occurred -- see knowledge base document KB-005 for the full responsible-use principles this system follows."
+}

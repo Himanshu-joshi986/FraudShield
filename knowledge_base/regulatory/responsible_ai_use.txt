@@ -1,0 +1,24 @@
+RESPONSIBLE USE OF AUTOMATED RISK SCORING IN FRAUD INVESTIGATION
+
+Automated risk scores, graph analysis, and machine-learning models are
+investigative aids, not determinations of guilt. The following
+principles apply to any system that produces a fraud risk score:
+
+1. A risk score indicates that a case warrants review, not that fraud
+   has occurred. Language used in case notes and reports should reflect
+   this ("risk indicator", "requires review") rather than accusatory
+   framing ("this person committed fraud").
+2. Automated routing decisions (auto-close, human review, escalation)
+   should remain subject to human oversight for medium- and high-risk
+   cases, and the specific policy conditions that triggered a routing
+   decision should always be recorded and auditable.
+3. Model predictions can be affected by dataset bias, distribution
+   shift, and incomplete features. A model's confidence should never be
+   treated as proof, and disparate impact across demographic groups
+   should be periodically reviewed.
+4. Individuals affected by an automated fraud determination should have
+   a documented path to request human review of that determination.
+
+This document reflects general responsible-AI principles for fraud
+investigation systems and is not a substitute for jurisdiction-specific
+legal or regulatory compliance requirements.

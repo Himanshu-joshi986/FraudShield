@@ -1,0 +1,10 @@
+scenario_id,case_id,doc_type,claim_amount,invoice_amount,invoice_number,duplicate_of_invoice,amount_mismatch
+FS-SC-004,FS-SYN-00017,invoice,5000.0,7500.0,INV-22770,,True
+FS-SC-005,FS-SYN-00018,invoice,2500.0,2500.0,INV-81793,,False
+FS-SC-005,FS-SYN-00019,invoice,2500.0,2500.0,INV-81793,INV-81793,False
+FS-SC-005,FS-SYN-00020,invoice,2500.0,2500.0,INV-81793,INV-81793,False
+FS-SC-007,FS-SYN-00026,receipt,620.0,620.0,INV-74089,,False
+FS-SC-008,FS-SYN-00027,invoice,8000.0,6000.0,INV-97584,,True
+FS-SC-008,FS-SYN-00028,invoice,8000.0,8000.0,INV-97584,INV-97584,False
+FS-SC-008,FS-SYN-00029,invoice,8000.0,8000.0,INV-97584,INV-97584,False
+FS-SC-008,FS-SYN-00030,invoice,8000.0,8000.0,INV-97584,INV-97584,False

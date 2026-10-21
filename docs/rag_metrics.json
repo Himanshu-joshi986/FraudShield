@@ -1,0 +1,143 @@
+{
+  "backend": "offline_tfidf_v1",
+  "n_documents": 5,
+  "n_chunks": 22,
+  "n_eval_queries": 11,
+  "accuracy_at_1": 0.8182,
+  "accuracy_at_3": 0.8182,
+  "per_query": [
+    {
+      "query": "how many days do we have to file a suspicious activity report",
+      "expected_document": "KB-001",
+      "retrieved_documents": [
+        "KB-001",
+        "KB-003",
+        "KB-001"
+      ],
+      "top_result_distance": 0.9895,
+      "hit_at_1": true,
+      "hit_at_3": true
+    },
+    {
+      "query": "what is the dollar threshold that triggers a SAR filing",
+      "expected_document": "KB-001",
+      "retrieved_documents": [
+        "KB-001",
+        "KB-002",
+        "KB-001"
+      ],
+      "top_result_distance": 1.6002,
+      "hit_at_1": true,
+      "hit_at_3": true
+    },
+    {
+      "query": "is splitting a claim into smaller pieces to avoid reporting a red flag",
+      "expected_document": "KB-001",
+      "retrieved_documents": [
+        "KB-001",
+        "KB-004",
+        "KB-001"
+      ],
+      "top_result_distance": 0.8023,
+      "hit_at_1": true,
+      "hit_at_3": true
+    },
+    {
+      "query": "what patterns suggest several claimants are working together in a ring",
+      "expected_document": "KB-002",
+      "retrieved_documents": [
+        "KB-002",
+        "KB-003",
+        "KB-002"
+      ],
+      "top_result_distance": 1.5218,
+      "hit_at_1": true,
+      "hit_at_3": true
+    },
+    {
+      "query": "multiple people using the same device or account to file claims",
+      "expected_document": "KB-002",
+      "retrieved_documents": [
+        "KB-002",
+        "KB-001",
+        "KB-003"
+      ],
+      "top_result_distance": 1.3351,
+      "hit_at_1": true,
+      "hit_at_3": true
+    },
+    {
+      "query": "what should happen if a case has a risk score of 0.8",
+      "expected_document": "KB-003",
+      "retrieved_documents": [
+        "KB-003",
+        "KB-005",
+        "KB-003"
+      ],
+      "top_result_distance": 1.3603,
+      "hit_at_1": true,
+      "hit_at_3": true
+    },
+    {
+      "query": "when does a fraud ring override the normal risk score routing",
+      "expected_document": "KB-003",
+      "retrieved_documents": [
+        "KB-003",
+        "KB-003",
+        "KB-005"
+      ],
+      "top_result_distance": 1.3723,
+      "hit_at_1": true,
+      "hit_at_3": true
+    },
+    {
+      "query": "warning signs of a fraudulent car accident claim",
+      "expected_document": "KB-004",
+      "retrieved_documents": [
+        "KB-001",
+        "KB-002",
+        "KB-003"
+      ],
+      "top_result_distance": 1.147,
+      "hit_at_1": false,
+      "hit_at_3": false
+    },
+    {
+      "query": "claim filed right after buying the policy is that suspicious",
+      "expected_document": "KB-004",
+      "retrieved_documents": [
+        "KB-001",
+        "KB-001",
+        "KB-002"
+      ],
+      "top_result_distance": 1.3057,
+      "hit_at_1": false,
+      "hit_at_3": false
+    },
+    {
+      "query": "should the system ever say a person definitely committed fraud",
+      "expected_document": "KB-005",
+      "retrieved_documents": [
+        "KB-005",
+        "KB-002",
+        "KB-005"
+      ],
+      "top_result_distance": 1.5951,
+      "hit_at_1": true,
+      "hit_at_3": true
+    },
+    {
+      "query": "can someone request a human to review an automated fraud decision",
+      "expected_document": "KB-005",
+      "retrieved_documents": [
+        "KB-005",
+        "KB-005",
+        "KB-003"
+      ],
+      "top_result_distance": 1.1854,
+      "hit_at_1": true,
+      "hit_at_3": true
+    }
+  ],
+  "scope_caveat": "Evaluated on 11 hand-written queries against 5 knowledge-base documents. Small evaluation set for a small, purpose-built corpus. Demonstrates the retrieval mechanism works, including on paraphrased queries that don't reuse the source document's exact wording. NOT a claim about retrieval accuracy on a large, heterogeneous real regulatory corpus, where TF-IDF's lack of true semantic understanding (e.g. synonyms, paraphrase at scale) would be a much bigger limitation -- see the sentence-transformers upgrade path in knowledge_base.py for that case."
+}

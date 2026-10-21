@@ -1,0 +1,21 @@
+{
+  "total_rows": 15420,
+  "fraud_rate_pct": 5.986,
+  "splits": {
+    "train": {
+      "rows": 10793,
+      "fraud_count": 646,
+      "fraud_rate_pct": 5.985
+    },
+    "val": {
+      "rows": 2314,
+      "fraud_count": 139,
+      "fraud_rate_pct": 6.007
+    },
+    "test": {
+      "rows": 2313,
+      "fraud_count": 138,
+      "fraud_rate_pct": 5.966
+    }
+  }
+}

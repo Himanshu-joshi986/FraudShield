@@ -1,0 +1,24 @@
+COMMON INDICATORS OF COORDINATED INSURANCE FRAUD RINGS
+
+- Multiple claimants sharing the same bank account, device fingerprint,
+  mailing address, or broker/agent within a short time window.
+- A cluster of claims filed within minutes to hours of each other
+  ("claim velocity spike"), especially from previously inactive accounts.
+- Inflated claim amounts relative to the claimant's policy history or
+  typical claims for the stated incident type.
+- Recycled documentation: the same photos, invoice templates, or repair
+  estimates appearing across multiple, ostensibly unrelated claims.
+- Claimants who cannot be independently verified through public records
+  or who share unusual identity attributes (e.g. sequential identifiers,
+  identical employer, same notary).
+- A broker or agent whose book of business shows a statistically
+  anomalous concentration of high-severity claims relative to peers.
+
+When three or more of these indicators co-occur on connected claimants,
+the case should be escalated for human review even if no single claim
+individually crosses a high-severity threshold.
+
+IMPORTANT CAVEAT: shared infrastructure (a broker, a household address,
+an email provider) is common among entirely legitimate claimants and is
+not, by itself, evidence of fraud. These indicators describe patterns
+that warrant further investigation, not conclusions of wrongdoing.

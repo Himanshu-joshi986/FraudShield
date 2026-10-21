@@ -1,0 +1,108 @@
+{
+  "n_reports_generated": 6,
+  "n_verification_passed": 6,
+  "reports": [
+    {
+      "case_id": "FS-SYN-00001",
+      "scenario_id": "FS-SC-001",
+      "pdf_path": "reports/FraudShield_Report_FS-SYN-00001.pdf",
+      "pdf_size_bytes": 3199,
+      "n_pages": 1,
+      "n_evidence_items": 0,
+      "extracted_text_length": 1178,
+      "content_verification": {
+        "case_id_appears": true,
+        "risk_level_appears": true,
+        "routing_decision_appears": true,
+        "at_least_one_evidence_id_appears": true,
+        "disclaimer_appears": true
+      },
+      "all_checks_passed": true
+    },
+    {
+      "case_id": "FS-SYN-00011",
+      "scenario_id": "FS-SC-003",
+      "pdf_path": "reports/FraudShield_Report_FS-SYN-00011.pdf",
+      "pdf_size_bytes": 5875,
+      "n_pages": 2,
+      "n_evidence_items": 6,
+      "extracted_text_length": 3382,
+      "content_verification": {
+        "case_id_appears": true,
+        "risk_level_appears": true,
+        "routing_decision_appears": true,
+        "at_least_one_evidence_id_appears": true,
+        "disclaimer_appears": true
+      },
+      "all_checks_passed": true
+    },
+    {
+      "case_id": "FS-SYN-00017",
+      "scenario_id": "FS-SC-004",
+      "pdf_path": "reports/FraudShield_Report_FS-SYN-00017.pdf",
+      "pdf_size_bytes": 5701,
+      "n_pages": 2,
+      "n_evidence_items": 5,
+      "extracted_text_length": 3158,
+      "content_verification": {
+        "case_id_appears": true,
+        "risk_level_appears": true,
+        "routing_decision_appears": true,
+        "at_least_one_evidence_id_appears": true,
+        "disclaimer_appears": true
+      },
+      "all_checks_passed": true
+    },
+    {
+      "case_id": "FS-SYN-00018",
+      "scenario_id": "FS-SC-005",
+      "pdf_path": "reports/FraudShield_Report_FS-SYN-00018.pdf",
+      "pdf_size_bytes": 5704,
+      "n_pages": 2,
+      "n_evidence_items": 5,
+      "extracted_text_length": 3158,
+      "content_verification": {
+        "case_id_appears": true,
+        "risk_level_appears": true,
+        "routing_decision_appears": true,
+        "at_least_one_evidence_id_appears": true,
+        "disclaimer_appears": true
+      },
+      "all_checks_passed": true
+    },
+    {
+      "case_id": "FS-SYN-00021",
+      "scenario_id": "FS-SC-006",
+      "pdf_path": "reports/FraudShield_Report_FS-SYN-00021.pdf",
+      "pdf_size_bytes": 5561,
+      "n_pages": 2,
+      "n_evidence_items": 5,
+      "extracted_text_length": 3056,
+      "content_verification": {
+        "case_id_appears": true,
+        "risk_level_appears": true,
+        "routing_decision_appears": true,
+        "at_least_one_evidence_id_appears": true,
+        "disclaimer_appears": true
+      },
+      "all_checks_passed": true
+    },
+    {
+      "case_id": "FS-SYN-00027",
+      "scenario_id": "FS-SC-008",
+      "pdf_path": "reports/FraudShield_Report_FS-SYN-00027.pdf",
+      "pdf_size_bytes": 7009,
+      "n_pages": 2,
+      "n_evidence_items": 9,
+      "extracted_text_length": 4907,
+      "content_verification": {
+        "case_id_appears": true,
+        "risk_level_appears": true,
+        "routing_decision_appears": true,
+        "at_least_one_evidence_id_appears": true,
+        "disclaimer_appears": true
+      },
+      "all_checks_passed": true
+    }
+  ]
+}

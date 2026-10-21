@@ -1,0 +1,41 @@
+scenario_id,source_entity,target_entity,relation
+FS-SC-001,SYN-CUST-0001,ACC-62992312,owns_account
+FS-SC-001,SYN-CUST-0001,DEV-782554,uses_device
+FS-SC-002,SYN-CUST-0002,ACC-81924865,owns_account
+FS-SC-003,SYN-CUST-0003,ACC-85893910,owns_account
+FS-SC-003,SYN-CUST-0003,DEV-229815,uses_device
+FS-SC-003,SYN-CUST-0003,user328@freemail-temp.example,has_email
+FS-SC-003,SYN-CUST-0003,Broker-Apex-Underwriting,filed_via_broker
+FS-SC-003,SYN-CUST-0004,ACC-85893910,owns_account
+FS-SC-003,SYN-CUST-0004,DEV-229815,uses_device
+FS-SC-003,SYN-CUST-0004,user328@freemail-temp.example,has_email
+FS-SC-003,SYN-CUST-0004,Broker-Apex-Underwriting,filed_via_broker
+FS-SC-003,SYN-CUST-0005,ACC-85893910,owns_account
+FS-SC-003,SYN-CUST-0005,DEV-229815,uses_device
+FS-SC-003,SYN-CUST-0005,user328@freemail-temp.example,has_email
+FS-SC-003,SYN-CUST-0005,Broker-Apex-Underwriting,filed_via_broker
+FS-SC-003,SYN-CUST-0006,ACC-85893910,owns_account
+FS-SC-003,SYN-CUST-0006,DEV-229815,uses_device
+FS-SC-003,SYN-CUST-0006,user328@freemail-temp.example,has_email
+FS-SC-003,SYN-CUST-0006,Broker-Apex-Underwriting,filed_via_broker
+FS-SC-003,SYN-CUST-0007,ACC-85893910,owns_account
+FS-SC-003,SYN-CUST-0007,DEV-229815,uses_device
+FS-SC-003,SYN-CUST-0007,user328@freemail-temp.example,has_email
+FS-SC-003,SYN-CUST-0007,Broker-Apex-Underwriting,filed_via_broker
+FS-SC-003,SYN-CUST-0008,ACC-85893910,owns_account
+FS-SC-003,SYN-CUST-0008,DEV-229815,uses_device
+FS-SC-003,SYN-CUST-0008,user328@freemail-temp.example,has_email
+FS-SC-003,SYN-CUST-0008,Broker-Apex-Underwriting,filed_via_broker
+FS-SC-006,SYN-CUST-0013,"742 Evergreen Terrace, Springfield",has_address
+FS-SC-006,SYN-CUST-0014,"742 Evergreen Terrace, Springfield",has_address
+FS-SC-006,SYN-CUST-0015,"742 Evergreen Terrace, Springfield",has_address
+FS-SC-006,SYN-CUST-0016,"742 Evergreen Terrace, Springfield",has_address
+FS-SC-007,SYN-CUST-0017,ACC-30399018,owns_account
+FS-SC-008,SYN-CUST-0018,ACC-66599395,owns_account
+FS-SC-008,SYN-CUST-0018,DEV-141111,uses_device
+FS-SC-008,SYN-CUST-0019,ACC-66599395,owns_account
+FS-SC-008,SYN-CUST-0019,DEV-141111,uses_device
+FS-SC-008,SYN-CUST-0020,ACC-66599395,owns_account
+FS-SC-008,SYN-CUST-0020,DEV-141111,uses_device
+FS-SC-008,SYN-CUST-0021,ACC-66599395,owns_account
+FS-SC-008,SYN-CUST-0021,DEV-141111,uses_device

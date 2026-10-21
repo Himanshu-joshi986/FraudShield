@@ -1,0 +1,49 @@
+{
+  "documents": [
+    {
+      "document_id": "KB-001",
+      "title": "Suspicious Activity Report (SAR) Filing Requirements",
+      "filename": "sar_filing_requirements.txt",
+      "source": "Demonstration summary based on general U.S. BSA/AML SAR filing principles",
+      "jurisdiction": "US (general, demonstration only)",
+      "publication_date": "2026-01-01",
+      "section": "SAR filing thresholds and timelines"
+    },
+    {
+      "document_id": "KB-002",
+      "title": "Common Indicators of Coordinated Insurance Fraud Rings",
+      "filename": "fraud_ring_indicators.txt",
+      "source": "Demonstration summary of widely-published fraud-ring red flags",
+      "jurisdiction": "General / cross-jurisdiction",
+      "publication_date": "2026-01-01",
+      "section": "Fraud ring detection indicators"
+    },
+    {
+      "document_id": "KB-003",
+      "title": "Internal Case Routing Policy v1",
+      "filename": "case_routing_policy.txt",
+      "source": "FraudShield internal operational policy (project-authored, not a regulation)",
+      "jurisdiction": "Internal / configurable",
+      "publication_date": "2026-01-01",
+      "section": "Risk band routing and override rules"
+    },
+    {
+      "document_id": "KB-004",
+      "title": "Vehicle Insurance Claim Red Flags",
+      "filename": "insurance_claim_red_flags.txt",
+      "source": "Demonstration summary based on general industry fraud-indicator guidance (e.g. NAIC/NICB-style)",
+      "jurisdiction": "US (general, demonstration only)",
+      "publication_date": "2026-01-01",
+      "section": "Vehicle insurance claim red flags"
+    },
+    {
+      "document_id": "KB-005",
+      "title": "Responsible Use of Automated Risk Scoring in Fraud Investigation",
+      "filename": "responsible_ai_use.txt",
+      "source": "Project-authored responsible-AI principles",
+      "jurisdiction": "General",
+      "publication_date": "2026-01-01",
+      "section": "Responsible AI use principles"
+    }
+  ]
+}

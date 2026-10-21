@@ -1,0 +1,31 @@
+case_id,scenario_id,domain,customer_id,customer_name,amount,timestamp,data_source,expected_risk_level,notes
+FS-SYN-00001,FS-SC-001,financial_transaction,SYN-CUST-0001,Elena Chen,145.3,2026-05-22T09:00:00,synthetic,LOW,"Single routine transaction, no shared entities, no anomalies."
+FS-SYN-00002,FS-SC-002,financial_transaction,SYN-CUST-0002,James Garcia,265.89,2026-06-01T07:00:00,synthetic,MEDIUM,Part of a 9-transaction burst within ~50 minutes on the same account (velocity anomaly).
+FS-SYN-00003,FS-SC-002,financial_transaction,SYN-CUST-0002,James Garcia,607.95,2026-06-01T07:06:00,synthetic,MEDIUM,Part of a 9-transaction burst within ~50 minutes on the same account (velocity anomaly).
+FS-SYN-00004,FS-SC-002,financial_transaction,SYN-CUST-0002,James Garcia,836.79,2026-06-01T07:12:00,synthetic,MEDIUM,Part of a 9-transaction burst within ~50 minutes on the same account (velocity anomaly).
+FS-SYN-00005,FS-SC-002,financial_transaction,SYN-CUST-0002,James Garcia,350.29,2026-06-01T07:18:00,synthetic,MEDIUM,Part of a 9-transaction burst within ~50 minutes on the same account (velocity anomaly).
+FS-SYN-00006,FS-SC-002,financial_transaction,SYN-CUST-0002,James Garcia,260.16,2026-06-01T07:24:00,synthetic,MEDIUM,Part of a 9-transaction burst within ~50 minutes on the same account (velocity anomaly).
+FS-SYN-00007,FS-SC-002,financial_transaction,SYN-CUST-0002,James Garcia,492.72,2026-06-01T07:30:00,synthetic,MEDIUM,Part of a 9-transaction burst within ~50 minutes on the same account (velocity anomaly).
+FS-SYN-00008,FS-SC-002,financial_transaction,SYN-CUST-0002,James Garcia,368.46,2026-06-01T07:36:00,synthetic,MEDIUM,Part of a 9-transaction burst within ~50 minutes on the same account (velocity anomaly).
+FS-SYN-00009,FS-SC-002,financial_transaction,SYN-CUST-0002,James Garcia,585.73,2026-06-01T07:42:00,synthetic,MEDIUM,Part of a 9-transaction burst within ~50 minutes on the same account (velocity anomaly).
+FS-SYN-00010,FS-SC-002,financial_transaction,SYN-CUST-0002,James Garcia,241.38,2026-06-01T07:48:00,synthetic,MEDIUM,Part of a 9-transaction burst within ~50 minutes on the same account (velocity anomaly).
+FS-SYN-00011,FS-SC-003,financial_transaction,SYN-CUST-0003,Noor Smith,6462.62,2026-06-01T04:00:00,synthetic,HIGH,Member of a 6-entity ring sharing account/device/email/broker.
+FS-SYN-00012,FS-SC-003,financial_transaction,SYN-CUST-0004,Raj Smith,8857.53,2026-06-01T04:12:00,synthetic,HIGH,Member of a 6-entity ring sharing account/device/email/broker.
+FS-SYN-00013,FS-SC-003,financial_transaction,SYN-CUST-0005,James Silva,8150.81,2026-06-01T04:24:00,synthetic,HIGH,Member of a 6-entity ring sharing account/device/email/broker.
+FS-SYN-00014,FS-SC-003,financial_transaction,SYN-CUST-0006,Carlos Patel,3865.53,2026-06-01T04:36:00,synthetic,HIGH,Member of a 6-entity ring sharing account/device/email/broker.
+FS-SYN-00015,FS-SC-003,financial_transaction,SYN-CUST-0007,Maria Brown,4850.89,2026-06-01T04:48:00,synthetic,HIGH,Member of a 6-entity ring sharing account/device/email/broker.
+FS-SYN-00016,FS-SC-003,financial_transaction,SYN-CUST-0008,Wei Garcia,6489.6,2026-06-01T05:00:00,synthetic,HIGH,Member of a 6-entity ring sharing account/device/email/broker.
+FS-SYN-00017,FS-SC-004,insurance_claim,SYN-CUST-0009,Aisha Kim,5000.0,2026-05-29T09:00:00,synthetic,MEDIUM,"Claim amount ($5,000) does not match submitted invoice amount ($7,500)."
+FS-SYN-00018,FS-SC-005,insurance_claim,SYN-CUST-0010,Maria Brown,2119.2,2026-05-25T09:00:00,synthetic,HIGH,Reuses invoice INV-81793 also submitted on 0 other claim(s).
+FS-SYN-00019,FS-SC-005,insurance_claim,SYN-CUST-0011,Sofia Silva,2855.18,2026-05-21T09:00:00,synthetic,HIGH,Reuses invoice INV-81793 also submitted on 1 other claim(s).
+FS-SYN-00020,FS-SC-005,insurance_claim,SYN-CUST-0012,Sofia Brown,3846.88,2026-05-20T09:00:00,synthetic,HIGH,Reuses invoice INV-81793 also submitted on 2 other claim(s).
+FS-SYN-00021,FS-SC-006,insurance_claim,SYN-CUST-0013,Carlos Khan,2691.57,2026-05-20T09:00:00,synthetic,MEDIUM,Claimant shares a mailing address with 3 other supposedly unrelated claimants.
+FS-SYN-00022,FS-SC-006,insurance_claim,SYN-CUST-0014,Aisha Garcia,2361.64,2026-05-23T09:00:00,synthetic,MEDIUM,Claimant shares a mailing address with 3 other supposedly unrelated claimants.
+FS-SYN-00023,FS-SC-006,insurance_claim,SYN-CUST-0015,Sofia Kim,2594.17,2026-05-27T09:00:00,synthetic,MEDIUM,Claimant shares a mailing address with 3 other supposedly unrelated claimants.
+FS-SYN-00024,FS-SC-006,insurance_claim,SYN-CUST-0016,Noor Garcia,1677.1,2026-05-25T09:00:00,synthetic,MEDIUM,Claimant shares a mailing address with 3 other supposedly unrelated claimants.
+FS-SYN-00025,FS-SC-007,financial_transaction,SYN-CUST-0017,Wei Kim,450.0,2026-05-31T09:00:00,synthetic,LOW,First of two transactions ~22 minutes apart -- a genuine but mild velocity signal.
+FS-SYN-00026,FS-SC-007,financial_transaction,SYN-CUST-0017,Wei Kim,620.0,2026-05-31T09:22:00,synthetic,LOW,"Second transaction of a mild 2-in-22-minutes pattern, otherwise clean history and verified documents. Tests that a weak signal is detected but correctly does NOT trigger escalation on its own."
+FS-SYN-00027,FS-SC-008,insurance_claim,SYN-CUST-0018,Maria Silva,9438.16,2026-06-01T08:00:00,synthetic,HIGH,"Combines: temporal burst, shared account/device (graph), document amount mismatch, and (for entity 2+) duplicate invoice -- 4 independent signals agree."
+FS-SYN-00028,FS-SC-008,insurance_claim,SYN-CUST-0019,Elena Kim,10171.77,2026-06-01T08:08:00,synthetic,HIGH,"Combines: temporal burst, shared account/device (graph), document amount mismatch, and (for entity 2+) duplicate invoice -- 4 independent signals agree."
+FS-SYN-00029,FS-SC-008,insurance_claim,SYN-CUST-0020,Noor Nguyen,9479.37,2026-06-01T08:16:00,synthetic,HIGH,"Combines: temporal burst, shared account/device (graph), document amount mismatch, and (for entity 2+) duplicate invoice -- 4 independent signals agree."
+FS-SYN-00030,FS-SC-008,insurance_claim,SYN-CUST-0021,Sofia Garcia,11039.81,2026-06-01T08:24:00,synthetic,HIGH,"Combines: temporal burst, shared account/device (graph), document amount mismatch, and (for entity 2+) duplicate invoice -- 4 independent signals agree."

@@ -1,0 +1,39 @@
+INTERNAL CASE ROUTING POLICY (v1)
+
+Risk-level bands and required routing:
+
+- LOW (risk score 0.00-0.34): Auto-close / monitor. No further action
+  needed immediately. Log the decision and retain evidence for 90 days
+  in case of future pattern matches.
+- MEDIUM (risk score 0.35-0.64): Route to human review queue. A licensed
+  fraud investigator must review within 5 business days.
+- HIGH (risk score 0.65-1.00): Escalate immediately. Freeze any pending
+  payout, notify the compliance officer, and prepare a Suspicious
+  Activity Report for regulatory filing within the statutory window.
+
+OVERRIDE RULE: any case where the fraud-ring subgraph contains 3 or more
+connected claimants sharing a strong entity (account or device) is
+escalated to HIGH regardless of the computed risk score. Note: shared
+address alone does NOT trigger this override -- shared housing (e.g.
+family members, a shared mailing address) is common among legitimate
+claimants and is treated as weaker, contributory evidence rather than a
+hard trigger (see KB-002's caveat on shared infrastructure).
+
+OVERRIDE RULE: any case with a document validation finding of a
+duplicate invoice number shared across 2 or more claims is routed to at
+least MEDIUM regardless of the computed risk score, and to HIGH if the
+duplicate spans 3 or more claims.
+
+OVERRIDE RULE: any case with a confirmed claim-amount-vs-invoice-amount
+mismatch is routed to at least MEDIUM (human review) regardless of the
+computed risk score, since this is a specific, well-defined finding that
+should not be diluted by other quiet signals.
+
+OVERRIDE RULE: any case with a confirmed high-velocity transaction burst
+(3+ transactions by the same entity within the trailing window) is
+routed to at least MEDIUM (human review) regardless of the computed
+risk score, for the same reason.
+
+These thresholds are configurable operational policy, not statutory
+requirements, and should be reviewed periodically against measured
+false-positive and false-negative rates.

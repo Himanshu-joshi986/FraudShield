@@ -1,0 +1,51 @@
+{
+  "val": {
+    "precision": 0.1027,
+    "recall_fraud_class": 0.6876,
+    "f1": 0.1787,
+    "roc_auc": 0.805,
+    "pr_auc": 0.3534,
+    "false_positive_rate": 0.2182,
+    "confusion_matrix": {
+      "tn": 15087,
+      "fp": 4212,
+      "fn": 219,
+      "tp": 482
+    },
+    "n_samples": 20000,
+    "n_positive": 701
+  },
+  "test": {
+    "precision": 0.0845,
+    "recall_fraud_class": 0.625,
+    "f1": 0.1489,
+    "roc_auc": 0.7683,
+    "pr_auc": 0.2067,
+    "false_positive_rate": 0.2065,
+    "confusion_matrix": {
+      "tn": 15401,
+      "fp": 4007,
+      "fn": 222,
+      "tp": 370
+    },
+    "n_samples": 20000,
+    "n_positive": 592
+  },
+  "train_time_sec": 9.4,
+  "hyperparameters": {
+    "epochs": 100,
+    "hidden": 64,
+    "lr": 0.001,
+    "dropout": 0.3,
+    "patience": 15,
+    "seed": 42
+  },
+  "device": "cpu",
+  "architecture": "FraudSAGE(GraphSAGE)",
+  "input_features": 26,
+  "graph_samples": {
+    "train": 20000,
+    "val": 20000,
+    "test": 20000
+  }
+}

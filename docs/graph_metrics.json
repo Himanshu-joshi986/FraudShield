@@ -1,0 +1,296 @@
+{
+  "strong_signal_clusters": {
+    "Account": [
+      {
+        "entity": "ACC-85893910",
+        "n_customers": 6
+      },
+      {
+        "entity": "ACC-66599395",
+        "n_customers": 4
+      }
+    ],
+    "Device": [
+      {
+        "entity": "DEV-229815",
+        "n_customers": 6
+      },
+      {
+        "entity": "DEV-141111",
+        "n_customers": 4
+      }
+    ],
+    "Address": [
+      {
+        "entity": "742 Evergreen Terrace, Springfield",
+        "n_customers": 4
+      }
+    ]
+  },
+  "weak_signal_clusters_reported_separately": {
+    "Broker": [
+      {
+        "entity": "Broker-Apex-Underwriting",
+        "n_customers": 6
+      }
+    ],
+    "Email": [
+      {
+        "entity": "user328@freemail-temp.example",
+        "n_customers": 6
+      }
+    ]
+  },
+  "connectivity_by_expected_risk": {
+    "HIGH": {
+      "n_customers": 13,
+      "mean_strong_connections": 3.23,
+      "max_strong_connections": 5
+    },
+    "LOW": {
+      "n_customers": 2,
+      "mean_strong_connections": 0.0,
+      "max_strong_connections": 0
+    },
+    "MEDIUM": {
+      "n_customers": 6,
+      "mean_strong_connections": 2.0,
+      "max_strong_connections": 3
+    }
+  },
+  "per_scenario": {
+    "FS-SC-001": {
+      "n_customers": 1,
+      "expected_risk_level": "LOW",
+      "max_strong_connections": 0,
+      "mean_strong_connections": 0.0,
+      "any_customer_connected": false
+    },
+    "FS-SC-002": {
+      "n_customers": 1,
+      "expected_risk_level": "MEDIUM",
+      "max_strong_connections": 0,
+      "mean_strong_connections": 0.0,
+      "any_customer_connected": false
+    },
+    "FS-SC-003": {
+      "n_customers": 6,
+      "expected_risk_level": "HIGH",
+      "max_strong_connections": 5,
+      "mean_strong_connections": 5.0,
+      "any_customer_connected": true
+    },
+    "FS-SC-004": {
+      "n_customers": 1,
+      "expected_risk_level": "MEDIUM",
+      "max_strong_connections": 0,
+      "mean_strong_connections": 0.0,
+      "any_customer_connected": false
+    },
+    "FS-SC-005": {
+      "n_customers": 3,
+      "expected_risk_level": "HIGH",
+      "max_strong_connections": 0,
+      "mean_strong_connections": 0.0,
+      "any_customer_connected": false
+    },
+    "FS-SC-006": {
+      "n_customers": 4,
+      "expected_risk_level": "MEDIUM",
+      "max_strong_connections": 3,
+      "mean_strong_connections": 3.0,
+      "any_customer_connected": true
+    },
+    "FS-SC-007": {
+      "n_customers": 1,
+      "expected_risk_level": "LOW",
+      "max_strong_connections": 0,
+      "mean_strong_connections": 0.0,
+      "any_customer_connected": false
+    },
+    "FS-SC-008": {
+      "n_customers": 4,
+      "expected_risk_level": "HIGH",
+      "max_strong_connections": 3,
+      "mean_strong_connections": 3.0,
+      "any_customer_connected": true
+    }
+  },
+  "backend": "kuzu",
+  "ingest": {
+    "customers": 21,
+    "links": 40
+  },
+  "note_strong_vs_weak": "Account/Device/Address sharing is treated as STRONG fraud-ring signal. Broker/Email sharing is reported SEPARATELY as weak signal, because many legitimate claimants share a broker or email domain -- conflating them produces a flood of false positives.",
+  "example_subgraph_FS-SC-003": {
+    "nodes": [
+      {
+        "id": "SYN-CUST-0003",
+        "type": "Customer"
+      },
+      {
+        "id": "ACC-85893910",
+        "type": "Account"
+      },
+      {
+        "id": "SYN-CUST-0008",
+        "type": "Customer",
+        "name": "Wei Garcia"
+      },
+      {
+        "id": "SYN-CUST-0007",
+        "type": "Customer",
+        "name": "Maria Brown"
+      },
+      {
+        "id": "SYN-CUST-0006",
+        "type": "Customer",
+        "name": "Carlos Patel"
+      },
+      {
+        "id": "SYN-CUST-0005",
+        "type": "Customer",
+        "name": "James Silva"
+      },
+      {
+        "id": "SYN-CUST-0004",
+        "type": "Customer",
+        "name": "Raj Smith"
+      },
+      {
+        "id": "DEV-229815",
+        "type": "Device"
+      },
+      {
+        "id": "Broker-Apex-Underwriting",
+        "type": "Broker"
+      },
+      {
+        "id": "user328@freemail-temp.example",
+        "type": "Email"
+      }
+    ],
+    "edges": [
+      {
+        "source": "SYN-CUST-0003",
+        "target": "ACC-85893910",
+        "relation": "OWNS_ACCOUNT"
+      },
+      {
+        "source": "SYN-CUST-0008",
+        "target": "ACC-85893910",
+        "relation": "OWNS_ACCOUNT"
+      },
+      {
+        "source": "SYN-CUST-0007",
+        "target": "ACC-85893910",
+        "relation": "OWNS_ACCOUNT"
+      },
+      {
+        "source": "SYN-CUST-0006",
+        "target": "ACC-85893910",
+        "relation": "OWNS_ACCOUNT"
+      },
+      {
+        "source": "SYN-CUST-0005",
+        "target": "ACC-85893910",
+        "relation": "OWNS_ACCOUNT"
+      },
+      {
+        "source": "SYN-CUST-0004",
+        "target": "ACC-85893910",
+        "relation": "OWNS_ACCOUNT"
+      },
+      {
+        "source": "SYN-CUST-0003",
+        "target": "DEV-229815",
+        "relation": "USES_DEVICE"
+      },
+      {
+        "source": "SYN-CUST-0008",
+        "target": "DEV-229815",
+        "relation": "USES_DEVICE"
+      },
+      {
+        "source": "SYN-CUST-0007",
+        "target": "DEV-229815",
+        "relation": "USES_DEVICE"
+      },
+      {
+        "source": "SYN-CUST-0006",
+        "target": "DEV-229815",
+        "relation": "USES_DEVICE"
+      },
+      {
+        "source": "SYN-CUST-0005",
+        "target": "DEV-229815",
+        "relation": "USES_DEVICE"
+      },
+      {
+        "source": "SYN-CUST-0004",
+        "target": "DEV-229815",
+        "relation": "USES_DEVICE"
+      },
+      {
+        "source": "SYN-CUST-0003",
+        "target": "Broker-Apex-Underwriting",
+        "relation": "FILED_VIA"
+      },
+      {
+        "source": "SYN-CUST-0008",
+        "target": "Broker-Apex-Underwriting",
+        "relation": "FILED_VIA"
+      },
+      {
+        "source": "SYN-CUST-0007",
+        "target": "Broker-Apex-Underwriting",
+        "relation": "FILED_VIA"
+      },
+      {
+        "source": "SYN-CUST-0006",
+        "target": "Broker-Apex-Underwriting",
+        "relation": "FILED_VIA"
+      },
+      {
+        "source": "SYN-CUST-0005",
+        "target": "Broker-Apex-Underwriting",
+        "relation": "FILED_VIA"
+      },
+      {
+        "source": "SYN-CUST-0004",
+        "target": "Broker-Apex-Underwriting",
+        "relation": "FILED_VIA"
+      },
+      {
+        "source": "SYN-CUST-0003",
+        "target": "user328@freemail-temp.example",
+        "relation": "HAS_EMAIL"
+      },
+      {
+        "source": "SYN-CUST-0008",
+        "target": "user328@freemail-temp.example",
+        "relation": "HAS_EMAIL"
+      },
+      {
+        "source": "SYN-CUST-0007",
+        "target": "user328@freemail-temp.example",
+        "relation": "HAS_EMAIL"
+      },
+      {
+        "source": "SYN-CUST-0006",
+        "target": "user328@freemail-temp.example",
+        "relation": "HAS_EMAIL"
+      },
+      {
+        "source": "SYN-CUST-0005",
+        "target": "user328@freemail-temp.example",
+        "relation": "HAS_EMAIL"
+      },
+      {
+        "source": "SYN-CUST-0004",
+        "target": "user328@freemail-temp.example",
+        "relation": "HAS_EMAIL"
+      }
+    ]
+  }
+}

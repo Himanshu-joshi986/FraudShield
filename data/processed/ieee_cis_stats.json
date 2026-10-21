@@ -1,0 +1,34 @@
+{
+  "total_rows": 590540,
+  "n_features": 441,
+  "identity_coverage_pct": 24.42,
+  "splits": {
+    "train": {
+      "rows": 413378,
+      "fraud_count": 14538,
+      "fraud_rate_pct": 3.517,
+      "dt_range": [
+        86400,
+        10437996
+      ]
+    },
+    "val": {
+      "rows": 88581,
+      "fraud_count": 3042,
+      "fraud_rate_pct": 3.434,
+      "dt_range": [
+        10438003,
+        13151840
+      ]
+    },
+    "test": {
+      "rows": 88581,
+      "fraud_count": 3083,
+      "fraud_rate_pct": 3.48,
+      "dt_range": [
+        13151880,
+        15811131
+      ]
+    }
+  }
+}

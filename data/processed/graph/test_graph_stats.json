@@ -1,0 +1,13 @@
+{
+  "split": "test",
+  "n_nodes": 20000,
+  "n_edges": 24836,
+  "n_fraud_nodes": 592,
+  "fraud_rate_pct": 2.96,
+  "n_features": 26,
+  "n_distinct_entities": 3487,
+  "min_shared_entities": 2,
+  "max_entity_degree": 500,
+  "sample_size": 20000,
+  "avg_degree": 2.484
+}

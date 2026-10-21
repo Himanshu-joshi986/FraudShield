@@ -1,0 +1,8753 @@
+[
+  {
+    "ring_id": "RING-0296",
+    "size": 5,
+    "transaction_ids": [
+      3493196,
+      3499007,
+      3502998,
+      3505635,
+      3507842
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 5,
+    "known_fraud_rate": 1.0
+  },
+  {
+    "ring_id": "RING-0367",
+    "size": 5,
+    "transaction_ids": [
+      3494764,
+      3494767,
+      3494799,
+      3495030,
+      3495056
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 5,
+    "known_fraud_rate": 1.0
+  },
+  {
+    "ring_id": "RING-0496",
+    "size": 5,
+    "transaction_ids": [
+      3499288,
+      3502946,
+      3502950,
+      3503931,
+      3504292
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 5,
+    "known_fraud_rate": 1.0
+  },
+  {
+    "ring_id": "RING-0511",
+    "size": 5,
+    "transaction_ids": [
+      3500031,
+      3500033,
+      3500132,
+      3500136,
+      3500145
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 5,
+    "known_fraud_rate": 1.0
+  },
+  {
+    "ring_id": "RING-0268",
+    "size": 4,
+    "transaction_ids": [
+      3492553,
+      3492619,
+      3492624,
+      3505089
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 4,
+    "known_fraud_rate": 1.0
+  },
+  {
+    "ring_id": "RING-0281",
+    "size": 4,
+    "transaction_ids": [
+      3492830,
+      3494432,
+      3501020,
+      3501066
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 4,
+    "known_fraud_rate": 1.0
+  },
+  {
+    "ring_id": "RING-0572",
+    "size": 4,
+    "transaction_ids": [
+      3504646,
+      3505091,
+      3505094,
+      3506318
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 4,
+    "known_fraud_rate": 1.0
+  },
+  {
+    "ring_id": "RING-0017",
+    "size": 3,
+    "transaction_ids": [
+      3489052,
+      3489054,
+      3489058
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 3,
+    "known_fraud_rate": 1.0
+  },
+  {
+    "ring_id": "RING-0284",
+    "size": 3,
+    "transaction_ids": [
+      3492863,
+      3492864,
+      3492865
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 3,
+    "known_fraud_rate": 1.0
+  },
+  {
+    "ring_id": "RING-0201",
+    "size": 6,
+    "transaction_ids": [
+      3491182,
+      3496067,
+      3502172,
+      3504306,
+      3507043,
+      3507875
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 5,
+    "known_fraud_rate": 0.8333
+  },
+  {
+    "ring_id": "RING-0368",
+    "size": 6,
+    "transaction_ids": [
+      3494803,
+      3494909,
+      3494940,
+      3495012,
+      3495038,
+      3505222
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 5,
+    "known_fraud_rate": 0.8333
+  },
+  {
+    "ring_id": "RING-0019",
+    "size": 3,
+    "transaction_ids": [
+      3489068,
+      3499181,
+      3500256
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 2,
+    "known_fraud_rate": 0.6667
+  },
+  {
+    "ring_id": "RING-0150",
+    "size": 3,
+    "transaction_ids": [
+      3490527,
+      3490606,
+      3507446
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 2,
+    "known_fraud_rate": 0.6667
+  },
+  {
+    "ring_id": "RING-0529",
+    "size": 3,
+    "transaction_ids": [
+      3501197,
+      3506749,
+      3508182
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 2,
+    "known_fraud_rate": 0.6667
+  },
+  {
+    "ring_id": "RING-0478",
+    "size": 5,
+    "transaction_ids": [
+      3498278,
+      3500561,
+      3500576,
+      3502784,
+      3502953
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 3,
+    "known_fraud_rate": 0.6
+  },
+  {
+    "ring_id": "RING-0057",
+    "size": 9,
+    "transaction_ids": [
+      3489351,
+      3489617,
+      3498070,
+      3498136,
+      3499333,
+      3499350,
+      3499722,
+      3499724,
+      3504844
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 5,
+    "known_fraud_rate": 0.5556
+  },
+  {
+    "ring_id": "RING-0069",
+    "size": 15,
+    "transaction_ids": [
+      3489509,
+      3492235,
+      3492554,
+      3493782,
+      3494882,
+      3494905,
+      3494922,
+      3494943,
+      3494966,
+      3494986,
+      3494992,
+      3495033,
+      3499662,
+      3505338,
+      3507045
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 8,
+    "known_fraud_rate": 0.5333
+  },
+  {
+    "ring_id": "RING-0417",
+    "size": 10,
+    "transaction_ids": [
+      3496349,
+      3496694,
+      3496698,
+      3496717,
+      3496792,
+      3497072,
+      3498162,
+      3499472,
+      3505022,
+      3506649
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 5,
+    "known_fraud_rate": 0.5
+  },
+  {
+    "ring_id": "RING-0290",
+    "size": 8,
+    "transaction_ids": [
+      3493023,
+      3493030,
+      3493045,
+      3493060,
+      3498441,
+      3498539,
+      3498656,
+      3503674
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 4,
+    "known_fraud_rate": 0.5
+  },
+  {
+    "ring_id": "RING-0351",
+    "size": 8,
+    "transaction_ids": [
+      3494556,
+      3494963,
+      3494981,
+      3495068,
+      3495077,
+      3504097,
+      3506766,
+      3508344
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 4,
+    "known_fraud_rate": 0.5
+  },
+  {
+    "ring_id": "RING-0267",
+    "size": 12,
+    "transaction_ids": [
+      3492524,
+      3492526,
+      3492803,
+      3493680,
+      3493697,
+      3493873,
+      3495670,
+      3495678,
+      3497213,
+      3505646,
+      3505653,
+      3506276
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 4,
+    "known_fraud_rate": 0.3333
+  },
+  {
+    "ring_id": "RING-0002",
+    "size": 3,
+    "transaction_ids": [
+      3488967,
+      3491888,
+      3492216
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 1,
+    "known_fraud_rate": 0.3333
+  },
+  {
+    "ring_id": "RING-0056",
+    "size": 3,
+    "transaction_ids": [
+      3489349,
+      3498939,
+      3502307
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 1,
+    "known_fraud_rate": 0.3333
+  },
+  {
+    "ring_id": "RING-0311",
+    "size": 3,
+    "transaction_ids": [
+      3493672,
+      3494235,
+      3507055
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 1,
+    "known_fraud_rate": 0.3333
+  },
+  {
+    "ring_id": "RING-0399",
+    "size": 3,
+    "transaction_ids": [
+      3495907,
+      3501730,
+      3506897
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 1,
+    "known_fraud_rate": 0.3333
+  },
+  {
+    "ring_id": "RING-0440",
+    "size": 3,
+    "transaction_ids": [
+      3496867,
+      3497336,
+      3507381
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 1,
+    "known_fraud_rate": 0.3333
+  },
+  {
+    "ring_id": "RING-0458",
+    "size": 3,
+    "transaction_ids": [
+      3497475,
+      3500000,
+      3506309
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 1,
+    "known_fraud_rate": 0.3333
+  },
+  {
+    "ring_id": "RING-0471",
+    "size": 3,
+    "transaction_ids": [
+      3498052,
+      3500170,
+      3500197
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 1,
+    "known_fraud_rate": 0.3333
+  },
+  {
+    "ring_id": "RING-0156",
+    "size": 16,
+    "transaction_ids": [
+      3490595,
+      3494693,
+      3494769,
+      3494780,
+      3494923,
+      3495064,
+      3496661,
+      3496675,
+      3496733,
+      3496754,
+      3496773,
+      3496781,
+      3496785,
+      3496799,
+      3496804,
+      3498126
+    ],
+    "n_distinct_proxy_uids": 7,
+    "known_fraud_count": 5,
+    "known_fraud_rate": 0.3125
+  },
+  {
+    "ring_id": "RING-0373",
+    "size": 12,
+    "transaction_ids": [
+      3494916,
+      3495110,
+      3498428,
+      3498486,
+      3499281,
+      3502269,
+      3502947,
+      3506843,
+      3506857,
+      3506874,
+      3506877,
+      3506879
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 3,
+    "known_fraud_rate": 0.25
+  },
+  {
+    "ring_id": "RING-0007",
+    "size": 8,
+    "transaction_ids": [
+      3489000,
+      3489005,
+      3490732,
+      3491243,
+      3492699,
+      3492833,
+      3496693,
+      3507450
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 2,
+    "known_fraud_rate": 0.25
+  },
+  {
+    "ring_id": "RING-0226",
+    "size": 5,
+    "transaction_ids": [
+      3491660,
+      3491850,
+      3494337,
+      3500318,
+      3506516
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 1,
+    "known_fraud_rate": 0.2
+  },
+  {
+    "ring_id": "RING-0325",
+    "size": 6,
+    "transaction_ids": [
+      3493966,
+      3496280,
+      3496424,
+      3499225,
+      3499900,
+      3506894
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 1,
+    "known_fraud_rate": 0.1667
+  },
+  {
+    "ring_id": "RING-0341",
+    "size": 6,
+    "transaction_ids": [
+      3494344,
+      3498348,
+      3500040,
+      3501480,
+      3501613,
+      3505834
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 1,
+    "known_fraud_rate": 0.1667
+  },
+  {
+    "ring_id": "RING-0254",
+    "size": 7,
+    "transaction_ids": [
+      3492278,
+      3493224,
+      3498529,
+      3500651,
+      3500655,
+      3500661,
+      3504846
+    ],
+    "n_distinct_proxy_uids": 5,
+    "known_fraud_count": 1,
+    "known_fraud_rate": 0.1429
+  },
+  {
+    "ring_id": "RING-0364",
+    "size": 7,
+    "transaction_ids": [
+      3494717,
+      3498480,
+      3500212,
+      3501370,
+      3503635,
+      3506840,
+      3507363
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 1,
+    "known_fraud_rate": 0.1429
+  },
+  {
+    "ring_id": "RING-0402",
+    "size": 8,
+    "transaction_ids": [
+      3496032,
+      3496229,
+      3502173,
+      3503370,
+      3507131,
+      3507897,
+      3508158,
+      3508502
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 1,
+    "known_fraud_rate": 0.125
+  },
+  {
+    "ring_id": "RING-0154",
+    "size": 21,
+    "transaction_ids": [
+      3490568,
+      3490937,
+      3491678,
+      3491709,
+      3492931,
+      3493217,
+      3493806,
+      3494144,
+      3494513,
+      3499861,
+      3499863,
+      3501898,
+      3503191,
+      3503487,
+      3505741,
+      3505984,
+      3506180,
+      3507555,
+      3508095,
+      3508098,
+      3508104
+    ],
+    "n_distinct_proxy_uids": 16,
+    "known_fraud_count": 2,
+    "known_fraud_rate": 0.0952
+  },
+  {
+    "ring_id": "RING-0050",
+    "size": 47,
+    "transaction_ids": [
+      3489298,
+      3489582,
+      3490174,
+      3490494,
+      3490980,
+      3491401,
+      3491830,
+      3492359,
+      3492367,
+      3493056,
+      3493222,
+      3493355,
+      3493861,
+      3493952,
+      3494596,
+      3494603,
+      3495451,
+      3496691,
+      3497543,
+      3497871,
+      3498352,
+      3498521,
+      3498653,
+      3498709,
+      3498888,
+      3499108,
+      3499319,
+      3500214,
+      3500217,
+      3500498,
+      3501031,
+      3501305,
+      3501308,
+      3503286,
+      3503589,
+      3503923,
+      3504178,
+      3504427,
+      3504648,
+      3506072,
+      3507064,
+      3507163,
+      3507690,
+      3507824,
+      3508059,
+      3508264,
+      3508713
+    ],
+    "n_distinct_proxy_uids": 29,
+    "known_fraud_count": 3,
+    "known_fraud_rate": 0.0638
+  },
+  {
+    "ring_id": "RING-0141",
+    "size": 20,
+    "transaction_ids": [
+      3490319,
+      3490760,
+      3491400,
+      3497057,
+      3498322,
+      3498626,
+      3500325,
+      3502844,
+      3503192,
+      3503711,
+      3503830,
+      3504221,
+      3504300,
+      3504556,
+      3504940,
+      3505711,
+      3506200,
+      3507433,
+      3507458,
+      3508295
+    ],
+    "n_distinct_proxy_uids": 12,
+    "known_fraud_count": 1,
+    "known_fraud_rate": 0.05
+  },
+  {
+    "ring_id": "RING-0041",
+    "size": 27,
+    "transaction_ids": [
+      3489220,
+      3490027,
+      3491403,
+      3491689,
+      3492286,
+      3493848,
+      3493980,
+      3495432,
+      3495491,
+      3497040,
+      3497247,
+      3497804,
+      3498843,
+      3499766,
+      3499908,
+      3500096,
+      3500641,
+      3501303,
+      3501455,
+      3503811,
+      3503872,
+      3505000,
+      3505949,
+      3507273,
+      3507584,
+      3508308,
+      3508916
+    ],
+    "n_distinct_proxy_uids": 11,
+    "known_fraud_count": 1,
+    "known_fraud_rate": 0.037
+  },
+  {
+    "ring_id": "RING-0009",
+    "size": 1687,
+    "transaction_ids": [
+      3489003,
+      3489013,
+      3489023,
+      3489040,
+      3489048,
+      3489063,
+      3489071,
+      3489074,
+      3489132,
+      3489135,
+      3489148,
+      3489167,
+      3489169,
+      3489174,
+      3489189,
+      3489194,
+      3489202,
+      3489210,
+      3489213,
+      3489218,
+      3489225,
+      3489226,
+      3489227,
+      3489263,
+      3489265,
+      3489273,
+      3489293,
+      3489295,
+      3489310,
+      3489328,
+      3489334,
+      3489338,
+      3489343,
+      3489379,
+      3489383,
+      3489392,
+      3489397,
+      3489399,
+      3489418,
+      3489429,
+      3489468,
+      3489471,
+      3489480,
+      3489482,
+      3489491,
+      3489502,
+      3489510,
+      3489513,
+      3489521,
+      3489539
+    ],
+    "n_distinct_proxy_uids": 875,
+    "known_fraud_count": 55,
+    "known_fraud_rate": 0.0326
+  },
+  {
+    "ring_id": "RING-0088",
+    "size": 46,
+    "transaction_ids": [
+      3489683,
+      3490018,
+      3490936,
+      3491173,
+      3491766,
+      3492476,
+      3492711,
+      3492796,
+      3492873,
+      3493027,
+      3493935,
+      3495769,
+      3496806,
+      3497818,
+      3498292,
+      3498701,
+      3498704,
+      3498706,
+      3498707,
+      3498708,
+      3498711,
+      3499050,
+      3499824,
+      3499836,
+      3500849,
+      3500855,
+      3501373,
+      3501502,
+      3501507,
+      3502664,
+      3502988,
+      3503211,
+      3503461,
+      3503472,
+      3504314,
+      3504440,
+      3504536,
+      3505417,
+      3505490,
+      3506045,
+      3506705,
+      3506789,
+      3508085,
+      3508806,
+      3508923,
+      3508940
+    ],
+    "n_distinct_proxy_uids": 24,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0023",
+    "size": 41,
+    "transaction_ids": [
+      3489108,
+      3490222,
+      3491455,
+      3492053,
+      3492404,
+      3492753,
+      3493116,
+      3493392,
+      3495034,
+      3496191,
+      3496467,
+      3496735,
+      3496980,
+      3496984,
+      3497044,
+      3497083,
+      3499009,
+      3499022,
+      3499031,
+      3499950,
+      3500013,
+      3500376,
+      3500432,
+      3501317,
+      3501616,
+      3502075,
+      3502239,
+      3502888,
+      3503235,
+      3503452,
+      3503455,
+      3503708,
+      3503804,
+      3504579,
+      3505583,
+      3506131,
+      3507161,
+      3507966,
+      3508178,
+      3508282,
+      3508318
+    ],
+    "n_distinct_proxy_uids": 22,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0001",
+    "size": 35,
+    "transaction_ids": [
+      3488963,
+      3488977,
+      3489358,
+      3489704,
+      3490044,
+      3490430,
+      3490761,
+      3491311,
+      3492176,
+      3492772,
+      3493855,
+      3493950,
+      3494306,
+      3495314,
+      3496024,
+      3496104,
+      3496780,
+      3497426,
+      3498025,
+      3498602,
+      3498997,
+      3499286,
+      3499369,
+      3500003,
+      3500072,
+      3500179,
+      3500363,
+      3500534,
+      3501272,
+      3501873,
+      3502148,
+      3502869,
+      3506761,
+      3507510,
+      3507874
+    ],
+    "n_distinct_proxy_uids": 23,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0119",
+    "size": 28,
+    "transaction_ids": [
+      3489995,
+      3490876,
+      3490949,
+      3492370,
+      3493393,
+      3493437,
+      3494181,
+      3494380,
+      3495316,
+      3497983,
+      3498045,
+      3498868,
+      3498983,
+      3499139,
+      3499223,
+      3500071,
+      3500124,
+      3500143,
+      3500221,
+      3501368,
+      3501704,
+      3501719,
+      3501828,
+      3505012,
+      3505235,
+      3507691,
+      3508244,
+      3508711
+    ],
+    "n_distinct_proxy_uids": 8,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0043",
+    "size": 27,
+    "transaction_ids": [
+      3489231,
+      3490191,
+      3490278,
+      3491833,
+      3491961,
+      3492056,
+      3492681,
+      3492867,
+      3495538,
+      3496205,
+      3496413,
+      3497724,
+      3499928,
+      3501276,
+      3501284,
+      3501695,
+      3502901,
+      3503329,
+      3503913,
+      3503919,
+      3504080,
+      3504426,
+      3504720,
+      3505023,
+      3505348,
+      3506736,
+      3507958
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0024",
+    "size": 25,
+    "transaction_ids": [
+      3489121,
+      3489131,
+      3489700,
+      3490492,
+      3490704,
+      3490899,
+      3492418,
+      3492989,
+      3493284,
+      3494844,
+      3496435,
+      3497225,
+      3500512,
+      3500873,
+      3501028,
+      3501100,
+      3501260,
+      3502089,
+      3503410,
+      3503470,
+      3504949,
+      3507271,
+      3507918,
+      3508149,
+      3508555
+    ],
+    "n_distinct_proxy_uids": 11,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0146",
+    "size": 25,
+    "transaction_ids": [
+      3490447,
+      3491263,
+      3491726,
+      3491818,
+      3492643,
+      3495075,
+      3495190,
+      3497503,
+      3497533,
+      3497600,
+      3500019,
+      3500777,
+      3500807,
+      3500901,
+      3501442,
+      3502366,
+      3503014,
+      3503415,
+      3504456,
+      3506267,
+      3507097,
+      3507125,
+      3507429,
+      3508336,
+      3508509
+    ],
+    "n_distinct_proxy_uids": 8,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0031",
+    "size": 22,
+    "transaction_ids": [
+      3489153,
+      3489672,
+      3492262,
+      3492530,
+      3492696,
+      3495546,
+      3495736,
+      3496116,
+      3496326,
+      3496385,
+      3496430,
+      3497675,
+      3499011,
+      3500306,
+      3501182,
+      3501971,
+      3501973,
+      3503368,
+      3504703,
+      3505541,
+      3507765,
+      3508523
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0200",
+    "size": 20,
+    "transaction_ids": [
+      3491165,
+      3491414,
+      3492682,
+      3492726,
+      3496517,
+      3497119,
+      3499112,
+      3499258,
+      3500100,
+      3500503,
+      3500597,
+      3500833,
+      3501702,
+      3502252,
+      3502297,
+      3502816,
+      3503031,
+      3504092,
+      3505061,
+      3506666
+    ],
+    "n_distinct_proxy_uids": 5,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0104",
+    "size": 19,
+    "transaction_ids": [
+      3489843,
+      3490427,
+      3490530,
+      3490750,
+      3494879,
+      3494889,
+      3495261,
+      3495882,
+      3495884,
+      3498310,
+      3500362,
+      3502503,
+      3502599,
+      3503870,
+      3504908,
+      3504937,
+      3505298,
+      3505815,
+      3507348
+    ],
+    "n_distinct_proxy_uids": 7,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0027",
+    "size": 18,
+    "transaction_ids": [
+      3489139,
+      3489804,
+      3489914,
+      3490196,
+      3490215,
+      3492209,
+      3494519,
+      3496359,
+      3498698,
+      3500611,
+      3502767,
+      3504284,
+      3504689,
+      3505068,
+      3506620,
+      3506695,
+      3506830,
+      3507636
+    ],
+    "n_distinct_proxy_uids": 5,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0091",
+    "size": 18,
+    "transaction_ids": [
+      3489730,
+      3491541,
+      3493272,
+      3493493,
+      3495514,
+      3495649,
+      3495683,
+      3497423,
+      3498211,
+      3498313,
+      3498340,
+      3500637,
+      3501346,
+      3502233,
+      3502966,
+      3504627,
+      3504882,
+      3507653
+    ],
+    "n_distinct_proxy_uids": 5,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0277",
+    "size": 17,
+    "transaction_ids": [
+      3492736,
+      3493566,
+      3494925,
+      3497255,
+      3497487,
+      3497832,
+      3498106,
+      3498547,
+      3499255,
+      3499353,
+      3500523,
+      3504365,
+      3504378,
+      3505900,
+      3507051,
+      3507259,
+      3507305
+    ],
+    "n_distinct_proxy_uids": 5,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0125",
+    "size": 16,
+    "transaction_ids": [
+      3490099,
+      3491339,
+      3493254,
+      3493293,
+      3493303,
+      3499149,
+      3499451,
+      3499952,
+      3500973,
+      3502455,
+      3502493,
+      3503310,
+      3504841,
+      3505294,
+      3506548,
+      3506697
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0342",
+    "size": 16,
+    "transaction_ids": [
+      3494373,
+      3494523,
+      3494526,
+      3494529,
+      3494548,
+      3494558,
+      3494563,
+      3494564,
+      3494567,
+      3494568,
+      3494573,
+      3494574,
+      3497990,
+      3500039,
+      3500063,
+      3500073
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0028",
+    "size": 15,
+    "transaction_ids": [
+      3489141,
+      3491105,
+      3491275,
+      3492296,
+      3492533,
+      3494825,
+      3496464,
+      3496837,
+      3496859,
+      3497175,
+      3499107,
+      3499750,
+      3506946,
+      3507993,
+      3508303
+    ],
+    "n_distinct_proxy_uids": 9,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0071",
+    "size": 15,
+    "transaction_ids": [
+      3489555,
+      3491004,
+      3491823,
+      3492439,
+      3492870,
+      3494170,
+      3498084,
+      3498118,
+      3498238,
+      3500002,
+      3500469,
+      3505234,
+      3505254,
+      3507052,
+      3507214
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0078",
+    "size": 15,
+    "transaction_ids": [
+      3489624,
+      3491128,
+      3492903,
+      3492907,
+      3493402,
+      3493524,
+      3494271,
+      3494901,
+      3494928,
+      3500254,
+      3501340,
+      3502794,
+      3504595,
+      3504885,
+      3508499
+    ],
+    "n_distinct_proxy_uids": 9,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0130",
+    "size": 15,
+    "transaction_ids": [
+      3490143,
+      3491320,
+      3491815,
+      3491835,
+      3491841,
+      3492768,
+      3494720,
+      3502613,
+      3503180,
+      3503183,
+      3503250,
+      3504367,
+      3504991,
+      3504994,
+      3508273
+    ],
+    "n_distinct_proxy_uids": 6,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0187",
+    "size": 15,
+    "transaction_ids": [
+      3491058,
+      3491224,
+      3491498,
+      3495541,
+      3497937,
+      3498245,
+      3498944,
+      3499446,
+      3502285,
+      3502362,
+      3503756,
+      3504354,
+      3504355,
+      3504976,
+      3505065
+    ],
+    "n_distinct_proxy_uids": 5,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0231",
+    "size": 15,
+    "transaction_ids": [
+      3491779,
+      3493054,
+      3493131,
+      3494609,
+      3494622,
+      3496323,
+      3496333,
+      3496336,
+      3499929,
+      3500450,
+      3500464,
+      3500475,
+      3505662,
+      3506682,
+      3508443
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0514",
+    "size": 15,
+    "transaction_ids": [
+      3500119,
+      3500154,
+      3500156,
+      3500243,
+      3500285,
+      3500290,
+      3500612,
+      3500619,
+      3500623,
+      3501947,
+      3501954,
+      3501958,
+      3501965,
+      3501967,
+      3501969
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0579",
+    "size": 15,
+    "transaction_ids": [
+      3505375,
+      3505380,
+      3505383,
+      3505391,
+      3506841,
+      3506880,
+      3506975,
+      3506985,
+      3507016,
+      3507024,
+      3507030,
+      3507427,
+      3507480,
+      3507492,
+      3508024
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0010",
+    "size": 14,
+    "transaction_ids": [
+      3489014,
+      3490737,
+      3492626,
+      3493722,
+      3496454,
+      3496515,
+      3496921,
+      3498434,
+      3500415,
+      3500774,
+      3500915,
+      3503657,
+      3504066,
+      3505716
+    ],
+    "n_distinct_proxy_uids": 5,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0033",
+    "size": 14,
+    "transaction_ids": [
+      3489165,
+      3489597,
+      3491705,
+      3492264,
+      3492821,
+      3493481,
+      3493876,
+      3497215,
+      3499052,
+      3499250,
+      3501030,
+      3501860,
+      3502076,
+      3507409
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0077",
+    "size": 14,
+    "transaction_ids": [
+      3489604,
+      3491740,
+      3493795,
+      3496833,
+      3498383,
+      3499084,
+      3501936,
+      3503579,
+      3504756,
+      3506746,
+      3507059,
+      3507566,
+      3508193,
+      3508793
+    ],
+    "n_distinct_proxy_uids": 8,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0098",
+    "size": 14,
+    "transaction_ids": [
+      3489792,
+      3489922,
+      3491786,
+      3493708,
+      3497004,
+      3502913,
+      3503744,
+      3504149,
+      3504162,
+      3504173,
+      3504217,
+      3504237,
+      3504476,
+      3505845
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0162",
+    "size": 14,
+    "transaction_ids": [
+      3490720,
+      3491558,
+      3492017,
+      3493427,
+      3493491,
+      3499442,
+      3499450,
+      3499545,
+      3501150,
+      3502720,
+      3503205,
+      3504049,
+      3504103,
+      3505974
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0186",
+    "size": 14,
+    "transaction_ids": [
+      3491046,
+      3491502,
+      3494137,
+      3494165,
+      3494625,
+      3497068,
+      3498369,
+      3498560,
+      3501183,
+      3501271,
+      3502487,
+      3503067,
+      3504024,
+      3507957
+    ],
+    "n_distinct_proxy_uids": 5,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0240",
+    "size": 14,
+    "transaction_ids": [
+      3491904,
+      3492200,
+      3492765,
+      3495242,
+      3495563,
+      3497660,
+      3497689,
+      3497780,
+      3500297,
+      3500372,
+      3500379,
+      3500388,
+      3503682,
+      3504555
+    ],
+    "n_distinct_proxy_uids": 8,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0204",
+    "size": 13,
+    "transaction_ids": [
+      3491286,
+      3492224,
+      3492938,
+      3492966,
+      3492972,
+      3493017,
+      3493093,
+      3493536,
+      3494004,
+      3495213,
+      3503590,
+      3507748,
+      3507751
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0016",
+    "size": 12,
+    "transaction_ids": [
+      3489049,
+      3489691,
+      3496018,
+      3496819,
+      3498234,
+      3498544,
+      3501025,
+      3502908,
+      3505277,
+      3507383,
+      3507707,
+      3508663
+    ],
+    "n_distinct_proxy_uids": 9,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0122",
+    "size": 12,
+    "transaction_ids": [
+      3490048,
+      3491011,
+      3493600,
+      3495157,
+      3497616,
+      3499709,
+      3501069,
+      3501148,
+      3503154,
+      3504548,
+      3505714,
+      3506747
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0322",
+    "size": 12,
+    "transaction_ids": [
+      3493936,
+      3495151,
+      3496503,
+      3498455,
+      3500236,
+      3501257,
+      3503686,
+      3504133,
+      3504166,
+      3504185,
+      3504784,
+      3508622
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0075",
+    "size": 11,
+    "transaction_ids": [
+      3489581,
+      3493747,
+      3494890,
+      3495039,
+      3497071,
+      3498532,
+      3502268,
+      3506627,
+      3507368,
+      3508161,
+      3508220
+    ],
+    "n_distinct_proxy_uids": 5,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0199",
+    "size": 11,
+    "transaction_ids": [
+      3491140,
+      3491911,
+      3493836,
+      3499597,
+      3500138,
+      3500139,
+      3500958,
+      3500971,
+      3502721,
+      3503359,
+      3505164
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0380",
+    "size": 11,
+    "transaction_ids": [
+      3495204,
+      3495210,
+      3495218,
+      3495293,
+      3495321,
+      3495326,
+      3495333,
+      3497592,
+      3497603,
+      3497638,
+      3500230
+    ],
+    "n_distinct_proxy_uids": 9,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0074",
+    "size": 10,
+    "transaction_ids": [
+      3489574,
+      3490289,
+      3492658,
+      3493013,
+      3494167,
+      3496777,
+      3499228,
+      3502270,
+      3506490,
+      3506630
+    ],
+    "n_distinct_proxy_uids": 5,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0081",
+    "size": 10,
+    "transaction_ids": [
+      3489641,
+      3489668,
+      3491313,
+      3491582,
+      3492976,
+      3493020,
+      3496414,
+      3497125,
+      3499668,
+      3503977
+    ],
+    "n_distinct_proxy_uids": 5,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0093",
+    "size": 10,
+    "transaction_ids": [
+      3489761,
+      3491799,
+      3493120,
+      3495125,
+      3495371,
+      3495905,
+      3497354,
+      3498396,
+      3501810,
+      3508677
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0173",
+    "size": 10,
+    "transaction_ids": [
+      3490894,
+      3492413,
+      3495796,
+      3502833,
+      3503688,
+      3506124,
+      3506574,
+      3507673,
+      3508848,
+      3508858
+    ],
+    "n_distinct_proxy_uids": 9,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0292",
+    "size": 10,
+    "transaction_ids": [
+      3493046,
+      3493098,
+      3493109,
+      3493164,
+      3493186,
+      3497466,
+      3501532,
+      3501668,
+      3503966,
+      3508649
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0018",
+    "size": 9,
+    "transaction_ids": [
+      3489067,
+      3490990,
+      3491988,
+      3495353,
+      3495955,
+      3496570,
+      3499974,
+      3504235,
+      3505932
+    ],
+    "n_distinct_proxy_uids": 7,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0021",
+    "size": 9,
+    "transaction_ids": [
+      3489089,
+      3491539,
+      3500228,
+      3501548,
+      3503069,
+      3503347,
+      3506497,
+      3506542,
+      3506631
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0039",
+    "size": 9,
+    "transaction_ids": [
+      3489201,
+      3489248,
+      3489443,
+      3496964,
+      3500869,
+      3503445,
+      3503639,
+      3503893,
+      3507917
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0060",
+    "size": 9,
+    "transaction_ids": [
+      3489365,
+      3492428,
+      3493329,
+      3494390,
+      3497719,
+      3498373,
+      3499615,
+      3500940,
+      3505620
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0070",
+    "size": 9,
+    "transaction_ids": [
+      3489514,
+      3497429,
+      3497680,
+      3497688,
+      3497829,
+      3500302,
+      3503111,
+      3505307,
+      3508367
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0107",
+    "size": 9,
+    "transaction_ids": [
+      3489871,
+      3492186,
+      3495601,
+      3495604,
+      3495605,
+      3495612,
+      3502218,
+      3503533,
+      3506024
+    ],
+    "n_distinct_proxy_uids": 5,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0112",
+    "size": 9,
+    "transaction_ids": [
+      3489937,
+      3491562,
+      3494575,
+      3498676,
+      3498852,
+      3498862,
+      3498956,
+      3500967,
+      3508050
+    ],
+    "n_distinct_proxy_uids": 5,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0127",
+    "size": 9,
+    "transaction_ids": [
+      3490119,
+      3490725,
+      3491551,
+      3493009,
+      3495509,
+      3497815,
+      3501032,
+      3504418,
+      3504455
+    ],
+    "n_distinct_proxy_uids": 5,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0155",
+    "size": 9,
+    "transaction_ids": [
+      3490575,
+      3494937,
+      3495323,
+      3495357,
+      3497858,
+      3500794,
+      3503187,
+      3504610,
+      3508153
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0242",
+    "size": 9,
+    "transaction_ids": [
+      3491938,
+      3494919,
+      3495244,
+      3498146,
+      3504126,
+      3504148,
+      3508057,
+      3508126,
+      3508185
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0263",
+    "size": 9,
+    "transaction_ids": [
+      3492422,
+      3493485,
+      3495570,
+      3495576,
+      3495584,
+      3497332,
+      3498691,
+      3504684,
+      3506981
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0275",
+    "size": 9,
+    "transaction_ids": [
+      3492710,
+      3492713,
+      3492739,
+      3492742,
+      3506078,
+      3506085,
+      3506430,
+      3506438,
+      3506444
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0354",
+    "size": 9,
+    "transaction_ids": [
+      3494589,
+      3494650,
+      3494670,
+      3494672,
+      3494861,
+      3494874,
+      3494893,
+      3495248,
+      3502673
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0374",
+    "size": 9,
+    "transaction_ids": [
+      3494942,
+      3497904,
+      3497934,
+      3497940,
+      3498570,
+      3501661,
+      3504642,
+      3504957,
+      3506715
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0404",
+    "size": 9,
+    "transaction_ids": [
+      3496072,
+      3497383,
+      3497385,
+      3502762,
+      3502803,
+      3503912,
+      3504352,
+      3504353,
+      3507185
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0427",
+    "size": 9,
+    "transaction_ids": [
+      3496522,
+      3496528,
+      3496533,
+      3496535,
+      3496545,
+      3496559,
+      3496560,
+      3496562,
+      3496939
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0469",
+    "size": 9,
+    "transaction_ids": [
+      3497998,
+      3498223,
+      3499529,
+      3499532,
+      3499903,
+      3499906,
+      3501120,
+      3501361,
+      3501724
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0577",
+    "size": 9,
+    "transaction_ids": [
+      3505144,
+      3505225,
+      3505237,
+      3505242,
+      3505265,
+      3505271,
+      3507135,
+      3507287,
+      3507301
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0012",
+    "size": 8,
+    "transaction_ids": [
+      3489032,
+      3492551,
+      3493890,
+      3495763,
+      3500229,
+      3500985,
+      3501009,
+      3502318
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0044",
+    "size": 8,
+    "transaction_ids": [
+      3489233,
+      3491215,
+      3491552,
+      3493766,
+      3498417,
+      3504244,
+      3507573,
+      3508620
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0068",
+    "size": 8,
+    "transaction_ids": [
+      3489498,
+      3492175,
+      3492543,
+      3493320,
+      3500231,
+      3501035,
+      3503700,
+      3507550
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0092",
+    "size": 8,
+    "transaction_ids": [
+      3489757,
+      3489956,
+      3490146,
+      3490173,
+      3492602,
+      3493593,
+      3493615,
+      3493629
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0131",
+    "size": 8,
+    "transaction_ids": [
+      3490151,
+      3490655,
+      3492680,
+      3494044,
+      3495308,
+      3501143,
+      3504467,
+      3505280
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0135",
+    "size": 8,
+    "transaction_ids": [
+      3490250,
+      3496078,
+      3496808,
+      3500528,
+      3503116,
+      3503129,
+      3503134,
+      3507196
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0139",
+    "size": 8,
+    "transaction_ids": [
+      3490303,
+      3491250,
+      3496779,
+      3498496,
+      3498903,
+      3500476,
+      3501421,
+      3503689
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0158",
+    "size": 8,
+    "transaction_ids": [
+      3490634,
+      3492097,
+      3494857,
+      3498699,
+      3504026,
+      3506509,
+      3506959,
+      3508543
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0259",
+    "size": 8,
+    "transaction_ids": [
+      3492333,
+      3496746,
+      3497191,
+      3497885,
+      3502124,
+      3504168,
+      3506080,
+      3507322
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0316",
+    "size": 8,
+    "transaction_ids": [
+      3493763,
+      3493771,
+      3497290,
+      3497309,
+      3497360,
+      3497636,
+      3500837,
+      3503786
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0323",
+    "size": 8,
+    "transaction_ids": [
+      3493937,
+      3494608,
+      3501912,
+      3502079,
+      3506273,
+      3508508,
+      3508520,
+      3508954
+    ],
+    "n_distinct_proxy_uids": 5,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0349",
+    "size": 8,
+    "transaction_ids": [
+      3494550,
+      3497478,
+      3503072,
+      3503078,
+      3505244,
+      3505286,
+      3506337,
+      3508477
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0357",
+    "size": 8,
+    "transaction_ids": [
+      3494614,
+      3494620,
+      3495945,
+      3495949,
+      3498148,
+      3499555,
+      3499576,
+      3499760
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0497",
+    "size": 8,
+    "transaction_ids": [
+      3499320,
+      3499536,
+      3502479,
+      3502647,
+      3502842,
+      3502957,
+      3502959,
+      3503002
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0580",
+    "size": 8,
+    "transaction_ids": [
+      3505420,
+      3505430,
+      3505432,
+      3505433,
+      3505436,
+      3505440,
+      3505447,
+      3505695
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0006",
+    "size": 7,
+    "transaction_ids": [
+      3488998,
+      3491838,
+      3495741,
+      3500502,
+      3500714,
+      3503295,
+      3503301
+    ],
+    "n_distinct_proxy_uids": 6,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0034",
+    "size": 7,
+    "transaction_ids": [
+      3489168,
+      3492330,
+      3497607,
+      3500568,
+      3503570,
+      3506577,
+      3508815
+    ],
+    "n_distinct_proxy_uids": 5,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0037",
+    "size": 7,
+    "transaction_ids": [
+      3489193,
+      3490431,
+      3497424,
+      3497573,
+      3497595,
+      3497673,
+      3497714
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0045",
+    "size": 7,
+    "transaction_ids": [
+      3489260,
+      3498972,
+      3499321,
+      3499323,
+      3499325,
+      3499328,
+      3500278
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0046",
+    "size": 7,
+    "transaction_ids": [
+      3489267,
+      3490584,
+      3494873,
+      3500381,
+      3501685,
+      3502541,
+      3505869
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0051",
+    "size": 7,
+    "transaction_ids": [
+      3489321,
+      3491039,
+      3491055,
+      3495283,
+      3495294,
+      3501202,
+      3503807
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0058",
+    "size": 7,
+    "transaction_ids": [
+      3489354,
+      3489366,
+      3490975,
+      3491037,
+      3498751,
+      3506150,
+      3506156
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0064",
+    "size": 7,
+    "transaction_ids": [
+      3489434,
+      3493632,
+      3494973,
+      3500343,
+      3504223,
+      3504995,
+      3505015
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0079",
+    "size": 7,
+    "transaction_ids": [
+      3489628,
+      3489642,
+      3493857,
+      3495437,
+      3496864,
+      3504310,
+      3505563
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0083",
+    "size": 7,
+    "transaction_ids": [
+      3489660,
+      3490284,
+      3497560,
+      3503296,
+      3504207,
+      3504659,
+      3505309
+    ],
+    "n_distinct_proxy_uids": 6,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0100",
+    "size": 7,
+    "transaction_ids": [
+      3489821,
+      3489894,
+      3489924,
+      3505220,
+      3506637,
+      3507123,
+      3508328
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0126",
+    "size": 7,
+    "transaction_ids": [
+      3490101,
+      3492910,
+      3498936,
+      3500724,
+      3502109,
+      3502340,
+      3502447
+    ],
+    "n_distinct_proxy_uids": 7,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0129",
+    "size": 7,
+    "transaction_ids": [
+      3490142,
+      3494036,
+      3498526,
+      3499800,
+      3499810,
+      3503098,
+      3506051
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0136",
+    "size": 7,
+    "transaction_ids": [
+      3490281,
+      3497242,
+      3498978,
+      3500174,
+      3500369,
+      3503838,
+      3505080
+    ],
+    "n_distinct_proxy_uids": 5,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0140",
+    "size": 7,
+    "transaction_ids": [
+      3490308,
+      3490883,
+      3491465,
+      3495539,
+      3496574,
+      3504581,
+      3505126
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0142",
+    "size": 7,
+    "transaction_ids": [
+      3490343,
+      3490823,
+      3497505,
+      3498559,
+      3505274,
+      3506838,
+      3508242
+    ],
+    "n_distinct_proxy_uids": 5,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0145",
+    "size": 7,
+    "transaction_ids": [
+      3490437,
+      3494945,
+      3495803,
+      3496061,
+      3496687,
+      3498595,
+      3502043
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0166",
+    "size": 7,
+    "transaction_ids": [
+      3490846,
+      3491370,
+      3493533,
+      3497372,
+      3503496,
+      3503500,
+      3506043
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0172",
+    "size": 7,
+    "transaction_ids": [
+      3490893,
+      3496527,
+      3496547,
+      3496585,
+      3496598,
+      3496662,
+      3496672
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0196",
+    "size": 7,
+    "transaction_ids": [
+      3491131,
+      3491145,
+      3493717,
+      3494178,
+      3496256,
+      3499643,
+      3500859
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0229",
+    "size": 7,
+    "transaction_ids": [
+      3491728,
+      3491793,
+      3495181,
+      3497519,
+      3498861,
+      3504711,
+      3507376
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0247",
+    "size": 7,
+    "transaction_ids": [
+      3492008,
+      3496669,
+      3497045,
+      3497911,
+      3498873,
+      3505476,
+      3508117
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0276",
+    "size": 7,
+    "transaction_ids": [
+      3492732,
+      3493522,
+      3495861,
+      3497957,
+      3500328,
+      3500349,
+      3506608
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0294",
+    "size": 7,
+    "transaction_ids": [
+      3493091,
+      3498128,
+      3501011,
+      3501249,
+      3501481,
+      3502158,
+      3506503
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0295",
+    "size": 7,
+    "transaction_ids": [
+      3493177,
+      3493249,
+      3494466,
+      3494472,
+      3494495,
+      3494500,
+      3497362
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0305",
+    "size": 7,
+    "transaction_ids": [
+      3493433,
+      3496020,
+      3499729,
+      3504487,
+      3504506,
+      3505466,
+      3507909
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0308",
+    "size": 7,
+    "transaction_ids": [
+      3493620,
+      3493661,
+      3496930,
+      3499261,
+      3502459,
+      3503757,
+      3507644
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0324",
+    "size": 7,
+    "transaction_ids": [
+      3493944,
+      3494093,
+      3494954,
+      3497377,
+      3503615,
+      3503678,
+      3508615
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0347",
+    "size": 7,
+    "transaction_ids": [
+      3494538,
+      3497358,
+      3498107,
+      3501874,
+      3503266,
+      3503859,
+      3507345
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0352",
+    "size": 7,
+    "transaction_ids": [
+      3494576,
+      3494599,
+      3494699,
+      3494714,
+      3497000,
+      3498298,
+      3503549
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0391",
+    "size": 7,
+    "transaction_ids": [
+      3495681,
+      3505381,
+      3507385,
+      3508601,
+      3508623,
+      3508676,
+      3508724
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0437",
+    "size": 7,
+    "transaction_ids": [
+      3496840,
+      3502132,
+      3502710,
+      3503566,
+      3504732,
+      3506301,
+      3506304
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0441",
+    "size": 7,
+    "transaction_ids": [
+      3496872,
+      3499157,
+      3499166,
+      3499168,
+      3501583,
+      3502621,
+      3506986
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0512",
+    "size": 7,
+    "transaction_ids": [
+      3500042,
+      3502128,
+      3503624,
+      3505627,
+      3505630,
+      3506400,
+      3506517
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0521",
+    "size": 7,
+    "transaction_ids": [
+      3500620,
+      3507085,
+      3507665,
+      3507676,
+      3507696,
+      3507772,
+      3507834
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0527",
+    "size": 7,
+    "transaction_ids": [
+      3501101,
+      3502618,
+      3502656,
+      3502683,
+      3502903,
+      3502918,
+      3503904
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0578",
+    "size": 7,
+    "transaction_ids": [
+      3505270,
+      3507112,
+      3507132,
+      3507145,
+      3507174,
+      3508696,
+      3508700
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0586",
+    "size": 7,
+    "transaction_ids": [
+      3506614,
+      3506619,
+      3506622,
+      3506639,
+      3506645,
+      3506662,
+      3508351
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0026",
+    "size": 6,
+    "transaction_ids": [
+      3489137,
+      3491468,
+      3491543,
+      3491587,
+      3491594,
+      3508083
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0038",
+    "size": 6,
+    "transaction_ids": [
+      3489196,
+      3492909,
+      3495080,
+      3495089,
+      3496045,
+      3507327
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0062",
+    "size": 6,
+    "transaction_ids": [
+      3489409,
+      3501990,
+      3502050,
+      3504986,
+      3504987,
+      3504992
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0067",
+    "size": 6,
+    "transaction_ids": [
+      3489486,
+      3491349,
+      3498673,
+      3503058,
+      3507001,
+      3508937
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0086",
+    "size": 6,
+    "transaction_ids": [
+      3489675,
+      3492834,
+      3493251,
+      3499413,
+      3503161,
+      3507008
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0089",
+    "size": 6,
+    "transaction_ids": [
+      3489725,
+      3490884,
+      3491647,
+      3492514,
+      3504493,
+      3505673
+    ],
+    "n_distinct_proxy_uids": 5,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0090",
+    "size": 6,
+    "transaction_ids": [
+      3489728,
+      3492297,
+      3493570,
+      3499241,
+      3502112,
+      3508740
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0094",
+    "size": 6,
+    "transaction_ids": [
+      3489762,
+      3494265,
+      3502170,
+      3503007,
+      3505410,
+      3508374
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0105",
+    "size": 6,
+    "transaction_ids": [
+      3489854,
+      3489876,
+      3491366,
+      3500401,
+      3506141,
+      3506299
+    ],
+    "n_distinct_proxy_uids": 5,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0118",
+    "size": 6,
+    "transaction_ids": [
+      3489970,
+      3492955,
+      3492960,
+      3492964,
+      3502072,
+      3503563
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0124",
+    "size": 6,
+    "transaction_ids": [
+      3490075,
+      3490089,
+      3492655,
+      3504114,
+      3505687,
+      3506967
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0138",
+    "size": 6,
+    "transaction_ids": [
+      3490297,
+      3498050,
+      3499742,
+      3499893,
+      3508466,
+      3508738
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0149",
+    "size": 6,
+    "transaction_ids": [
+      3490504,
+      3492211,
+      3501135,
+      3501316,
+      3503290,
+      3508792
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0177",
+    "size": 6,
+    "transaction_ids": [
+      3490945,
+      3490955,
+      3490964,
+      3495515,
+      3497041,
+      3497783
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0181",
+    "size": 6,
+    "transaction_ids": [
+      3490986,
+      3493400,
+      3500294,
+      3503420,
+      3503564,
+      3506331
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0192",
+    "size": 6,
+    "transaction_ids": [
+      3491117,
+      3493032,
+      3499540,
+      3499541,
+      3503545,
+      3503896
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0202",
+    "size": 6,
+    "transaction_ids": [
+      3491216,
+      3491643,
+      3499949,
+      3500173,
+      3502245,
+      3503511
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0203",
+    "size": 6,
+    "transaction_ids": [
+      3491272,
+      3494492,
+      3503440,
+      3503466,
+      3505853,
+      3508260
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0214",
+    "size": 6,
+    "transaction_ids": [
+      3491443,
+      3496260,
+      3504128,
+      3507282,
+      3507299,
+      3508113
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0234",
+    "size": 6,
+    "transaction_ids": [
+      3491859,
+      3492313,
+      3495620,
+      3502788,
+      3505413,
+      3505415
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0260",
+    "size": 6,
+    "transaction_ids": [
+      3492339,
+      3493132,
+      3496479,
+      3498514,
+      3499046,
+      3503408
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0271",
+    "size": 6,
+    "transaction_ids": [
+      3492589,
+      3492815,
+      3499571,
+      3499611,
+      3504138,
+      3504145
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0280",
+    "size": 6,
+    "transaction_ids": [
+      3492792,
+      3494387,
+      3505585,
+      3506964,
+      3506973,
+      3506978
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0287",
+    "size": 6,
+    "transaction_ids": [
+      3492934,
+      3495027,
+      3497833,
+      3502256,
+      3505720,
+      3506930
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0319",
+    "size": 6,
+    "transaction_ids": [
+      3493816,
+      3497031,
+      3500213,
+      3501813,
+      3505775,
+      3506701
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0338",
+    "size": 6,
+    "transaction_ids": [
+      3494261,
+      3495503,
+      3497907,
+      3500387,
+      3505978,
+      3507152
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0346",
+    "size": 6,
+    "transaction_ids": [
+      3494528,
+      3495785,
+      3499762,
+      3502790,
+      3503412,
+      3503449
+    ],
+    "n_distinct_proxy_uids": 5,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0360",
+    "size": 6,
+    "transaction_ids": [
+      3494660,
+      3494666,
+      3494725,
+      3494732,
+      3499518,
+      3499546
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0363",
+    "size": 6,
+    "transaction_ids": [
+      3494716,
+      3494721,
+      3494722,
+      3494817,
+      3494835,
+      3501127
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0444",
+    "size": 6,
+    "transaction_ids": [
+      3496974,
+      3502662,
+      3502990,
+      3505424,
+      3505501,
+      3505518
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0452",
+    "size": 6,
+    "transaction_ids": [
+      3497330,
+      3498114,
+      3503094,
+      3507663,
+      3507671,
+      3507711
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0456",
+    "size": 6,
+    "transaction_ids": [
+      3497408,
+      3505704,
+      3505723,
+      3505727,
+      3505732,
+      3505742
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0465",
+    "size": 6,
+    "transaction_ids": [
+      3497856,
+      3498612,
+      3502123,
+      3505872,
+      3506035,
+      3506908
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0466",
+    "size": 6,
+    "transaction_ids": [
+      3497889,
+      3497893,
+      3497894,
+      3507067,
+      3507071,
+      3507111
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0498",
+    "size": 6,
+    "transaction_ids": [
+      3499341,
+      3499347,
+      3499373,
+      3499381,
+      3499386,
+      3499390
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0499",
+    "size": 6,
+    "transaction_ids": [
+      3499366,
+      3501262,
+      3501283,
+      3501356,
+      3501360,
+      3503765
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0525",
+    "size": 6,
+    "transaction_ids": [
+      3500750,
+      3500904,
+      3504804,
+      3504819,
+      3504830,
+      3508936
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0559",
+    "size": 6,
+    "transaction_ids": [
+      3503024,
+      3504125,
+      3505557,
+      3505693,
+      3506543,
+      3506549
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0013",
+    "size": 5,
+    "transaction_ids": [
+      3489036,
+      3492236,
+      3505098,
+      3505400,
+      3508884
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0029",
+    "size": 5,
+    "transaction_ids": [
+      3489149,
+      3492057,
+      3493839,
+      3495019,
+      3498259
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0055",
+    "size": 5,
+    "transaction_ids": [
+      3489347,
+      3498511,
+      3502491,
+      3504297,
+      3505868
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0063",
+    "size": 5,
+    "transaction_ids": [
+      3489426,
+      3494407,
+      3494730,
+      3494762,
+      3498355
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0082",
+    "size": 5,
+    "transaction_ids": [
+      3489644,
+      3490159,
+      3502962,
+      3502963,
+      3508670
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0133",
+    "size": 5,
+    "transaction_ids": [
+      3490217,
+      3492475,
+      3495399,
+      3495590,
+      3499550
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0147",
+    "size": 5,
+    "transaction_ids": [
+      3490449,
+      3494652,
+      3494772,
+      3502032,
+      3506340
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0148",
+    "size": 5,
+    "transaction_ids": [
+      3490468,
+      3492112,
+      3492223,
+      3493240,
+      3501946
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0167",
+    "size": 5,
+    "transaction_ids": [
+      3490856,
+      3504965,
+      3505484,
+      3505485,
+      3505665
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0170",
+    "size": 5,
+    "transaction_ids": [
+      3490881,
+      3500727,
+      3500791,
+      3500812,
+      3500818
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0176",
+    "size": 5,
+    "transaction_ids": [
+      3490940,
+      3495194,
+      3500410,
+      3507143,
+      3507453
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0178",
+    "size": 5,
+    "transaction_ids": [
+      3490968,
+      3491626,
+      3499151,
+      3500196,
+      3501949
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0195",
+    "size": 5,
+    "transaction_ids": [
+      3491122,
+      3491282,
+      3491517,
+      3500184,
+      3508136
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0198",
+    "size": 5,
+    "transaction_ids": [
+      3491137,
+      3491431,
+      3499014,
+      3504492,
+      3506935
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0213",
+    "size": 5,
+    "transaction_ids": [
+      3491432,
+      3491925,
+      3495032,
+      3505018,
+      3506546
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0216",
+    "size": 5,
+    "transaction_ids": [
+      3491457,
+      3502070,
+      3502085,
+      3506357,
+      3506913
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0223",
+    "size": 5,
+    "transaction_ids": [
+      3491623,
+      3491704,
+      3491806,
+      3491827,
+      3491832
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0227",
+    "size": 5,
+    "transaction_ids": [
+      3491675,
+      3492255,
+      3496529,
+      3502191,
+      3508459
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0233",
+    "size": 5,
+    "transaction_ids": [
+      3491829,
+      3495809,
+      3507692,
+      3507721,
+      3507740
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0243",
+    "size": 5,
+    "transaction_ids": [
+      3491948,
+      3491970,
+      3495046,
+      3500522,
+      3504040
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0244",
+    "size": 5,
+    "transaction_ids": [
+      3491973,
+      3496299,
+      3497523,
+      3498458,
+      3500058
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0253",
+    "size": 5,
+    "transaction_ids": [
+      3492237,
+      3493931,
+      3493939,
+      3495237,
+      3504213
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0279",
+    "size": 5,
+    "transaction_ids": [
+      3492749,
+      3499132,
+      3500367,
+      3502925,
+      3506711
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0283",
+    "size": 5,
+    "transaction_ids": [
+      3492858,
+      3495686,
+      3495805,
+      3495811,
+      3497551
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0288",
+    "size": 5,
+    "transaction_ids": [
+      3492974,
+      3493723,
+      3496710,
+      3497810,
+      3498517
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0289",
+    "size": 5,
+    "transaction_ids": [
+      3492979,
+      3494607,
+      3501962,
+      3503964,
+      3505822
+    ],
+    "n_distinct_proxy_uids": 5,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0298",
+    "size": 5,
+    "transaction_ids": [
+      3493245,
+      3496923,
+      3496950,
+      3502776,
+      3504201
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0310",
+    "size": 5,
+    "transaction_ids": [
+      3493670,
+      3497153,
+      3497288,
+      3499646,
+      3506036
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0318",
+    "size": 5,
+    "transaction_ids": [
+      3493765,
+      3499240,
+      3499244,
+      3503048,
+      3503049
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0328",
+    "size": 5,
+    "transaction_ids": [
+      3494040,
+      3494280,
+      3494395,
+      3494398,
+      3494399
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0355",
+    "size": 5,
+    "transaction_ids": [
+      3494598,
+      3494856,
+      3495551,
+      3495701,
+      3507486
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0361",
+    "size": 5,
+    "transaction_ids": [
+      3494685,
+      3494687,
+      3494688,
+      3494698,
+      3494703
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0370",
+    "size": 5,
+    "transaction_ids": [
+      3494866,
+      3506940,
+      3507318,
+      3507379,
+      3507402
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0372",
+    "size": 5,
+    "transaction_ids": [
+      3494899,
+      3496826,
+      3499155,
+      3505912,
+      3505917
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0386",
+    "size": 5,
+    "transaction_ids": [
+      3495524,
+      3495527,
+      3495531,
+      3502930,
+      3502931
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0393",
+    "size": 5,
+    "transaction_ids": [
+      3495692,
+      3503961,
+      3507982,
+      3508032,
+      3508392
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0406",
+    "size": 5,
+    "transaction_ids": [
+      3496120,
+      3499747,
+      3504152,
+      3507545,
+      3508212
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0410",
+    "size": 5,
+    "transaction_ids": [
+      3496144,
+      3496561,
+      3496797,
+      3497827,
+      3502764
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0418",
+    "size": 5,
+    "transaction_ids": [
+      3496351,
+      3503356,
+      3504093,
+      3504302,
+      3506884
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0423",
+    "size": 5,
+    "transaction_ids": [
+      3496449,
+      3498773,
+      3498857,
+      3499780,
+      3505692
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0442",
+    "size": 5,
+    "transaction_ids": [
+      3496901,
+      3497845,
+      3499492,
+      3504511,
+      3507089
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0450",
+    "size": 5,
+    "transaction_ids": [
+      3497245,
+      3501785,
+      3505218,
+      3507497,
+      3507736
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0451",
+    "size": 5,
+    "transaction_ids": [
+      3497299,
+      3504013,
+      3504054,
+      3504096,
+      3506844
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0467",
+    "size": 5,
+    "transaction_ids": [
+      3497994,
+      3497999,
+      3498003,
+      3498019,
+      3502586
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0495",
+    "size": 5,
+    "transaction_ids": [
+      3499239,
+      3504672,
+      3504680,
+      3504691,
+      3504702
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0501",
+    "size": 5,
+    "transaction_ids": [
+      3499467,
+      3503606,
+      3503614,
+      3503626,
+      3503667
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0517",
+    "size": 5,
+    "transaction_ids": [
+      3500203,
+      3502022,
+      3505789,
+      3508003,
+      3508019
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0543",
+    "size": 5,
+    "transaction_ids": [
+      3502011,
+      3502016,
+      3502019,
+      3502104,
+      3502116
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0557",
+    "size": 5,
+    "transaction_ids": [
+      3502991,
+      3503640,
+      3504633,
+      3505267,
+      3505480
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0560",
+    "size": 5,
+    "transaction_ids": [
+      3503108,
+      3503237,
+      3503367,
+      3508034,
+      3508926
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0562",
+    "size": 5,
+    "transaction_ids": [
+      3503219,
+      3503539,
+      3503643,
+      3506870,
+      3508056
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0584",
+    "size": 5,
+    "transaction_ids": [
+      3506121,
+      3506136,
+      3506140,
+      3508714,
+      3508718
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0588",
+    "size": 5,
+    "transaction_ids": [
+      3506764,
+      3507065,
+      3507129,
+      3507298,
+      3507805
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0004",
+    "size": 4,
+    "transaction_ids": [
+      3488985,
+      3492521,
+      3492529,
+      3494763
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0008",
+    "size": 4,
+    "transaction_ids": [
+      3489002,
+      3495382,
+      3497664,
+      3498510
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0011",
+    "size": 4,
+    "transaction_ids": [
+      3489017,
+      3489022,
+      3495280,
+      3499922
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0020",
+    "size": 4,
+    "transaction_ids": [
+      3489080,
+      3507913,
+      3508021,
+      3508094
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0022",
+    "size": 4,
+    "transaction_ids": [
+      3489101,
+      3499917,
+      3501357,
+      3505753
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0025",
+    "size": 4,
+    "transaction_ids": [
+      3489134,
+      3490626,
+      3497924,
+      3499763
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0030",
+    "size": 4,
+    "transaction_ids": [
+      3489150,
+      3489159,
+      3490170,
+      3490282
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0035",
+    "size": 4,
+    "transaction_ids": [
+      3489177,
+      3497608,
+      3504707,
+      3506612
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0036",
+    "size": 4,
+    "transaction_ids": [
+      3489186,
+      3498794,
+      3501801,
+      3504828
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0040",
+    "size": 4,
+    "transaction_ids": [
+      3489205,
+      3489997,
+      3490015,
+      3490032
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0053",
+    "size": 4,
+    "transaction_ids": [
+      3489337,
+      3493648,
+      3495440,
+      3508780
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0059",
+    "size": 4,
+    "transaction_ids": [
+      3489363,
+      3494678,
+      3496750,
+      3503979
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0065",
+    "size": 4,
+    "transaction_ids": [
+      3489445,
+      3489456,
+      3489463,
+      3489465
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0066",
+    "size": 4,
+    "transaction_ids": [
+      3489450,
+      3490757,
+      3495857,
+      3495893
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0076",
+    "size": 4,
+    "transaction_ids": [
+      3489592,
+      3494549,
+      3494778,
+      3503392
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0087",
+    "size": 4,
+    "transaction_ids": [
+      3489676,
+      3491033,
+      3494487,
+      3503240
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0095",
+    "size": 4,
+    "transaction_ids": [
+      3489765,
+      3492587,
+      3506992,
+      3507581
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0096",
+    "size": 4,
+    "transaction_ids": [
+      3489778,
+      3491359,
+      3493341,
+      3503442
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0097",
+    "size": 4,
+    "transaction_ids": [
+      3489789,
+      3493121,
+      3496402,
+      3497640
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0102",
+    "size": 4,
+    "transaction_ids": [
+      3489828,
+      3489864,
+      3489902,
+      3507840
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0109",
+    "size": 4,
+    "transaction_ids": [
+      3489884,
+      3489892,
+      3508463,
+      3508474
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0116",
+    "size": 4,
+    "transaction_ids": [
+      3489963,
+      3490376,
+      3494602,
+      3506403
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0120",
+    "size": 4,
+    "transaction_ids": [
+      3490002,
+      3495578,
+      3496327,
+      3504559
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0121",
+    "size": 4,
+    "transaction_ids": [
+      3490019,
+      3493143,
+      3493748,
+      3494358
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0123",
+    "size": 4,
+    "transaction_ids": [
+      3490065,
+      3490838,
+      3496389,
+      3499191
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0144",
+    "size": 4,
+    "transaction_ids": [
+      3490433,
+      3493290,
+      3500667,
+      3507237
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0152",
+    "size": 4,
+    "transaction_ids": [
+      3490547,
+      3491914,
+      3491954,
+      3508616
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0161",
+    "size": 4,
+    "transaction_ids": [
+      3490662,
+      3492383,
+      3493223,
+      3499941
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0163",
+    "size": 4,
+    "transaction_ids": [
+      3490775,
+      3493213,
+      3507228,
+      3507230
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0168",
+    "size": 4,
+    "transaction_ids": [
+      3490861,
+      3503668,
+      3503736,
+      3507081
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0169",
+    "size": 4,
+    "transaction_ids": [
+      3490878,
+      3491769,
+      3496970,
+      3497082
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0171",
+    "size": 4,
+    "transaction_ids": [
+      3490892,
+      3496409,
+      3501026,
+      3503675
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0175",
+    "size": 4,
+    "transaction_ids": [
+      3490925,
+      3490933,
+      3490941,
+      3490959
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0179",
+    "size": 4,
+    "transaction_ids": [
+      3490972,
+      3490984,
+      3490991,
+      3491001
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0188",
+    "size": 4,
+    "transaction_ids": [
+      3491068,
+      3492344,
+      3494560,
+      3502426
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0190",
+    "size": 4,
+    "transaction_ids": [
+      3491085,
+      3494586,
+      3504654,
+      3508688
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0191",
+    "size": 4,
+    "transaction_ids": [
+      3491100,
+      3491194,
+      3492463,
+      3493456
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0193",
+    "size": 4,
+    "transaction_ids": [
+      3491120,
+      3491418,
+      3491433,
+      3503073
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0197",
+    "size": 4,
+    "transaction_ids": [
+      3491136,
+      3491383,
+      3491770,
+      3499387
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0207",
+    "size": 4,
+    "transaction_ids": [
+      3491315,
+      3491322,
+      3491334,
+      3491347
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0212",
+    "size": 4,
+    "transaction_ids": [
+      3491423,
+      3491756,
+      3497283,
+      3502899
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0217",
+    "size": 4,
+    "transaction_ids": [
+      3491467,
+      3498224,
+      3498687,
+      3499097
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0218",
+    "size": 4,
+    "transaction_ids": [
+      3491478,
+      3492911,
+      3494454,
+      3494710
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0219",
+    "size": 4,
+    "transaction_ids": [
+      3491504,
+      3494983,
+      3495007,
+      3504630
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0221",
+    "size": 4,
+    "transaction_ids": [
+      3491574,
+      3491583,
+      3491622,
+      3492305
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0224",
+    "size": 4,
+    "transaction_ids": [
+      3491627,
+      3499054,
+      3500839,
+      3506531
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0230",
+    "size": 4,
+    "transaction_ids": [
+      3491773,
+      3501286,
+      3501289,
+      3501594
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0235",
+    "size": 4,
+    "transaction_ids": [
+      3491864,
+      3491893,
+      3496051,
+      3499293
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0236",
+    "size": 4,
+    "transaction_ids": [
+      3491876,
+      3503881,
+      3503905,
+      3507297
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0238",
+    "size": 4,
+    "transaction_ids": [
+      3491892,
+      3499074,
+      3503308,
+      3503331
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0241",
+    "size": 4,
+    "transaction_ids": [
+      3491936,
+      3491952,
+      3493583,
+      3506965
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0245",
+    "size": 4,
+    "transaction_ids": [
+      3491992,
+      3495677,
+      3505446,
+      3508254
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0246",
+    "size": 4,
+    "transaction_ids": [
+      3492000,
+      3497933,
+      3508671,
+      3508818
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0248",
+    "size": 4,
+    "transaction_ids": [
+      3492065,
+      3493903,
+      3504160,
+      3507790
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0255",
+    "size": 4,
+    "transaction_ids": [
+      3492283,
+      3492642,
+      3494022,
+      3494707
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0256",
+    "size": 4,
+    "transaction_ids": [
+      3492285,
+      3499539,
+      3504777,
+      3507678
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0258",
+    "size": 4,
+    "transaction_ids": [
+      3492328,
+      3492353,
+      3494584,
+      3504033
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0261",
+    "size": 4,
+    "transaction_ids": [
+      3492378,
+      3498658,
+      3499071,
+      3507694
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0265",
+    "size": 4,
+    "transaction_ids": [
+      3492443,
+      3492685,
+      3500026,
+      3505414
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0269",
+    "size": 4,
+    "transaction_ids": [
+      3492556,
+      3492578,
+      3495863,
+      3495869
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0285",
+    "size": 4,
+    "transaction_ids": [
+      3492897,
+      3496274,
+      3501881,
+      3503937
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0291",
+    "size": 4,
+    "transaction_ids": [
+      3493039,
+      3493047,
+      3498800,
+      3501062
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0293",
+    "size": 4,
+    "transaction_ids": [
+      3493052,
+      3496905,
+      3504969,
+      3505231
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0297",
+    "size": 4,
+    "transaction_ids": [
+      3493235,
+      3499072,
+      3504112,
+      3506826
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0299",
+    "size": 4,
+    "transaction_ids": [
+      3493252,
+      3493292,
+      3493369,
+      3496619
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0306",
+    "size": 4,
+    "transaction_ids": [
+      3493544,
+      3498979,
+      3498982,
+      3499065
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0307",
+    "size": 4,
+    "transaction_ids": [
+      3493602,
+      3495918,
+      3501463,
+      3505063
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0312",
+    "size": 4,
+    "transaction_ids": [
+      3493688,
+      3504078,
+      3505468,
+      3508562
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0313",
+    "size": 4,
+    "transaction_ids": [
+      3493699,
+      3499441,
+      3508045,
+      3508206
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0330",
+    "size": 4,
+    "transaction_ids": [
+      3494077,
+      3497182,
+      3497278,
+      3501928
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0333",
+    "size": 4,
+    "transaction_ids": [
+      3494182,
+      3505130,
+      3505174,
+      3505180
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0340",
+    "size": 4,
+    "transaction_ids": [
+      3494326,
+      3498878,
+      3503218,
+      3505093
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0348",
+    "size": 4,
+    "transaction_ids": [
+      3494539,
+      3494587,
+      3495319,
+      3502302
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0350",
+    "size": 4,
+    "transaction_ids": [
+      3494553,
+      3495635,
+      3498406,
+      3507495
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0353",
+    "size": 4,
+    "transaction_ids": [
+      3494581,
+      3508418,
+      3508524,
+      3508640
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0358",
+    "size": 4,
+    "transaction_ids": [
+      3494642,
+      3494671,
+      3498746,
+      3508467
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0362",
+    "size": 4,
+    "transaction_ids": [
+      3494694,
+      3496690,
+      3500292,
+      3504954
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0365",
+    "size": 4,
+    "transaction_ids": [
+      3494733,
+      3494737,
+      3494744,
+      3494749
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0376",
+    "size": 4,
+    "transaction_ids": [
+      3495091,
+      3501424,
+      3503738,
+      3506556
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0384",
+    "size": 4,
+    "transaction_ids": [
+      3495372,
+      3497588,
+      3502055,
+      3506263
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0387",
+    "size": 4,
+    "transaction_ids": [
+      3495552,
+      3500713,
+      3505115,
+      3505919
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0389",
+    "size": 4,
+    "transaction_ids": [
+      3495585,
+      3495587,
+      3502208,
+      3505670
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0390",
+    "size": 4,
+    "transaction_ids": [
+      3495629,
+      3495634,
+      3496425,
+      3498254
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0392",
+    "size": 4,
+    "transaction_ids": [
+      3495690,
+      3495819,
+      3495822,
+      3495827
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0395",
+    "size": 4,
+    "transaction_ids": [
+      3495760,
+      3495772,
+      3503257,
+      3504462
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0400",
+    "size": 4,
+    "transaction_ids": [
+      3495974,
+      3495976,
+      3495978,
+      3497387
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0403",
+    "size": 4,
+    "transaction_ids": [
+      3496062,
+      3496063,
+      3496064,
+      3496070
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0407",
+    "size": 4,
+    "transaction_ids": [
+      3496129,
+      3502532,
+      3505615,
+      3505621
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0408",
+    "size": 4,
+    "transaction_ids": [
+      3496134,
+      3496138,
+      3496142,
+      3505631
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0425",
+    "size": 4,
+    "transaction_ids": [
+      3496499,
+      3500166,
+      3500167,
+      3500178
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0428",
+    "size": 4,
+    "transaction_ids": [
+      3496537,
+      3496553,
+      3499992,
+      3499997
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0429",
+    "size": 4,
+    "transaction_ids": [
+      3496541,
+      3502221,
+      3502227,
+      3503160
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0431",
+    "size": 4,
+    "transaction_ids": [
+      3496586,
+      3503810,
+      3503816,
+      3503829
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0432",
+    "size": 4,
+    "transaction_ids": [
+      3496653,
+      3502512,
+      3502523,
+      3506050
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0434",
+    "size": 4,
+    "transaction_ids": [
+      3496756,
+      3499170,
+      3507769,
+      3508319
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0436",
+    "size": 4,
+    "transaction_ids": [
+      3496774,
+      3499389,
+      3502348,
+      3502834
+    ],
+    "n_distinct_proxy_uids": 4,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0438",
+    "size": 4,
+    "transaction_ids": [
+      3496856,
+      3507178,
+      3507180,
+      3508894
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0443",
+    "size": 4,
+    "transaction_ids": [
+      3496936,
+      3501908,
+      3502073,
+      3504550
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0445",
+    "size": 4,
+    "transaction_ids": [
+      3497032,
+      3497324,
+      3497343,
+      3497747
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0448",
+    "size": 4,
+    "transaction_ids": [
+      3497134,
+      3502328,
+      3504065,
+      3507032
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0453",
+    "size": 4,
+    "transaction_ids": [
+      3497356,
+      3501651,
+      3501901,
+      3502770
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0457",
+    "size": 4,
+    "transaction_ids": [
+      3497431,
+      3497598,
+      3497601,
+      3506245
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0459",
+    "size": 4,
+    "transaction_ids": [
+      3497537,
+      3500091,
+      3506521,
+      3508678
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0463",
+    "size": 4,
+    "transaction_ids": [
+      3497786,
+      3500580,
+      3500593,
+      3500993
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0472",
+    "size": 4,
+    "transaction_ids": [
+      3498081,
+      3499812,
+      3499813,
+      3506656
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0475",
+    "size": 4,
+    "transaction_ids": [
+      3498149,
+      3502841,
+      3502846,
+      3504537
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0481",
+    "size": 4,
+    "transaction_ids": [
+      3498450,
+      3501925,
+      3502504,
+      3504901
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0484",
+    "size": 4,
+    "transaction_ids": [
+      3498613,
+      3499671,
+      3499673,
+      3501737
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0504",
+    "size": 4,
+    "transaction_ids": [
+      3499693,
+      3499698,
+      3499699,
+      3499700
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0508",
+    "size": 4,
+    "transaction_ids": [
+      3499890,
+      3500070,
+      3500085,
+      3500109
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0518",
+    "size": 4,
+    "transaction_ids": [
+      3500340,
+      3503525,
+      3503567,
+      3503672
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0523",
+    "size": 4,
+    "transaction_ids": [
+      3500697,
+      3505496,
+      3506003,
+      3506014
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0524",
+    "size": 4,
+    "transaction_ids": [
+      3500730,
+      3500757,
+      3500803,
+      3500872
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0539",
+    "size": 4,
+    "transaction_ids": [
+      3501715,
+      3504220,
+      3505451,
+      3506688
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0540",
+    "size": 4,
+    "transaction_ids": [
+      3501806,
+      3505248,
+      3505253,
+      3505296
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0544",
+    "size": 4,
+    "transaction_ids": [
+      3502267,
+      3504541,
+      3506540,
+      3506544
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0545",
+    "size": 4,
+    "transaction_ids": [
+      3502399,
+      3502408,
+      3503553,
+      3506028
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0554",
+    "size": 4,
+    "transaction_ids": [
+      3502878,
+      3502882,
+      3502885,
+      3504154
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0556",
+    "size": 4,
+    "transaction_ids": [
+      3502935,
+      3502937,
+      3502938,
+      3502939
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0558",
+    "size": 4,
+    "transaction_ids": [
+      3502999,
+      3504658,
+      3504688,
+      3505048
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0564",
+    "size": 4,
+    "transaction_ids": [
+      3503334,
+      3503342,
+      3503344,
+      3503346
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0581",
+    "size": 4,
+    "transaction_ids": [
+      3505510,
+      3505511,
+      3505514,
+      3505516
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0582",
+    "size": 4,
+    "transaction_ids": [
+      3505588,
+      3505589,
+      3507286,
+      3507300
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0593",
+    "size": 4,
+    "transaction_ids": [
+      3507467,
+      3507567,
+      3507592,
+      3507622
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0596",
+    "size": 4,
+    "transaction_ids": [
+      3507728,
+      3507729,
+      3507731,
+      3507739
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0599",
+    "size": 4,
+    "transaction_ids": [
+      3508036,
+      3508038,
+      3508039,
+      3508081
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0003",
+    "size": 3,
+    "transaction_ids": [
+      3488970,
+      3489313,
+      3489558
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0005",
+    "size": 3,
+    "transaction_ids": [
+      3488995,
+      3491953,
+      3491975
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0014",
+    "size": 3,
+    "transaction_ids": [
+      3489041,
+      3489129,
+      3489142
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0015",
+    "size": 3,
+    "transaction_ids": [
+      3489044,
+      3489046,
+      3489047
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0032",
+    "size": 3,
+    "transaction_ids": [
+      3489157,
+      3503826,
+      3506865
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0042",
+    "size": 3,
+    "transaction_ids": [
+      3489228,
+      3489241,
+      3489428
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0047",
+    "size": 3,
+    "transaction_ids": [
+      3489272,
+      3489950,
+      3489971
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0048",
+    "size": 3,
+    "transaction_ids": [
+      3489292,
+      3497574,
+      3506122
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0049",
+    "size": 3,
+    "transaction_ids": [
+      3489296,
+      3493438,
+      3496230
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0052",
+    "size": 3,
+    "transaction_ids": [
+      3489333,
+      3496551,
+      3503362
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0054",
+    "size": 3,
+    "transaction_ids": [
+      3489340,
+      3491116,
+      3507595
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0061",
+    "size": 3,
+    "transaction_ids": [
+      3489402,
+      3489424,
+      3489694
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0072",
+    "size": 3,
+    "transaction_ids": [
+      3489561,
+      3489568,
+      3496587
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0073",
+    "size": 3,
+    "transaction_ids": [
+      3489570,
+      3502355,
+      3502674
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0080",
+    "size": 3,
+    "transaction_ids": [
+      3489633,
+      3494120,
+      3508820
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0084",
+    "size": 3,
+    "transaction_ids": [
+      3489662,
+      3490298,
+      3503391
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0085",
+    "size": 3,
+    "transaction_ids": [
+      3489673,
+      3498001,
+      3508131
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0099",
+    "size": 3,
+    "transaction_ids": [
+      3489817,
+      3489920,
+      3495066
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0101",
+    "size": 3,
+    "transaction_ids": [
+      3489826,
+      3490157,
+      3491429
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0103",
+    "size": 3,
+    "transaction_ids": [
+      3489842,
+      3492627,
+      3503113
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0106",
+    "size": 3,
+    "transaction_ids": [
+      3489861,
+      3502341,
+      3503531
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0108",
+    "size": 3,
+    "transaction_ids": [
+      3489879,
+      3493268,
+      3497981
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0110",
+    "size": 3,
+    "transaction_ids": [
+      3489893,
+      3493507,
+      3506393
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0111",
+    "size": 3,
+    "transaction_ids": [
+      3489917,
+      3493769,
+      3502689
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0113",
+    "size": 3,
+    "transaction_ids": [
+      3489939,
+      3500141,
+      3508908
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0114",
+    "size": 3,
+    "transaction_ids": [
+      3489949,
+      3491974,
+      3508496
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0115",
+    "size": 3,
+    "transaction_ids": [
+      3489952,
+      3492292,
+      3492925
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0117",
+    "size": 3,
+    "transaction_ids": [
+      3489967,
+      3496813,
+      3506188
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0128",
+    "size": 3,
+    "transaction_ids": [
+      3490130,
+      3490189,
+      3490677
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0132",
+    "size": 3,
+    "transaction_ids": [
+      3490192,
+      3490199,
+      3490479
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0134",
+    "size": 3,
+    "transaction_ids": [
+      3490245,
+      3492284,
+      3504339
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0137",
+    "size": 3,
+    "transaction_ids": [
+      3490285,
+      3490320,
+      3492282
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0143",
+    "size": 3,
+    "transaction_ids": [
+      3490420,
+      3490542,
+      3490700
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0151",
+    "size": 3,
+    "transaction_ids": [
+      3490532,
+      3495098,
+      3507742
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0153",
+    "size": 3,
+    "transaction_ids": [
+      3490548,
+      3491408,
+      3494517
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0157",
+    "size": 3,
+    "transaction_ids": [
+      3490616,
+      3494597,
+      3502160
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0159",
+    "size": 3,
+    "transaction_ids": [
+      3490642,
+      3492184,
+      3503538
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0160",
+    "size": 3,
+    "transaction_ids": [
+      3490643,
+      3490687,
+      3503365
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0164",
+    "size": 3,
+    "transaction_ids": [
+      3490798,
+      3500505,
+      3503270
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0165",
+    "size": 3,
+    "transaction_ids": [
+      3490829,
+      3492242,
+      3503721
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0174",
+    "size": 3,
+    "transaction_ids": [
+      3490918,
+      3500808,
+      3502103
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0180",
+    "size": 3,
+    "transaction_ids": [
+      3490985,
+      3492567,
+      3505765
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0182",
+    "size": 3,
+    "transaction_ids": [
+      3490989,
+      3503956,
+      3506915
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0183",
+    "size": 3,
+    "transaction_ids": [
+      3491010,
+      3491169,
+      3493564
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0184",
+    "size": 3,
+    "transaction_ids": [
+      3491019,
+      3500443,
+      3502400
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0185",
+    "size": 3,
+    "transaction_ids": [
+      3491030,
+      3504682,
+      3508691
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0189",
+    "size": 3,
+    "transaction_ids": [
+      3491071,
+      3497646,
+      3507279
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0194",
+    "size": 3,
+    "transaction_ids": [
+      3491121,
+      3491142,
+      3491258
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0205",
+    "size": 3,
+    "transaction_ids": [
+      3491289,
+      3507823,
+      3507831
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0206",
+    "size": 3,
+    "transaction_ids": [
+      3491299,
+      3500140,
+      3506388
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0208",
+    "size": 3,
+    "transaction_ids": [
+      3491323,
+      3494072,
+      3494225
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0209",
+    "size": 3,
+    "transaction_ids": [
+      3491337,
+      3497935,
+      3506298
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0210",
+    "size": 3,
+    "transaction_ids": [
+      3491385,
+      3494668,
+      3501002
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0211",
+    "size": 3,
+    "transaction_ids": [
+      3491404,
+      3495853,
+      3500763
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0215",
+    "size": 3,
+    "transaction_ids": [
+      3491448,
+      3491450,
+      3492822
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0220",
+    "size": 3,
+    "transaction_ids": [
+      3491571,
+      3496915,
+      3496940
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0222",
+    "size": 3,
+    "transaction_ids": [
+      3491595,
+      3491601,
+      3491686
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0225",
+    "size": 3,
+    "transaction_ids": [
+      3491631,
+      3493480,
+      3498296
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0228",
+    "size": 3,
+    "transaction_ids": [
+      3491681,
+      3492853,
+      3500064
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0232",
+    "size": 3,
+    "transaction_ids": [
+      3491800,
+      3492202,
+      3494171
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0237",
+    "size": 3,
+    "transaction_ids": [
+      3491879,
+      3496688,
+      3503915
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0239",
+    "size": 3,
+    "transaction_ids": [
+      3491898,
+      3507248,
+      3507269
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0249",
+    "size": 3,
+    "transaction_ids": [
+      3492154,
+      3506108,
+      3507956
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0250",
+    "size": 3,
+    "transaction_ids": [
+      3492159,
+      3497474,
+      3507231
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0251",
+    "size": 3,
+    "transaction_ids": [
+      3492227,
+      3494277,
+      3504444
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0252",
+    "size": 3,
+    "transaction_ids": [
+      3492233,
+      3499008,
+      3507910
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0257",
+    "size": 3,
+    "transaction_ids": [
+      3492287,
+      3492455,
+      3492500
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0262",
+    "size": 3,
+    "transaction_ids": [
+      3492407,
+      3493192,
+      3500113
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0264",
+    "size": 3,
+    "transaction_ids": [
+      3492441,
+      3497677,
+      3503532
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0266",
+    "size": 3,
+    "transaction_ids": [
+      3492504,
+      3505591,
+      3505593
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0270",
+    "size": 3,
+    "transaction_ids": [
+      3492575,
+      3492576,
+      3492582
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0272",
+    "size": 3,
+    "transaction_ids": [
+      3492603,
+      3494375,
+      3494385
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0273",
+    "size": 3,
+    "transaction_ids": [
+      3492608,
+      3495422,
+      3497978
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0274",
+    "size": 3,
+    "transaction_ids": [
+      3492666,
+      3502404,
+      3502807
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0278",
+    "size": 3,
+    "transaction_ids": [
+      3492746,
+      3494809,
+      3498263
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0282",
+    "size": 3,
+    "transaction_ids": [
+      3492846,
+      3493612,
+      3497350
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0286",
+    "size": 3,
+    "transaction_ids": [
+      3492899,
+      3492902,
+      3501165
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0300",
+    "size": 3,
+    "transaction_ids": [
+      3493281,
+      3499340,
+      3505643
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0301",
+    "size": 3,
+    "transaction_ids": [
+      3493381,
+      3493409,
+      3493461
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0302",
+    "size": 3,
+    "transaction_ids": [
+      3493386,
+      3497917,
+      3500028
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0303",
+    "size": 3,
+    "transaction_ids": [
+      3493397,
+      3493718,
+      3495940
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0304",
+    "size": 3,
+    "transaction_ids": [
+      3493432,
+      3493452,
+      3508605
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0309",
+    "size": 3,
+    "transaction_ids": [
+      3493628,
+      3493755,
+      3505852
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0314",
+    "size": 3,
+    "transaction_ids": [
+      3493702,
+      3493733,
+      3493736
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0315",
+    "size": 3,
+    "transaction_ids": [
+      3493762,
+      3493770,
+      3506071
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0317",
+    "size": 3,
+    "transaction_ids": [
+      3493764,
+      3494588,
+      3494593
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0320",
+    "size": 3,
+    "transaction_ids": [
+      3493827,
+      3494023,
+      3494026
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0321",
+    "size": 3,
+    "transaction_ids": [
+      3493845,
+      3493851,
+      3493887
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0326",
+    "size": 3,
+    "transaction_ids": [
+      3494017,
+      3498269,
+      3504968
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0327",
+    "size": 3,
+    "transaction_ids": [
+      3494034,
+      3500004,
+      3505675
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0329",
+    "size": 3,
+    "transaction_ids": [
+      3494075,
+      3497539,
+      3503934
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0331",
+    "size": 3,
+    "transaction_ids": [
+      3494084,
+      3497866,
+      3504153
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0332",
+    "size": 3,
+    "transaction_ids": [
+      3494148,
+      3494228,
+      3494266
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0334",
+    "size": 3,
+    "transaction_ids": [
+      3494189,
+      3499372,
+      3505425
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0335",
+    "size": 3,
+    "transaction_ids": [
+      3494209,
+      3502915,
+      3505634
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0336",
+    "size": 3,
+    "transaction_ids": [
+      3494221,
+      3497775,
+      3507654
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0337",
+    "size": 3,
+    "transaction_ids": [
+      3494257,
+      3494260,
+      3494263
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0339",
+    "size": 3,
+    "transaction_ids": [
+      3494268,
+      3497652,
+      3505249
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0343",
+    "size": 3,
+    "transaction_ids": [
+      3494402,
+      3494403,
+      3494422
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0344",
+    "size": 3,
+    "transaction_ids": [
+      3494465,
+      3506449,
+      3506624
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0345",
+    "size": 3,
+    "transaction_ids": [
+      3494476,
+      3501275,
+      3503165
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0356",
+    "size": 3,
+    "transaction_ids": [
+      3494605,
+      3495146,
+      3495310
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0359",
+    "size": 3,
+    "transaction_ids": [
+      3494655,
+      3494664,
+      3503222
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0366",
+    "size": 3,
+    "transaction_ids": [
+      3494751,
+      3494759,
+      3494766
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0369",
+    "size": 3,
+    "transaction_ids": [
+      3494853,
+      3494867,
+      3496579
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0371",
+    "size": 3,
+    "transaction_ids": [
+      3494895,
+      3495496,
+      3495504
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0375",
+    "size": 3,
+    "transaction_ids": [
+      3494947,
+      3495109,
+      3495168
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0377",
+    "size": 3,
+    "transaction_ids": [
+      3495120,
+      3500295,
+      3500480
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0378",
+    "size": 3,
+    "transaction_ids": [
+      3495176,
+      3502457,
+      3508072
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0379",
+    "size": 3,
+    "transaction_ids": [
+      3495185,
+      3495461,
+      3507117
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0381",
+    "size": 3,
+    "transaction_ids": [
+      3495236,
+      3495595,
+      3508160
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0382",
+    "size": 3,
+    "transaction_ids": [
+      3495266,
+      3500205,
+      3507018
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0383",
+    "size": 3,
+    "transaction_ids": [
+      3495278,
+      3495408,
+      3495473
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0385",
+    "size": 3,
+    "transaction_ids": [
+      3495460,
+      3501857,
+      3505850
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0388",
+    "size": 3,
+    "transaction_ids": [
+      3495569,
+      3495582,
+      3508735
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0394",
+    "size": 3,
+    "transaction_ids": [
+      3495754,
+      3504305,
+      3505161
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0396",
+    "size": 3,
+    "transaction_ids": [
+      3495801,
+      3495804,
+      3495810
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0397",
+    "size": 3,
+    "transaction_ids": [
+      3495841,
+      3502752,
+      3506722
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0398",
+    "size": 3,
+    "transaction_ids": [
+      3495860,
+      3496576,
+      3499003
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0401",
+    "size": 3,
+    "transaction_ids": [
+      3495990,
+      3502672,
+      3507319
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0405",
+    "size": 3,
+    "transaction_ids": [
+      3496093,
+      3503010,
+      3505530
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0409",
+    "size": 3,
+    "transaction_ids": [
+      3496140,
+      3499062,
+      3503693
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0411",
+    "size": 3,
+    "transaction_ids": [
+      3496158,
+      3496159,
+      3496168
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0412",
+    "size": 3,
+    "transaction_ids": [
+      3496209,
+      3497970,
+      3497985
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0413",
+    "size": 3,
+    "transaction_ids": [
+      3496232,
+      3497897,
+      3502379
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0414",
+    "size": 3,
+    "transaction_ids": [
+      3496267,
+      3497070,
+      3497447
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0415",
+    "size": 3,
+    "transaction_ids": [
+      3496268,
+      3503404,
+      3507352
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0416",
+    "size": 3,
+    "transaction_ids": [
+      3496270,
+      3497566,
+      3497650
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0419",
+    "size": 3,
+    "transaction_ids": [
+      3496362,
+      3503074,
+      3507139
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0420",
+    "size": 3,
+    "transaction_ids": [
+      3496363,
+      3505570,
+      3507767
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0421",
+    "size": 3,
+    "transaction_ids": [
+      3496404,
+      3497095,
+      3501506
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0422",
+    "size": 3,
+    "transaction_ids": [
+      3496418,
+      3501435,
+      3502238
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0424",
+    "size": 3,
+    "transaction_ids": [
+      3496484,
+      3496701,
+      3504504
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0426",
+    "size": 3,
+    "transaction_ids": [
+      3496520,
+      3496787,
+      3500115
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0430",
+    "size": 3,
+    "transaction_ids": [
+      3496556,
+      3497766,
+      3502306
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0433",
+    "size": 3,
+    "transaction_ids": [
+      3496671,
+      3497022,
+      3500270
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0435",
+    "size": 3,
+    "transaction_ids": [
+      3496768,
+      3496992,
+      3498964
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0439",
+    "size": 3,
+    "transaction_ids": [
+      3496862,
+      3501477,
+      3502149
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0446",
+    "size": 3,
+    "transaction_ids": [
+      3497062,
+      3499738,
+      3503137
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0447",
+    "size": 3,
+    "transaction_ids": [
+      3497123,
+      3499371,
+      3501499
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0449",
+    "size": 3,
+    "transaction_ids": [
+      3497218,
+      3504403,
+      3507380
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0454",
+    "size": 3,
+    "transaction_ids": [
+      3497364,
+      3500239,
+      3501457
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0455",
+    "size": 3,
+    "transaction_ids": [
+      3497398,
+      3502094,
+      3502099
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0460",
+    "size": 3,
+    "transaction_ids": [
+      3497590,
+      3497591,
+      3508066
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0461",
+    "size": 3,
+    "transaction_ids": [
+      3497618,
+      3505595,
+      3506914
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0462",
+    "size": 3,
+    "transaction_ids": [
+      3497694,
+      3501645,
+      3503260
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0464",
+    "size": 3,
+    "transaction_ids": [
+      3497788,
+      3505770,
+      3508470
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0468",
+    "size": 3,
+    "transaction_ids": [
+      3497997,
+      3501792,
+      3501911
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0470",
+    "size": 3,
+    "transaction_ids": [
+      3498046,
+      3499891,
+      3501114
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0473",
+    "size": 3,
+    "transaction_ids": [
+      3498117,
+      3503899,
+      3505517
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0474",
+    "size": 3,
+    "transaction_ids": [
+      3498125,
+      3500906,
+      3503840
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0476",
+    "size": 3,
+    "transaction_ids": [
+      3498235,
+      3498255,
+      3498275
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0477",
+    "size": 3,
+    "transaction_ids": [
+      3498239,
+      3499755,
+      3503413
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0479",
+    "size": 3,
+    "transaction_ids": [
+      3498384,
+      3508023,
+      3508169
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0480",
+    "size": 3,
+    "transaction_ids": [
+      3498440,
+      3502992,
+      3508758
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0482",
+    "size": 3,
+    "transaction_ids": [
+      3498519,
+      3500725,
+      3501608
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0483",
+    "size": 3,
+    "transaction_ids": [
+      3498538,
+      3504345,
+      3508736
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0485",
+    "size": 3,
+    "transaction_ids": [
+      3498705,
+      3498726,
+      3498760
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0486",
+    "size": 3,
+    "transaction_ids": [
+      3498782,
+      3502669,
+      3506201
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0487",
+    "size": 3,
+    "transaction_ids": [
+      3498899,
+      3498910,
+      3499180
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0488",
+    "size": 3,
+    "transaction_ids": [
+      3498932,
+      3501307,
+      3501850
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0489",
+    "size": 3,
+    "transaction_ids": [
+      3499032,
+      3504546,
+      3506110
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0490",
+    "size": 3,
+    "transaction_ids": [
+      3499039,
+      3500012,
+      3506633
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0491",
+    "size": 3,
+    "transaction_ids": [
+      3499150,
+      3499178,
+      3506154
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0492",
+    "size": 3,
+    "transaction_ids": [
+      3499196,
+      3499301,
+      3499901
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0493",
+    "size": 3,
+    "transaction_ids": [
+      3499197,
+      3503839,
+      3505268
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0494",
+    "size": 3,
+    "transaction_ids": [
+      3499227,
+      3499473,
+      3503957
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0500",
+    "size": 3,
+    "transaction_ids": [
+      3499422,
+      3499523,
+      3499553
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0502",
+    "size": 3,
+    "transaction_ids": [
+      3499490,
+      3499495,
+      3499519
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0503",
+    "size": 3,
+    "transaction_ids": [
+      3499582,
+      3499585,
+      3507668
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0505",
+    "size": 3,
+    "transaction_ids": [
+      3499725,
+      3503175,
+      3503177
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0506",
+    "size": 3,
+    "transaction_ids": [
+      3499777,
+      3503142,
+      3504925
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0507",
+    "size": 3,
+    "transaction_ids": [
+      3499803,
+      3503275,
+      3507972
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0509",
+    "size": 3,
+    "transaction_ids": [
+      3499896,
+      3499898,
+      3500114
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0510",
+    "size": 3,
+    "transaction_ids": [
+      3500009,
+      3502778,
+      3508942
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0513",
+    "size": 3,
+    "transaction_ids": [
+      3500074,
+      3501516,
+      3508397
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0515",
+    "size": 3,
+    "transaction_ids": [
+      3500128,
+      3500458,
+      3500876
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0516",
+    "size": 3,
+    "transaction_ids": [
+      3500177,
+      3500259,
+      3505245
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0519",
+    "size": 3,
+    "transaction_ids": [
+      3500355,
+      3503698,
+      3506319
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0520",
+    "size": 3,
+    "transaction_ids": [
+      3500358,
+      3502329,
+      3502383
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0522",
+    "size": 3,
+    "transaction_ids": [
+      3500632,
+      3500638,
+      3500950
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0526",
+    "size": 3,
+    "transaction_ids": [
+      3500847,
+      3508553,
+      3508596
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0528",
+    "size": 3,
+    "transaction_ids": [
+      3501115,
+      3501318,
+      3503236
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0530",
+    "size": 3,
+    "transaction_ids": [
+      3501210,
+      3506226,
+      3508669
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0531",
+    "size": 3,
+    "transaction_ids": [
+      3501365,
+      3501782,
+      3501892
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0532",
+    "size": 3,
+    "transaction_ids": [
+      3501412,
+      3503038,
+      3506919
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0533",
+    "size": 3,
+    "transaction_ids": [
+      3501414,
+      3505416,
+      3506934
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0534",
+    "size": 3,
+    "transaction_ids": [
+      3501419,
+      3501847,
+      3506896
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0535",
+    "size": 3,
+    "transaction_ids": [
+      3501458,
+      3504501,
+      3506642
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0536",
+    "size": 3,
+    "transaction_ids": [
+      3501588,
+      3502960,
+      3505188
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0537",
+    "size": 3,
+    "transaction_ids": [
+      3501590,
+      3501593,
+      3501748
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0538",
+    "size": 3,
+    "transaction_ids": [
+      3501674,
+      3503972,
+      3508214
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0541",
+    "size": 3,
+    "transaction_ids": [
+      3501814,
+      3501826,
+      3501835
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0542",
+    "size": 3,
+    "transaction_ids": [
+      3501964,
+      3502272,
+      3504224
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0546",
+    "size": 3,
+    "transaction_ids": [
+      3502458,
+      3503169,
+      3504202
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0547",
+    "size": 3,
+    "transaction_ids": [
+      3502488,
+      3502506,
+      3503569
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0548",
+    "size": 3,
+    "transaction_ids": [
+      3502510,
+      3502563,
+      3503110
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0549",
+    "size": 3,
+    "transaction_ids": [
+      3502534,
+      3502542,
+      3502559
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0550",
+    "size": 3,
+    "transaction_ids": [
+      3502537,
+      3506545,
+      3506651
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0551",
+    "size": 3,
+    "transaction_ids": [
+      3502539,
+      3504977,
+      3506788
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0552",
+    "size": 3,
+    "transaction_ids": [
+      3502608,
+      3504718,
+      3507218
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0553",
+    "size": 3,
+    "transaction_ids": [
+      3502795,
+      3502798,
+      3506066
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0555",
+    "size": 3,
+    "transaction_ids": [
+      3502898,
+      3504069,
+      3506672
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0561",
+    "size": 3,
+    "transaction_ids": [
+      3503152,
+      3504057,
+      3504076
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0563",
+    "size": 3,
+    "transaction_ids": [
+      3503272,
+      3508556,
+      3508576
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0565",
+    "size": 3,
+    "transaction_ids": [
+      3503364,
+      3506181,
+      3508209
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0566",
+    "size": 3,
+    "transaction_ids": [
+      3503910,
+      3506638,
+      3507811
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0567",
+    "size": 3,
+    "transaction_ids": [
+      3504180,
+      3507849,
+      3508950
+    ],
+    "n_distinct_proxy_uids": 3,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0568",
+    "size": 3,
+    "transaction_ids": [
+      3504496,
+      3504497,
+      3506088
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0569",
+    "size": 3,
+    "transaction_ids": [
+      3504533,
+      3505312,
+      3505323
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0570",
+    "size": 3,
+    "transaction_ids": [
+      3504542,
+      3504543,
+      3504972
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0571",
+    "size": 3,
+    "transaction_ids": [
+      3504616,
+      3504620,
+      3505811
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0573",
+    "size": 3,
+    "transaction_ids": [
+      3504792,
+      3504809,
+      3504814
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0574",
+    "size": 3,
+    "transaction_ids": [
+      3504881,
+      3504884,
+      3504890
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0575",
+    "size": 3,
+    "transaction_ids": [
+      3504886,
+      3504892,
+      3504902
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0576",
+    "size": 3,
+    "transaction_ids": [
+      3505077,
+      3505109,
+      3505114
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0583",
+    "size": 3,
+    "transaction_ids": [
+      3506118,
+      3507944,
+      3507955
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0585",
+    "size": 3,
+    "transaction_ids": [
+      3506165,
+      3506317,
+      3506338
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0587",
+    "size": 3,
+    "transaction_ids": [
+      3506699,
+      3506971,
+      3506989
+    ],
+    "n_distinct_proxy_uids": 2,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0589",
+    "size": 3,
+    "transaction_ids": [
+      3507028,
+      3507444,
+      3507460
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0590",
+    "size": 3,
+    "transaction_ids": [
+      3507156,
+      3507160,
+      3507203
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0591",
+    "size": 3,
+    "transaction_ids": [
+      3507320,
+      3507323,
+      3507325
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0592",
+    "size": 3,
+    "transaction_ids": [
+      3507365,
+      3507399,
+      3507405
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0594",
+    "size": 3,
+    "transaction_ids": [
+      3507485,
+      3507490,
+      3508144
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0595",
+    "size": 3,
+    "transaction_ids": [
+      3507528,
+      3507539,
+      3507544
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0597",
+    "size": 3,
+    "transaction_ids": [
+      3507747,
+      3507753,
+      3507754
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0598",
+    "size": 3,
+    "transaction_ids": [
+      3507819,
+      3507827,
+      3507830
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0600",
+    "size": 3,
+    "transaction_ids": [
+      3508348,
+      3508353,
+      3508354
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  },
+  {
+    "ring_id": "RING-0601",
+    "size": 3,
+    "transaction_ids": [
+      3508889,
+      3508938,
+      3508947
+    ],
+    "n_distinct_proxy_uids": 1,
+    "known_fraud_count": 0,
+    "known_fraud_rate": 0.0
+  }
+]

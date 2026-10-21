@@ -1,0 +1,24 @@
+VEHICLE INSURANCE CLAIM RED FLAGS (NAIC-STYLE GUIDANCE SUMMARY)
+
+Common red flags identified in vehicle insurance fraud investigations
+include:
+
+- Claims filed shortly after a policy's inception or a coverage increase.
+- Claimant is difficult to reach, or insists on an unusually fast
+  settlement or cash payment.
+- Police report was not filed for an incident where one would normally
+  be expected (e.g. a collision with significant vehicle damage).
+- No witnesses are available despite the claimed incident occurring in
+  a populated area.
+- The claimed damage is inconsistent with the described mechanism of
+  loss (e.g. damage pattern does not match the described collision).
+- Prior claims history shows an unusually high number of claims over a
+  short period, particularly across different insurers.
+- The repair shop or medical provider named is one that appears
+  disproportionately often across unrelated claims.
+
+These are indicators for further review, consistent with the industry's
+general guidance on fraud indicators (e.g. materials published by the
+National Insurance Crime Bureau and state insurance regulators). This
+summary is for demonstration purposes; consult current official guidance
+for actual investigative use.

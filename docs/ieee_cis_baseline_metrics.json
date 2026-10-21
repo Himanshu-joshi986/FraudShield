@@ -1,0 +1,107 @@
+{
+  "logistic_regression": {
+    "val": {
+      "precision": 0.103,
+      "recall_fraud_class": 0.7518,
+      "f1": 0.1811,
+      "roc_auc": 0.8304,
+      "pr_auc": 0.2644,
+      "false_positive_rate": 0.2329,
+      "confusion_matrix": {
+        "tn": 65617,
+        "fp": 19922,
+        "fn": 755,
+        "tp": 2287
+      },
+      "n_samples": 88581,
+      "n_positive": 3042
+    },
+    "test": {
+      "precision": 0.092,
+      "recall_fraud_class": 0.7512,
+      "f1": 0.1638,
+      "roc_auc": 0.8039,
+      "pr_auc": 0.1535,
+      "false_positive_rate": 0.2675,
+      "confusion_matrix": {
+        "tn": 62627,
+        "fp": 22871,
+        "fn": 767,
+        "tp": 2316
+      },
+      "n_samples": 88581,
+      "n_positive": 3083
+    },
+    "train_time_sec": 15.7
+  },
+  "random_forest": {
+    "val": {
+      "precision": 0.2536,
+      "recall_fraud_class": 0.6187,
+      "f1": 0.3597,
+      "roc_auc": 0.8932,
+      "pr_auc": 0.4635,
+      "false_positive_rate": 0.0648,
+      "confusion_matrix": {
+        "tn": 79999,
+        "fp": 5540,
+        "fn": 1160,
+        "tp": 1882
+      },
+      "n_samples": 88581,
+      "n_positive": 3042
+    },
+    "test": {
+      "precision": 0.1981,
+      "recall_fraud_class": 0.6095,
+      "f1": 0.299,
+      "roc_auc": 0.8753,
+      "pr_auc": 0.4536,
+      "false_positive_rate": 0.089,
+      "confusion_matrix": {
+        "tn": 77891,
+        "fp": 7607,
+        "fn": 1204,
+        "tp": 1879
+      },
+      "n_samples": 88581,
+      "n_positive": 3083
+    },
+    "train_time_sec": 68.3
+  },
+  "xgboost": {
+    "val": {
+      "precision": 0.2256,
+      "recall_fraud_class": 0.7012,
+      "f1": 0.3414,
+      "roc_auc": 0.9053,
+      "pr_auc": 0.5028,
+      "false_positive_rate": 0.0856,
+      "confusion_matrix": {
+        "tn": 78219,
+        "fp": 7320,
+        "fn": 909,
+        "tp": 2133
+      },
+      "n_samples": 88581,
+      "n_positive": 3042
+    },
+    "test": {
+      "precision": 0.2045,
+      "recall_fraud_class": 0.6837,
+      "f1": 0.3148,
+      "roc_auc": 0.8856,
+      "pr_auc": 0.4713,
+      "false_positive_rate": 0.0959,
+      "confusion_matrix": {
+        "tn": 77297,
+        "fp": 8201,
+        "fn": 975,
+        "tp": 2108
+      },
+      "n_samples": 88581,
+      "n_positive": 3083
+    },
+    "train_time_sec": 11.2
+  }
+}

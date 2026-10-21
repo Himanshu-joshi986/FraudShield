@@ -1,0 +1,359 @@
+{
+  "logistic_regression": {
+    "global_importance_sample_size": 300,
+    "global_feature_importance": [
+      {
+        "feature": "C14",
+        "mean_abs_shap": 1.3096
+      },
+      {
+        "feature": "C9",
+        "mean_abs_shap": 0.6517
+      },
+      {
+        "feature": "D2",
+        "mean_abs_shap": 0.5813
+      },
+      {
+        "feature": "C11",
+        "mean_abs_shap": 0.4444
+      },
+      {
+        "feature": "M5_missing",
+        "mean_abs_shap": 0.3882
+      },
+      {
+        "feature": "D1",
+        "mean_abs_shap": 0.3357
+      },
+      {
+        "feature": "TransactionAmt_log",
+        "mean_abs_shap": 0.3125
+      },
+      {
+        "feature": "has_identity",
+        "mean_abs_shap": 0.2821
+      },
+      {
+        "feature": "M5_T",
+        "mean_abs_shap": 0.2818
+      },
+      {
+        "feature": "ProductCD_W",
+        "mean_abs_shap": 0.2418
+      }
+    ],
+    "example_confirmed_fraud_case": {
+      "transaction_id": 3560354,
+      "model": "logistic_regression",
+      "predicted_fraud_probability": 0.8354,
+      "top_contributions": [
+        {
+          "feature": "ProductCD_C",
+          "shap_value": 1.2676,
+          "feature_value": 1.0,
+          "direction": "increases_risk"
+        },
+        {
+          "feature": "C14",
+          "shap_value": 0.696,
+          "feature_value": 1.0,
+          "direction": "increases_risk"
+        },
+        {
+          "feature": "has_identity",
+          "shap_value": 0.6913,
+          "feature_value": 1.0,
+          "direction": "increases_risk"
+        },
+        {
+          "feature": "ProductCD_W",
+          "shap_value": 0.5889,
+          "feature_value": 0.0,
+          "direction": "increases_risk"
+        },
+        {
+          "feature": "C9",
+          "shap_value": -0.3824,
+          "feature_value": 0.0,
+          "direction": "decreases_risk"
+        }
+      ]
+    },
+    "example_confirmed_legitimate_case": {
+      "transaction_id": 3523498,
+      "model": "logistic_regression",
+      "predicted_fraud_probability": 0.1731,
+      "top_contributions": [
+        {
+          "feature": "C14",
+          "shap_value": 0.696,
+          "feature_value": 1.0,
+          "direction": "increases_risk"
+        },
+        {
+          "feature": "M5_missing",
+          "shap_value": 0.4145,
+          "feature_value": 0.0,
+          "direction": "increases_risk"
+        },
+        {
+          "feature": "M5_F",
+          "shap_value": 0.2802,
+          "feature_value": 1.0,
+          "direction": "increases_risk"
+        },
+        {
+          "feature": "C9",
+          "shap_value": -0.2759,
+          "feature_value": 1.0,
+          "direction": "decreases_risk"
+        },
+        {
+          "feature": "D1",
+          "shap_value": -0.2681,
+          "feature_value": 0.0,
+          "direction": "decreases_risk"
+        }
+      ]
+    }
+  },
+  "random_forest": {
+    "global_importance_sample_size": 300,
+    "global_feature_importance": [
+      {
+        "feature": "C5",
+        "mean_abs_shap": 0.0419
+      },
+      {
+        "feature": "D3",
+        "mean_abs_shap": 0.0312
+      },
+      {
+        "feature": "C13",
+        "mean_abs_shap": 0.0307
+      },
+      {
+        "feature": "C14",
+        "mean_abs_shap": 0.0266
+      },
+      {
+        "feature": "D2",
+        "mean_abs_shap": 0.023
+      },
+      {
+        "feature": "C1",
+        "mean_abs_shap": 0.0222
+      },
+      {
+        "feature": "TransactionAmt_log",
+        "mean_abs_shap": 0.0193
+      },
+      {
+        "feature": "D1",
+        "mean_abs_shap": 0.0189
+      },
+      {
+        "feature": "M4_missing",
+        "mean_abs_shap": 0.0178
+      },
+      {
+        "feature": "card6_debit",
+        "mean_abs_shap": 0.0178
+      }
+    ],
+    "example_confirmed_fraud_case": {
+      "transaction_id": 3560354,
+      "model": "random_forest",
+      "predicted_fraud_probability": 0.537,
+      "top_contributions": [
+        {
+          "feature": "ProductCD_C",
+          "shap_value": 0.0519,
+          "feature_value": 1.0,
+          "direction": "increases_risk"
+        },
+        {
+          "feature": "card6_debit",
+          "shap_value": 0.0452,
+          "feature_value": 0.0,
+          "direction": "increases_risk"
+        },
+        {
+          "feature": "C1",
+          "shap_value": -0.0442,
+          "feature_value": 1.0,
+          "direction": "decreases_risk"
+        },
+        {
+          "feature": "C14",
+          "shap_value": -0.0404,
+          "feature_value": 1.0,
+          "direction": "decreases_risk"
+        },
+        {
+          "feature": "card6_credit",
+          "shap_value": 0.0341,
+          "feature_value": 1.0,
+          "direction": "increases_risk"
+        }
+      ]
+    },
+    "example_confirmed_legitimate_case": {
+      "transaction_id": 3523498,
+      "model": "random_forest",
+      "predicted_fraud_probability": 0.1718,
+      "top_contributions": [
+        {
+          "feature": "TransactionAmt_log",
+          "shap_value": -0.0375,
+          "feature_value": 3.912,
+          "direction": "decreases_risk"
+        },
+        {
+          "feature": "D3",
+          "shap_value": -0.033,
+          "feature_value": 8.0,
+          "direction": "decreases_risk"
+        },
+        {
+          "feature": "card6_debit",
+          "shap_value": -0.0251,
+          "feature_value": 1.0,
+          "direction": "decreases_risk"
+        },
+        {
+          "feature": "C5",
+          "shap_value": 0.0226,
+          "feature_value": 0.0,
+          "direction": "increases_risk"
+        },
+        {
+          "feature": "C2",
+          "shap_value": -0.0213,
+          "feature_value": 1.0,
+          "direction": "decreases_risk"
+        }
+      ]
+    }
+  },
+  "xgboost": {
+    "global_importance_sample_size": 300,
+    "global_feature_importance": [
+      {
+        "feature": "C5",
+        "mean_abs_shap": 0.3668
+      },
+      {
+        "feature": "C13",
+        "mean_abs_shap": 0.3182
+      },
+      {
+        "feature": "C1",
+        "mean_abs_shap": 0.3102
+      },
+      {
+        "feature": "C14",
+        "mean_abs_shap": 0.3048
+      },
+      {
+        "feature": "card1_freq",
+        "mean_abs_shap": 0.27
+      },
+      {
+        "feature": "TransactionAmt_log",
+        "mean_abs_shap": 0.2669
+      },
+      {
+        "feature": "D3",
+        "mean_abs_shap": 0.2055
+      },
+      {
+        "feature": "D2",
+        "mean_abs_shap": 0.1999
+      },
+      {
+        "feature": "D4",
+        "mean_abs_shap": 0.1704
+      },
+      {
+        "feature": "D15",
+        "mean_abs_shap": 0.153
+      }
+    ],
+    "example_confirmed_fraud_case": {
+      "transaction_id": 3560354,
+      "model": "xgboost",
+      "predicted_fraud_probability": 0.5897,
+      "top_contributions": [
+        {
+          "feature": "C1",
+          "shap_value": -0.3974,
+          "feature_value": 1.0,
+          "direction": "decreases_risk"
+        },
+        {
+          "feature": "card6_debit",
+          "shap_value": 0.3964,
+          "feature_value": 0.0,
+          "direction": "increases_risk"
+        },
+        {
+          "feature": "M4_missing",
+          "shap_value": 0.2279,
+          "feature_value": 0.0,
+          "direction": "increases_risk"
+        },
+        {
+          "feature": "C13",
+          "shap_value": 0.2117,
+          "feature_value": 1.0,
+          "direction": "increases_risk"
+        },
+        {
+          "feature": "C5",
+          "shap_value": 0.2086,
+          "feature_value": 0.0,
+          "direction": "increases_risk"
+        }
+      ]
+    },
+    "example_confirmed_legitimate_case": {
+      "transaction_id": 3523498,
+      "model": "xgboost",
+      "predicted_fraud_probability": 0.0867,
+      "top_contributions": [
+        {
+          "feature": "TransactionAmt_log",
+          "shap_value": -0.3339,
+          "feature_value": 3.912,
+          "direction": "decreases_risk"
+        },
+        {
+          "feature": "C1",
+          "shap_value": -0.2757,
+          "feature_value": 1.0,
+          "direction": "decreases_risk"
+        },
+        {
+          "feature": "C13",
+          "shap_value": 0.2005,
+          "feature_value": 1.0,
+          "direction": "increases_risk"
+        },
+        {
+          "feature": "C2",
+          "shap_value": -0.1971,
+          "feature_value": 1.0,
+          "direction": "decreases_risk"
+        },
+        {
+          "feature": "C5",
+          "shap_value": 0.1802,
+          "feature_value": 0.0,
+          "direction": "increases_risk"
+        }
+      ]
+    }
+  }
+}

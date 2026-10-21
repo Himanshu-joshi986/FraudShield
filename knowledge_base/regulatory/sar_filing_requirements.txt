@@ -1,0 +1,26 @@
+SUSPICIOUS ACTIVITY REPORT (SAR) FILING REQUIREMENTS
+
+A Suspicious Activity Report must be filed when a financial institution or
+insurer detects a transaction or claim involving $5,000 or more that the
+institution knows, suspects, or has reason to suspect:
+
+1. Involves funds derived from illegal activity, or is intended to hide
+   or disguise funds derived from illegal activity.
+2. Is designed to evade reporting or recordkeeping requirements.
+3. Has no business or apparent lawful purpose, and the institution knows
+   of no reasonable explanation after examining the available facts.
+4. Involves the use of the institution to facilitate criminal activity,
+   including insurance fraud rings, staged claims, or claim splitting.
+
+SARs must be filed within 30 calendar days of the initial detection of
+facts constituting a basis for filing. An additional 30 days is permitted
+to identify a suspect. In no case may filing be delayed more than 60 days.
+
+Claim-splitting (structuring a single fraudulent claim into multiple
+smaller claims to stay under reporting thresholds) is itself a red flag
+requiring escalation regardless of the individual claim amounts.
+
+This document is a general summary for demonstration purposes and does
+not constitute legal advice. Actual regulatory requirements vary by
+jurisdiction and should be verified against the current text of
+applicable law before any real filing decision.

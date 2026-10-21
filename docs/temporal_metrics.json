@@ -1,0 +1,35 @@
+{
+  "sample_size": 30000,
+  "thresholds": {
+    "velocity_window_seconds": 3600,
+    "high_velocity_count": 5,
+    "rapid_refile_seconds": 300,
+    "amount_spike_zscore": 3.0
+  },
+  "splits": {
+    "train": {
+      "rows": 30000,
+      "roc_auc": 0.5544,
+      "pr_auc": 0.0347,
+      "pct_with_any_flag": 26.31,
+      "fraud_rate_among_flagged": 0.0393,
+      "fraud_rate_among_unflagged": 0.0249
+    },
+    "val": {
+      "rows": 30000,
+      "roc_auc": 0.6168,
+      "pr_auc": 0.0559,
+      "pct_with_any_flag": 24.74,
+      "fraud_rate_among_flagged": 0.0525,
+      "fraud_rate_among_unflagged": 0.0286
+    },
+    "test": {
+      "rows": 30000,
+      "roc_auc": 0.5734,
+      "pr_auc": 0.0394,
+      "pct_with_any_flag": 23.59,
+      "fraud_rate_among_flagged": 0.0411,
+      "fraud_rate_among_unflagged": 0.0257
+    }
+  }
+}

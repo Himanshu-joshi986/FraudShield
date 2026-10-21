@@ -1,0 +1,74 @@
+{
+  "node_idx": 16493,
+  "top_contributing_edges": [
+    {
+      "source": 16495,
+      "target": 16493,
+      "importance": 0.9278,
+      "source_transaction_id": "3505454",
+      "target_transaction_id": "3505452"
+    },
+    {
+      "source": 16493,
+      "target": 16495,
+      "importance": 0.0724,
+      "source_transaction_id": "3505452",
+      "target_transaction_id": "3505454"
+    }
+  ],
+  "top_contributing_features": [
+    {
+      "feature_index": 17,
+      "importance": 0.8279
+    },
+    {
+      "feature_index": 25,
+      "importance": 0.1672
+    },
+    {
+      "feature_index": 12,
+      "importance": 0.1652
+    },
+    {
+      "feature_index": 20,
+      "importance": 0.1629
+    },
+    {
+      "feature_index": 23,
+      "importance": 0.1577
+    }
+  ],
+  "generated_by": "GNNExplainer (torch_geometric.explain)",
+  "transaction_id": "3505452",
+  "prediction_probability": 1.0,
+  "ground_truth_is_fraud": 1,
+  "explainer_epochs": 30,
+  "feature_names": [
+    "TransactionAmt_log",
+    "txn_hour",
+    "txn_dayofweek",
+    "card1_freq",
+    "addr1_freq",
+    "has_identity",
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "C7",
+    "C8",
+    "C9",
+    "C10",
+    "C11",
+    "C12",
+    "C13",
+    "C14",
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D10",
+    "D15"
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "n_documents": 9,
+  "ocr_backend": "tesseract",
+  "ocr_failures": 0,
+  "mean_ocr_confidence": 0.9492,
+  "invoice_number_extraction_accuracy": 1.0,
+  "amount_mismatch_detection": {
+    "tp": 2,
+    "fp": 0,
+    "fn": 0,
+    "tn": 7,
+    "precision": 1.0,
+    "recall": 1.0
+  },
+  "duplicate_detection_strict_labeling": {
+    "definition": "Ground truth marks ONLY the 2nd+ occurrence of an invoice as a duplicate; the first-filed case is labeled 'not a duplicate'.",
+    "tp": 5,
+    "fp": 2,
+    "fn": 0,
+    "tn": 2,
+    "precision": 0.7143,
+    "recall": 1.0
+  },
+  "duplicate_detection_implicated_labeling": {
+    "definition": "A case is implicated if its invoice number appears on >1 case at all, INCLUDING the first-filed one. This is the operationally correct framing: an investigator reviewing the first claim in a duplicate ring must be told it is implicated.",
+    "tp": 7,
+    "fp": 0,
+    "fn": 0,
+    "tn": 2,
+    "precision": 1.0,
+    "recall": 1.0
+  },
+  "note_on_the_two_framings": "Under strict labeling the detector shows 2 'false positives' -- both are the first-filed case in a duplicate group. Inspection confirmed these are a ground-truth labeling artifact, not a detector error: the detector correctly identified that those invoices are shared across multiple cases. Both framings are reported rather than silently choosing the flattering one.",
+  "duplicate_invoice_groups": {
+    "INV-81793": [
+      "FS-SYN-00018",
+      "FS-SYN-00019",
+      "FS-SYN-00020"
+    ],
+    "INV-97584": [
+      "FS-SYN-00027",
+      "FS-SYN-00028",
+      "FS-SYN-00029",
+      "FS-SYN-00030"
+    ]
+  },
+  "per_document": [
+    {
+      "case_id": "FS-SYN-00017",
+      "scenario_id": "FS-SC-004",
+      "expected_amount_mismatch": true,
+      "detected_amount_mismatch": true,
+      "expected_duplicate": false,
+      "detected_duplicate": false,
+      "ocr_confidence": 0.9503030303030303,
+      "flags": [
+        "claim_amount_mismatch"
+      ],
+      "document_risk": 0.5
+    },
+    {
+      "case_id": "FS-SYN-00018",
+      "scenario_id": "FS-SC-005",
+      "expected_amount_mismatch": false,
+      "detected_amount_mismatch": false,
+      "expected_duplicate": false,
+      "detected_duplicate": true,
+      "ocr_confidence": 0.948125,
+      "flags": [
+        "duplicate_invoice_across_cases"
+      ],
+      "document_risk": 0.4
+    },
+    {
+      "case_id": "FS-SYN-00019",
+      "scenario_id": "FS-SC-005",
+      "expected_amount_mismatch": false,
+      "detected_amount_mismatch": false,
+      "expected_duplicate": true,
+      "detected_duplicate": true,
+      "ocr_confidence": 0.949375,
+      "flags": [
+        "duplicate_invoice_across_cases"
+      ],
+      "document_risk": 0.4
+    },
+    {
+      "case_id": "FS-SYN-00020",
+      "scenario_id": "FS-SC-005",
+      "expected_amount_mismatch": false,
+      "detected_amount_mismatch": false,
+      "expected_duplicate": true,
+      "detected_duplicate": true,
+      "ocr_confidence": 0.9496551724137932,
+      "flags": [
+        "duplicate_invoice_across_cases"
+      ],
+      "document_risk": 0.4
+    },
+    {
+      "case_id": "FS-SYN-00026",
+      "scenario_id": "FS-SC-007",
+      "expected_amount_mismatch": false,
+      "detected_amount_mismatch": false,
+      "expected_duplicate": false,
+      "detected_duplicate": false,
+      "ocr_confidence": 0.9475,
+      "flags": [],
+      "document_risk": 0.0
+    },
+    {
+      "case_id": "FS-SYN-00027",
+      "scenario_id": "FS-SC-008",
+      "expected_amount_mismatch": true,
+      "detected_amount_mismatch": true,
+      "expected_duplicate": false,
+      "detected_duplicate": true,
+      "ocr_confidence": 0.9503125,
+      "flags": [
+        "claim_amount_mismatch",
+        "duplicate_invoice_across_cases"
+      ],
+      "document_risk": 0.9
+    },
+    {
+      "case_id": "FS-SYN-00028",
+      "scenario_id": "FS-SC-008",
+      "expected_amount_mismatch": false,
+      "detected_amount_mismatch": false,
+      "expected_duplicate": true,
+      "detected_duplicate": true,
+      "ocr_confidence": 0.95,
+      "flags": [
+        "duplicate_invoice_across_cases"
+      ],
+      "document_risk": 0.4
+    },
+    {
+      "case_id": "FS-SYN-00029",
+      "scenario_id": "FS-SC-008",
+      "expected_amount_mismatch": false,
+      "detected_amount_mismatch": false,
+      "expected_duplicate": true,
+      "detected_duplicate": true,
+      "ocr_confidence": 0.94875,
+      "flags": [
+        "duplicate_invoice_across_cases"
+      ],
+      "document_risk": 0.4
+    },
+    {
+      "case_id": "FS-SYN-00030",
+      "scenario_id": "FS-SC-008",
+      "expected_amount_mismatch": false,
+      "detected_amount_mismatch": false,
+      "expected_duplicate": true,
+      "detected_duplicate": true,
+      "ocr_confidence": 0.9490625,
+      "flags": [
+        "duplicate_invoice_across_cases"
+      ],
+      "document_risk": 0.4
+    }
+  ],
+  "scope_caveat": "Evaluated on 9 synthetic, machine-rendered documents with known ground truth. Demonstrates the mechanism works on controlled cases. NOT a claim about accuracy on real scanned documents."
+}

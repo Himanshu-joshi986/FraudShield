@@ -1,0 +1,137 @@
+{
+  "architecture": "FraudLSTM (not a Temporal Fusion Transformer)",
+  "device": "cpu",
+  "hyperparameters": {
+    "seq_len": 10,
+    "hidden": 64,
+    "layers": 2,
+    "dropout": 0.3,
+    "epochs": 20,
+    "batch_size": 256,
+    "lr": 0.001,
+    "patience": 5,
+    "seed": 42
+  },
+  "feature_names": [
+    "TransactionAmt_log",
+    "seconds_since_prev",
+    "amt_zscore_vs_own_history",
+    "txns_in_trailing_hour",
+    "is_unusual_hour",
+    "txn_hour"
+  ],
+  "samples": {
+    "train": {
+      "n_samples": 30000,
+      "n_positive": 860
+    },
+    "val": {
+      "n_samples": 30000,
+      "n_positive": 1036
+    },
+    "test": {
+      "n_samples": 30000,
+      "n_positive": 879
+    }
+  },
+  "val": {
+    "precision": 0.0647,
+    "recall_fraud_class": 0.5376,
+    "f1": 0.1155,
+    "roc_auc": 0.6714,
+    "pr_auc": 0.0838,
+    "false_positive_rate": 0.278,
+    "confusion_matrix": {
+      "tn": 20911,
+      "fp": 8053,
+      "fn": 479,
+      "tp": 557
+    },
+    "n_samples": 30000,
+    "n_positive": 1036
+  },
+  "test": {
+    "precision": 0.0484,
+    "recall_fraud_class": 0.4539,
+    "f1": 0.0875,
+    "roc_auc": 0.6162,
+    "pr_auc": 0.0486,
+    "false_positive_rate": 0.2692,
+    "confusion_matrix": {
+      "tn": 21281,
+      "fp": 7840,
+      "fn": 480,
+      "tp": 399
+    },
+    "n_samples": 30000,
+    "n_positive": 879
+  },
+  "train_time_sec": 31.0,
+  "training_history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.691064,
+      "val_pr_auc": 0.0692
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.685481,
+      "val_pr_auc": 0.0719
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.680928,
+      "val_pr_auc": 0.0788
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.679291,
+      "val_pr_auc": 0.0824
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.675087,
+      "val_pr_auc": 0.083
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.670407,
+      "val_pr_auc": 0.0831
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.665976,
+      "val_pr_auc": 0.082
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.663344,
+      "val_pr_auc": 0.0838
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.662571,
+      "val_pr_auc": 0.0813
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.658193,
+      "val_pr_auc": 0.0749
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.658388,
+      "val_pr_auc": 0.0769
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.658462,
+      "val_pr_auc": 0.0737
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.653642,
+      "val_pr_auc": 0.0826
+    }
+  ]
+}
