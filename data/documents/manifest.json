@@ -115,5 +115,45 @@
     "expected_duplicate_of": "INV-97584",
     "data_source": "synthetic",
     "customer_name": "Sofia Garcia"
+  },
+  {
+    "case_id": "C-DOC-101",
+    "scenario_id": "CLASSROOM-DOCUMENT-CHECK",
+    "doc_type": "receipt",
+    "image_path": "data/documents/CLASSROOM_C-DOC-101_INV-6001.png",
+    "claim_amount_on_file": 1840.0,
+    "customer_name": "Maya Chen",
+    "invoice_number": "INV-6001",
+    "data_source": "classroom_case"
+  },
+  {
+    "case_id": "C-DOC-102",
+    "scenario_id": "CLASSROOM-DOCUMENT-CHECK",
+    "doc_type": "receipt",
+    "image_path": "data/documents/CLASSROOM_C-DOC-102_INV-6002.png",
+    "claim_amount_on_file": 2275.5,
+    "customer_name": "Luis Ortega",
+    "invoice_number": "INV-6002",
+    "data_source": "classroom_case"
+  },
+  {
+    "case_id": "C-DOC-103",
+    "scenario_id": "CLASSROOM-DOCUMENT-CHECK",
+    "doc_type": "receipt",
+    "image_path": "data/documents/CLASSROOM_C-DOC-103_INV-7003.png",
+    "claim_amount_on_file": 3190.0,
+    "customer_name": "Priya Shah",
+    "invoice_number": "INV-7003",
+    "data_source": "classroom_case"
+  },
+  {
+    "case_id": "C-DOC-104",
+    "scenario_id": "CLASSROOM-DOCUMENT-CHECK",
+    "doc_type": "receipt",
+    "image_path": "data/documents/CLASSROOM_C-DOC-104_INV-7003.png",
+    "claim_amount_on_file": 1295.75,
+    "customer_name": "Maya Chen",
+    "invoice_number": "INV-7003",
+    "data_source": "classroom_case"
   }
 ]

@@ -32,7 +32,10 @@ from __future__ import annotations
 
 import os
 import shutil
+import threading
+import time
 from abc import ABC, abstractmethod
+from contextlib import contextmanager
 from pathlib import Path
 from typing import Any
 
@@ -178,7 +181,31 @@ class GraphStore(ABC):
 
 
 class KuzuGraphStore(GraphStore):
-    """VERIFIED WORKING -- kuzu 0.11.3, embedded, no server required."""
+    """
+    VERIFIED WORKING -- kuzu 0.11.3, embedded, no server required.
+
+    THE EMBEDDED DATABASE IS A SINGLE-WRITER RESOURCE.
+
+    kuzu takes an EXCLUSIVE lock on its database file, so two things can
+    go wrong:
+
+      1. Two graph handles open at the same time in one process -- the
+         dashboard loads a case's graph alongside its insights and
+         evidence, so this happened for real, and one request died with
+         "IO exception: Could not set lock on file" (a live 500).
+      2. Another process (the test suite, a data-ingest script) wants
+         the same file while this process holds it.
+
+    Both are handled here rather than by holding the database open
+    forever:
+
+      * access is serialized per process by GRAPH_ACCESS_LOCK, so only
+        one handle is ever open at a time;
+      * the file lock is released as soon as the request is done, so
+        other processes are not shut out;
+      * if the lock genuinely cannot be taken (another process holds
+        it), the open is retried briefly instead of failing outright.
+    """
 
     name = "kuzu"
 
@@ -187,8 +214,32 @@ class KuzuGraphStore(GraphStore):
         self.db_path = Path(db_path or os.environ.get("KUZU_DB_PATH") or DEFAULT_KUZU_PATH)
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
         self._kuzu = kuzu
-        self.db = kuzu.Database(str(self.db_path))
-        self.conn = kuzu.Connection(self.db)
+        self._lock = threading.Lock()
+        self.db = None
+        self.conn = None
+        self._open_with_retry()
+
+    def _open_with_retry(self, attempts: int = 10, delay: float = 0.2) -> None:
+        """
+        Open the embedded database, retrying briefly when the file lock
+        is held by another process. Failing fast on a transient lock
+        conflict turns a momentary overlap into a user-visible error --
+        and the embedded database is single-writer, so another process
+        (the test suite, a data-ingest script) legitimately holds it from
+        time to time.
+        """
+        last_error = None
+        for attempt in range(attempts):
+            try:
+                self.db = self._kuzu.Database(str(self.db_path))
+                self.conn = self._kuzu.Connection(self.db)
+                return
+            except Exception as exc:  # pragma: no cover - depends on external lock
+                last_error = exc
+                if "lock" not in str(exc).lower():
+                    raise
+                time.sleep(delay * (attempt + 1))
+        raise last_error
 
     def initialize_schema(self, reset: bool = False):
         if reset:
@@ -239,13 +290,22 @@ class KuzuGraphStore(GraphStore):
         )
 
     def query(self, cypher, params=None):
-        result = self.conn.execute(cypher, params or {})
-        df = result.get_as_df()
-        return df.to_dict("records")
+        # serialized: a single kuzu connection must not run two queries
+        # at the same time.
+        with self._lock:
+            result = self.conn.execute(cypher, params or {})
+            df = result.get_as_df()
+            return df.to_dict("records")
 
     def close(self):
-        self.conn = None
-        self.db = None
+        """Release the embedded database and its file lock."""
+        with self._lock:
+            self.conn = None
+            self.db = None
+
+    def release(self):
+        """Alias of close(), kept for callers that own the database."""
+        self.close()
 
 
 class Neo4jGraphStore(GraphStore):
@@ -308,9 +368,46 @@ class Neo4jGraphStore(GraphStore):
 
 _BACKENDS = {"kuzu": KuzuGraphStore, "neo4j": Neo4jGraphStore}
 
+# Serializes graph access inside this process. The embedded kuzu database
+# is a single-writer resource, so two handles open at the same time fail
+# with "Could not set lock on file" -- which was a live HTTP 500 when
+# the dashboard loaded a case's graph alongside its insights and
+# evidence. One handle at a time, released as soon as the request is
+# done, so other processes are not locked out.
+GRAPH_ACCESS_LOCK = threading.RLock()
+
 
 def get_graph_store(backend: str | None = None, **kwargs) -> GraphStore:
     backend = (backend or os.environ.get("GRAPH_BACKEND") or "kuzu").lower()
     if backend not in _BACKENDS:
         raise ValueError(f"Unknown graph backend '{backend}'. Available: {sorted(_BACKENDS)}")
     return _BACKENDS[backend](**kwargs)
+
+
+@contextmanager
+def graph_session(backend: str | None = None, **kwargs):
+    """
+    A graph store held for the duration of one unit of work, with the
+    embedded database's exclusive lock released again as soon as it is
+    done.
+
+    Use this instead of open/close pairs in request handlers:
+
+        with graph_session() as store:
+            rows = store.query("MATCH ...")
+
+    """
+    with GRAPH_ACCESS_LOCK:
+        store = get_graph_store(backend, **kwargs)
+        try:
+            yield store
+        finally:
+            try:
+                store.close()
+            except Exception:
+                pass
+
+
+def close_graph_stores() -> None:
+    """Kept for API compatibility -- handles are now closed per session."""
+    return None

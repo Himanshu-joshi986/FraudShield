@@ -25,6 +25,28 @@ def _build_report_content(state: FraudCaseState) -> str:
     case = state["input_data"]
     evidence = state.get("evidence", [])
     fusion = state.get("model_results", {}).get("fusion", {})
+    adjustment = fusion.get("risk_adjustment") or {}
+    if adjustment.get("type") == "evidence_floor":
+        signal_labels = {
+            "duplicate_invoice_across_cases": "Duplicate-invoice evidence",
+            "claim_amount_mismatch": "Invoice amount-mismatch evidence",
+            "high_transaction_velocity": "High-velocity evidence",
+        }
+        signal_label = signal_labels.get(adjustment.get("signal"), "Review evidence")
+        floor_level = "HIGH" if adjustment.get("floor", 0) >= 0.65 else "MEDIUM"
+        adjustment_section = (
+            f"   Underlying signal average: {adjustment['base_score']:.2f}.\n"
+            + (
+                f"   {signal_label} raised the final assessment to "
+                f"{adjustment['floor']:.2f} ({floor_level}).\n"
+                if adjustment.get("applied") else
+                f"   The underlying average already meets or exceeds the {floor_level} floor; "
+                f"{signal_label.lower()} independently requires review.\n"
+            )
+            + "   This finding warrants review; it does not by itself establish fraud.\n"
+        )
+    else:
+        adjustment_section = ""
 
     by_type: dict[str, list] = {}
     for e in evidence:
@@ -50,6 +72,7 @@ Generated: {datetime.now(timezone.utc).isoformat()}
    Signals: {', '.join(state.get('signals', [])) or 'none'}
    Available signals used in scoring: {fusion.get('available_signals', [])}
    Signals not available for this case: {fusion.get('missing_signals', [])}
+{adjustment_section}
 
 2. GRAPH ANALYSIS
 {section('   Graph findings', 'graph')}

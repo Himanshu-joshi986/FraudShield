@@ -1,7 +1,7 @@
 import uuid
 from pathlib import Path
 from datetime import datetime, timezone
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Response
 from fastapi.responses import FileResponse
 from sqlalchemy.orm import Session
 from sqlalchemy import func
@@ -9,9 +9,10 @@ from sqlalchemy import func
 from app.database.session import get_db
 from app.database import models
 from app.schemas import case as schemas
-from app.graph.store import get_graph_store
+from app.graph.store import graph_session
 from app.rag.knowledge_base import get_knowledge_base
 from app.services.pipeline_service import investigate_case
+from app.services.case_insights import build_case_insights, build_document_dossier
 
 router = APIRouter(prefix="/api/cases", tags=["cases"])
 
@@ -89,6 +90,38 @@ def list_cases(
     return q.order_by(models.Case.created_at.desc()).limit(limit).all()
 
 
+@router.delete("/{case_id}", status_code=204)
+def delete_case(case_id: str, db: Session = Depends(get_db)):
+    """Remove a case and its saved investigation artifacts.
+
+    Linked source transaction/claim rows and supporting documents are retained:
+    they are source material and may be shared or needed if the case is filed
+    again. Generated case reports are removed when they are in the reports
+    directory and match this case's generated report filename.
+    """
+    row = db.query(models.Case).filter(models.Case.case_id == case_id).first()
+    if not row:
+        raise HTTPException(404, f"Case {case_id} not found")
+
+    report_paths = [report.file_path for report in row.reports if report.file_path]
+    db.delete(row)  # Case relationships cascade to evidence, reports, decisions, and agent logs.
+    db.commit()
+
+    reports_dir = (Path(__file__).resolve().parents[3] / "reports").resolve()
+    expected_name = f"FraudShield_Report_{case_id}.pdf"
+    for stored_path in report_paths:
+        try:
+            candidate = Path(stored_path).resolve()
+            if candidate.parent == reports_dir and candidate.name == expected_name:
+                candidate.unlink(missing_ok=True)
+        except (OSError, RuntimeError, ValueError):
+            # The database deletion should succeed even if an old generated
+            # report file cannot be cleaned up.
+            continue
+
+    return Response(status_code=204)
+
+
 @router.get("/{case_id}", response_model=schemas.CaseDetailOut)
 def get_case(case_id: str, db: Session = Depends(get_db)):
     row = db.query(models.Case).filter(models.Case.case_id == case_id).first()
@@ -141,12 +174,11 @@ async def investigate_case_endpoint(case_id: str, db: Session = Depends(get_db))
     if not case_row:
         raise HTTPException(404, f"Case {case_id} not found")
 
-    graph_store = get_graph_store()
     knowledge_base = get_knowledge_base()
-    try:
-        result = await investigate_case(db, case_row, graph_store, knowledge_base)
-    finally:
-        graph_store.close()
+    # The graph store is opened by the pipeline itself, per agent, so the
+    # embedded database's exclusive file lock is not held for the whole
+    # investigation (which includes OCR and LLM calls).
+    result = await investigate_case(db, case_row, None, knowledge_base)
 
     return result
 
@@ -160,12 +192,45 @@ def get_case_graph(case_id: str, db: Session = Depends(get_db)):
     if not case_row.customer_id:
         return schemas.CaseGraphOut(case_id=case_id, nodes=[], edges=[])
 
-    graph_store = get_graph_store()
-    try:
+    # graph_session serializes access to the embedded graph database and
+    # releases its exclusive file lock as soon as this request is done.
+    with graph_session() as graph_store:
         sub = graph_store.get_customer_subgraph(case_row.customer_id)
-    finally:
-        graph_store.close()
     return schemas.CaseGraphOut(case_id=case_id, nodes=sub["nodes"], edges=sub["edges"])
+
+
+@router.get("/{case_id}/insights", response_model=schemas.CaseInsightsOut)
+def get_case_insights(case_id: str, db: Session = Depends(get_db)):
+    """
+    The numbers behind the case: the signal scorecard (a decomposition of
+    the fused risk score), the routing trace, exact counterfactuals, and
+    the case activity timeline.
+
+    Every field is derived from data the pipeline actually produced --
+    Sentinel's recorded signal values and Case Commander's recorded
+    policy conditions -- so the scorecard always adds back up to the
+    case's own risk_score.
+    """
+    case_row = db.query(models.Case).filter(models.Case.case_id == case_id).first()
+    if not case_row:
+        raise HTTPException(404, f"Case {case_id} not found")
+    return build_case_insights(db, case_row)
+
+
+@router.get("/{case_id}/documents", response_model=schemas.CaseDocumentsOut)
+def get_case_documents(case_id: str, db: Session = Depends(get_db)):
+    """
+    The case's document dossier: the real OCR fields read from the
+    supporting document, plus the other documents that filed the same
+    invoice number, so the dashboard can show them side by side.
+
+    OCR is cached (see app/services/document_store.py), so this endpoint
+    does not re-run tesseract on every request.
+    """
+    case_row = db.query(models.Case).filter(models.Case.case_id == case_id).first()
+    if not case_row:
+        raise HTTPException(404, f"Case {case_id} not found")
+    return build_document_dossier(case_id)
 
 
 @router.post("/seed-synthetic")

@@ -5,7 +5,7 @@ from sqlalchemy import text
 
 from app.core.config import settings
 from app.database.session import init_db, engine
-from app.api import cases, analytics, knowledge, data
+from app.api import cases, analytics, knowledge, data, documents
 from app.services.websocket_manager import manager as ws_manager
 
 @asynccontextmanager
@@ -21,6 +21,9 @@ async def lifespan(app: FastAPI):
     from app.services.pipeline_service import _load_duplicate_invoice_case_ids
     _load_duplicate_invoice_case_ids()
     yield
+    # release the embedded graph store's file lock on shutdown
+    from app.graph.store import close_graph_stores
+    close_graph_stores()
 
 
 app = FastAPI(
@@ -41,6 +44,7 @@ app.include_router(cases.router)
 app.include_router(analytics.router)
 app.include_router(knowledge.router)
 app.include_router(data.router)
+app.include_router(documents.router)
 
 
 @app.get("/health", tags=["health"])

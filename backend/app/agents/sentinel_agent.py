@@ -17,36 +17,48 @@ from __future__ import annotations
 import time
 
 from app.agents.state import FraudCaseState
-from app.ml.fusion.risk_fusion import fuse
+from app.ml.fusion.risk_fusion import fuse, RISK_LEVEL_THRESHOLDS
 from app.graph.store import GraphStore, OVERRIDE_ELIGIBLE_TYPES
 from app.documents import validator as doc_validator
+from app.services.velocity import as_utc, event_signature
 
 SHORT_CIRCUIT_THRESHOLD = 0.15  # below this AND zero graph connections, skip the rest of the pipeline
 
-# velocity heuristic for scenario-level cases (no IEEE-CIS feature vector
-# available -- see risk_fusion.py's architectural note). Computed directly
-# from how many OTHER cases the same customer filed within a trailing
-# window, using only fields every case record has (customer_id, timestamp).
+# Velocity heuristic for case-level records with no IEEE-CIS feature vector.
+# A burst means at least three distinct customer events within a trailing
+# window. Future events and same-time ties cannot count as prior activity.
 VELOCITY_WINDOW_SECONDS = 3600
 VELOCITY_HIGH_COUNT = 3
+DUPLICATE_INVOICE_RISK_FLOOR = RISK_LEVEL_THRESHOLDS["MEDIUM"]
+HUMAN_REVIEW_RISK_FLOOR = RISK_LEVEL_THRESHOLDS["LOW"]
 
 
-def _velocity_risk(case: dict, all_cases: list[dict] | None) -> tuple[float | None, list[str]]:
-    if not all_cases or not case.get("customer_id"):
-        return None, []
-    from datetime import datetime
+def _velocity_risk(case: dict, all_cases: list[dict] | None,
+                   case_id: str | None = None) -> tuple[float | None, list[str], int | None]:
+    if all_cases is None or not case.get("customer_id"):
+        return None, [], None
+    this_time = as_utc(case.get("timestamp"))
+    if this_time is None:
+        return None, [], None
+    window_start = this_time.timestamp() - VELOCITY_WINDOW_SECONDS
+    prior_events = set()
+    for item in all_cases:
+        if item.get("customer_id") != case["customer_id"] or item.get("case_id") == case_id:
+            continue
+        event_time = as_utc(item.get("timestamp"))
+        # Strictly earlier: ordering between separate records with the same
+        # timestamp is unknown. Future activity must never affect this case.
+        if event_time is None or not (window_start <= event_time.timestamp() < this_time.timestamp()):
+            continue
+        prior_events.add(event_signature(item.get("customer_id"), event_time,
+                                         item.get("amount"), item.get("domain")))
 
-    this_time = datetime.fromisoformat(case["timestamp"])
-    same_customer_times = [
-        datetime.fromisoformat(c["timestamp"]) for c in all_cases
-        if c.get("customer_id") == case["customer_id"]
-    ]
-    window_count = sum(
-        1 for t in same_customer_times if abs((t - this_time).total_seconds()) <= VELOCITY_WINDOW_SECONDS
-    )
-    risk = min(1.0, window_count / 9.0)  # 9 = the planted Scenario-2 burst size
-    flags = ["high_transaction_velocity"] if window_count >= VELOCITY_HIGH_COUNT else []
-    return risk, flags
+    burst_count = len(prior_events) + 1  # count this case exactly once
+    # Preserve the existing 9-event calibration while removing the baseline
+    # event: one event has no velocity risk; the full 9-event burst reaches 1.
+    risk = min(1.0, max(0, burst_count - 1) / 8.0)
+    flags = ["high_transaction_velocity"] if burst_count >= VELOCITY_HIGH_COUNT else []
+    return risk, flags, burst_count
 
 
 def run(state: FraudCaseState, graph_store: GraphStore, document_path: str | None = None,
@@ -90,9 +102,11 @@ def run(state: FraudCaseState, graph_store: GraphStore, document_path: str | Non
             named_signals.append("fraud_ring_graph_connectivity")
 
     # --- velocity signal (real, computed from case timestamps) ---
-    velocity_risk, velocity_flags = _velocity_risk(case, all_cases)
+    velocity_risk, velocity_flags, velocity_burst_count = _velocity_risk(case, all_cases, state["case_id"])
     signals["temporal_risk"] = velocity_risk
     named_signals.extend(velocity_flags)
+    state["velocity_burst_count"] = velocity_burst_count
+    state["velocity_window_seconds"] = VELOCITY_WINDOW_SECONDS
 
     # --- document signal (real OCR + validation against the Phase-6 layer) ---
     if document_path:
@@ -115,6 +129,34 @@ def run(state: FraudCaseState, graph_store: GraphStore, document_path: str | Non
         signals["document_risk"] = max(signals["document_risk"] or 0.0, 0.6)
 
     fusion_result = fuse(signals)
+    base_risk_score = fusion_result["risk_score"]
+    duplicate_invoice_override = "duplicate_invoice_across_cases" in named_signals
+    review_signal = next((signal for signal in (
+        "claim_amount_mismatch", "high_transaction_velocity",
+    ) if signal in named_signals), None)
+    # Duplicate claims carry a stronger HIGH minimum. Other deterministic
+    # review overrides establish MEDIUM as a floor so the displayed band does
+    # not contradict the human-review routing decision.
+    adjustment_signal = "duplicate_invoice_across_cases" if duplicate_invoice_override else review_signal
+    adjustment_floor = DUPLICATE_INVOICE_RISK_FLOOR if duplicate_invoice_override else HUMAN_REVIEW_RISK_FLOOR
+    if adjustment_signal and fusion_result["available_signals"]:
+        fusion_result["base_risk_score"] = base_risk_score
+        fusion_result["risk_adjustment"] = {
+            "type": "evidence_floor",
+            "signal": adjustment_signal,
+            "base_score": base_risk_score,
+            "floor": adjustment_floor,
+            "applied": base_risk_score < adjustment_floor,
+            "reason": {
+                "duplicate_invoice_across_cases": "same invoice number was detected on multiple separate cases",
+                "claim_amount_mismatch": "validated invoice amount does not match the claim amount",
+                "high_transaction_velocity": "multiple distinct customer events occurred within the review window",
+            }[adjustment_signal],
+        }
+        fusion_result["risk_score"] = max(base_risk_score, adjustment_floor)
+        fusion_result["risk_level"] = "HIGH" if fusion_result["risk_score"] >= RISK_LEVEL_THRESHOLDS["MEDIUM"] else (
+            "MEDIUM" if fusion_result["risk_score"] >= RISK_LEVEL_THRESHOLDS["LOW"] else "LOW"
+        )
 
     state["model_results"] = {"signals": signals, "fusion": fusion_result}
     state["risk_score"] = fusion_result["risk_score"]
@@ -141,6 +183,13 @@ def run(state: FraudCaseState, graph_store: GraphStore, document_path: str | Non
         "output_json": {
             "case_id": state["case_id"], "risk_score": fusion_result["risk_score"],
             "risk_level": fusion_result["risk_level"], "signals": named_signals,
+            # The per-signal VALUES (not just their names) are recorded so
+            # the scorecard in the dashboard can decompose the fused score
+            # into the exact contributions that produced it. "signals"
+            # above stays the list of named flags, for compatibility.
+            "signal_values": signals,
+            "velocity_burst_count": velocity_burst_count,
+            "velocity_window_seconds": VELOCITY_WINDOW_SECONDS,
             "recommended_next_step": recommended, "fusion_detail": fusion_result,
         },
         "duration_ms": round((time.time() - t0) * 1000, 2),

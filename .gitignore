@@ -19,6 +19,7 @@ data/raw/
 *.sqlite
 *.sqlite3
 data/chroma_db/
+data/knowledge_uploads/
 reports/*.pdf
 .coverage
 coverage.xml

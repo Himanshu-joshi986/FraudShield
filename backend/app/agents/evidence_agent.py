@@ -21,6 +21,7 @@ from __future__ import annotations
 import time
 
 from app.agents.state import FraudCaseState
+from app.services.document_store import findings_for_case
 
 _evidence_counter = {"n": 0}
 
@@ -57,6 +58,33 @@ def run(state: FraudCaseState) -> FraudCaseState:
             "confidence": doc_signal,
         })
 
+    # Preserve the actual duplicate-invoice observation in the dossier,
+    # including the invoice and all affected case IDs. A generic policy
+    # flag alone is not enough for a reviewer to verify the finding.
+    document_finding = findings_for_case(case_id)
+    if document_finding and "duplicate_invoice_across_cases" in document_finding.flags:
+        invoice = document_finding.extracted.get("primary_invoice_number")
+        shared_cases = sorted(set(
+            document_finding.extracted.get("duplicate_shared_with_cases", []) + [case_id]
+        ))
+        evidence.append({
+            "evidence_id": _next_evidence_id(case_id),
+            "type": "document",
+            "finding": (
+                f"Invoice {invoice or 'number unreadable'} was detected on separate cases: "
+                f"{', '.join(shared_cases)}. This duplicate-filing pattern requires review; "
+                "it is not by itself a final finding of fraud."
+            ),
+            "source": "document_ai (OCR cross-case invoice comparison)",
+            "source_reference": {
+                "invoice_number": invoice,
+                "case_ids": shared_cases,
+                "image_path": document_finding.image_path,
+                "ocr_backend": document_finding.ocr_backend,
+            },
+            "confidence": document_finding.ocr_confidence or 0.0,
+        })
+
     for kb_result in state.get("retrieved_knowledge", []):
         evidence.append({
             "evidence_id": _next_evidence_id(case_id),
@@ -89,6 +117,7 @@ def run(state: FraudCaseState) -> FraudCaseState:
     # breakdown instead, which is the correct and complete explanation
     # for what actually drove THIS case's score.
     fusion = state.get("model_results", {}).get("fusion", {})
+    signal_values = state.get("model_results", {}).get("signals", {})
     no_signals = fusion.get("degraded") and not fusion.get("available_signals")
     evidence.append({
         "evidence_id": _next_evidence_id(case_id),
@@ -102,7 +131,10 @@ def run(state: FraudCaseState) -> FraudCaseState:
         ),
         "source": "risk_fusion (Sentinel Agent) -- SHAP available separately for cases "
                  "carrying a full tabular feature vector, see docs/EXPERIMENTS.md §13",
-        "source_reference": fusion,
+        # The per-signal values live here as well as in Sentinel's own
+        # execution record, so the scorecard can always be rebuilt from
+        # the evidence dossier alone.
+        "source_reference": {**fusion, "signal_values": signal_values},
         "confidence": 0.0 if fusion.get("degraded") else 1.0,
     })
 

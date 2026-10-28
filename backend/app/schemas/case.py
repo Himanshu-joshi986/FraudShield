@@ -149,3 +149,124 @@ class InvestigateResultOut(BaseModel):
     n_errors: int
     short_circuited: bool
     report_id: Optional[str] = None
+
+
+# ---------------------------------------------------------------------------
+# Case insights (Signal Scorecard / policy trace / counterfactuals / timeline)
+# ---------------------------------------------------------------------------
+
+class SignalScorecardOut(BaseModel):
+    name: str
+    label: str
+    value: Optional[float] = None
+    baseline_value: Optional[float] = None  # display-only reference; never a model score
+    available: bool
+    weight: float
+    weighted: Optional[float] = None      # value * weight, before normalisation
+    contribution: Optional[float] = None  # share of the underlying signal average
+    contribution_pct: Optional[float] = None  # that share, as a percentage
+    weight_share_pct: Optional[float] = None  # share of the available weight pool
+    note: Optional[str] = None
+
+
+class CounterfactualOut(BaseModel):
+    signal: str
+    label: str
+    target_label: str
+    target_threshold: float
+    current_value: float
+    required_value: Optional[float] = None
+    achievable: bool
+    explanation: str
+
+
+class PolicyTraceOut(BaseModel):
+    decision: Optional[str] = None
+    reason: Optional[str] = None
+    policy_version: Optional[str] = None
+    policy_source: Optional[str] = None
+    conditions_triggered: List[str] = []
+    overrides: List[str] = []
+    score_driven: bool = True
+
+
+class CaseEventOut(BaseModel):
+    timestamp: Optional[datetime] = None
+    kind: str
+    title: str
+    detail: Optional[str] = None
+    case_id: Optional[str] = None
+    risk_level: Optional[str] = None
+    is_current: bool = False
+    in_velocity_window: bool = False
+    flagged: bool = False
+
+
+class AgentRunOut(BaseModel):
+    agent_name: str
+    status: str
+    duration_ms: Optional[float] = None
+    started_at: Optional[datetime] = None
+    completed_at: Optional[datetime] = None
+    summary: Optional[str] = None
+
+
+class CaseInsightsOut(BaseModel):
+    case_id: str
+    investigated: bool
+    risk_score: float
+    base_risk_score: Optional[float] = None
+    risk_level: str
+    thresholds: dict
+    signals: List[SignalScorecardOut] = []
+    fusion: dict = {}
+    policy: Optional[PolicyTraceOut] = None
+    counterfactuals: List[CounterfactualOut] = []
+    score_below_medium: bool = False
+    events: List[CaseEventOut] = []
+    agents: List[AgentRunOut] = []
+    velocity_window_seconds: int = 0
+    velocity_cluster_size: int = 0
+    sibling_case_count: int = 0
+
+
+# ---------------------------------------------------------------------------
+# Document dossier (side-by-side invoice comparison)
+# ---------------------------------------------------------------------------
+
+class DocumentCellOut(BaseModel):
+    value: Optional[str] = None
+    sub: Optional[str] = None
+    highlight: bool = False
+
+
+class DocumentRowOut(BaseModel):
+    label: str
+    differs: bool = False
+    cells: List[DocumentCellOut] = []
+
+
+class DocumentOut(BaseModel):
+    case_id: str
+    customer_name: Optional[str] = None
+    image_name: Optional[str] = None
+    invoice_number: Optional[str] = None
+    printed_amount: Optional[float] = None
+    claim_amount_on_file: Optional[float] = None
+    ocr_backend: Optional[str] = None
+    ocr_confidence: Optional[float] = None
+    document_risk: float = 0.0
+    flags: List[str] = []
+    is_current_case: bool = False
+    degraded: bool = False
+    degraded_reason: Optional[str] = None
+
+
+class CaseDocumentsOut(BaseModel):
+    case_id: str
+    has_document: bool = False
+    group_invoice_number: Optional[str] = None
+    duplicate_across_cases: bool = False
+    documents: List[DocumentOut] = []
+    rows: List[DocumentRowOut] = []
+    summary: Optional[str] = None

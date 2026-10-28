@@ -29,6 +29,7 @@ time it runs. Swap is a one-line change; the rest of this module
 from __future__ import annotations
 
 import json
+import hashlib
 import os
 from pathlib import Path
 
@@ -39,6 +40,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 REPO_ROOT = Path(__file__).resolve().parents[3]
 REGULATIONS_DIR = REPO_ROOT / "knowledge_base" / "regulatory"
 DEFAULT_CHROMA_DIR = REPO_ROOT / "data" / "chroma_db"
+UPLOADS_DIR = REPO_ROOT / "data" / "knowledge_uploads"
+UPLOAD_MANIFEST = UPLOADS_DIR / "manifest.json"
 
 CHUNK_SIZE_CHARS = 400
 
@@ -161,10 +164,25 @@ class KnowledgeBase:
             "regulatory_kb", embedding_function=self.embedding_fn,
         )
 
-    def rebuild_index(self):
-        """(Re)indexes every document in knowledge_base/regulatory/ from scratch."""
+    def _documents(self) -> list[dict]:
         with open(REGULATIONS_DIR / "manifest.json") as f:
             manifest = json.load(f)["documents"]
+        docs = []
+        for item in manifest:
+            doc = dict(item)
+            doc["text"] = (REGULATIONS_DIR / item["filename"]).read_text(encoding="utf-8")
+            doc["case_id"] = ""
+            docs.append(doc)
+        if UPLOAD_MANIFEST.exists():
+            for item in json.loads(UPLOAD_MANIFEST.read_text(encoding="utf-8")):
+                doc = dict(item)
+                doc["text"] = (UPLOADS_DIR / item["text_filename"]).read_text(encoding="utf-8")
+                docs.append(doc)
+        return docs
+
+    def rebuild_index(self):
+        """Rebuilds the complete corpus so TF-IDF vocabulary stays consistent."""
+        documents = self._documents()
 
         try:
             self.client.delete_collection("regulatory_kb")
@@ -175,9 +193,8 @@ class KnowledgeBase:
         )
 
         all_chunks, all_ids, all_metadatas = [], [], []
-        for doc_meta in manifest:
-            text = (REGULATIONS_DIR / doc_meta["filename"]).read_text()
-            chunks = _chunk_text(text)
+        for doc_meta in documents:
+            chunks = _chunk_text(doc_meta["text"])
             for i, chunk in enumerate(chunks):
                 all_chunks.append(chunk)
                 all_ids.append(f"{doc_meta['document_id']}-chunk-{i}")
@@ -189,22 +206,32 @@ class KnowledgeBase:
                     "publication_date": doc_meta["publication_date"],
                     "section": doc_meta["section"],
                     "chunk_index": i,
+                    "case_id": doc_meta.get("case_id", ""),
                 })
 
         if isinstance(self.embedding_fn, OfflineTfidfEmbedding):
             self.embedding_fn.fit(all_chunks)
 
         self.collection.add(documents=all_chunks, ids=all_ids, metadatas=all_metadatas)
-        return {"documents_indexed": len(manifest), "chunks_indexed": len(all_chunks)}
+        return {"documents_indexed": len(documents), "chunks_indexed": len(all_chunks)}
 
-    def query(self, question: str, top_k: int = 3) -> list[dict]:
-        results = self.collection.query(query_texts=[question], n_results=top_k)
+    def query(self, question: str, top_k: int = 3, case_id: str | None = None) -> list[dict]:
+        # Older indexes predate case_id metadata. Fetch a wider candidate set
+        # and filter here so those shared regulatory records remain visible.
+        count = self.collection.count()
+        if count == 0:
+            return []
+        n_results = min(count, max(top_k * 20, top_k))
+        results = self.collection.query(query_texts=[question], n_results=n_results)
         if not results["ids"] or not results["ids"][0]:
             return []
 
         out = []
         for i in range(len(results["ids"][0])):
             meta = results["metadatas"][0][i]
+            scope = meta.get("case_id") or ""
+            if (case_id and scope not in ("", case_id)) or (not case_id and scope):
+                continue
             out.append({
                 "snippet": results["documents"][0][i],
                 "distance": round(float(results["distances"][0][i]), 4),
@@ -214,12 +241,140 @@ class KnowledgeBase:
                 "jurisdiction": meta["jurisdiction"],
                 "publication_date": meta["publication_date"],
                 "section": meta["section"],
+                "case_id": meta.get("case_id") or None,
             })
-        return out
+        return out[:top_k]
 
     def list_documents(self) -> list[dict]:
         with open(REGULATIONS_DIR / "manifest.json") as f:
-            return json.load(f)["documents"]
+            documents = [dict(d, category="regulatory", case_id=None) for d in json.load(f)["documents"]]
+        if UPLOAD_MANIFEST.exists():
+            documents.extend({key: d.get(key) for key in (
+                "document_id", "title", "source", "original_filename", "jurisdiction",
+                "publication_date", "section", "case_id",
+            )} | {"category": "user"}
+                for d in json.loads(UPLOAD_MANIFEST.read_text(encoding="utf-8")))
+        return documents
+
+    def add_upload(self, filename: str, content: bytes, title: str, jurisdiction: str,
+                   case_id: str | None = None) -> dict:
+        suffix = Path(filename).suffix.lower()
+        if suffix not in {".txt", ".md", ".pdf"}:
+            raise ValueError("Upload a text, Markdown, or text-based PDF file.")
+        if not content or len(content) > 10 * 1024 * 1024:
+            raise ValueError("Files must be non-empty and no larger than 10 MB.")
+        if suffix == ".pdf":
+            import pdfplumber
+            import io
+            try:
+                with pdfplumber.open(io.BytesIO(content)) as pdf:
+                    extracted = "\n\n".join((p.extract_text() or "") for p in pdf.pages).strip()
+            except Exception as exc:
+                raise ValueError("Could not read this PDF. Try exporting it as a text-based PDF.") from exc
+            if not extracted:
+                raise ValueError("This PDF has no selectable text. OCR scanned PDFs before uploading.")
+        else:
+            try:
+                extracted = content.decode("utf-8-sig").strip()
+            except UnicodeDecodeError as exc:
+                raise ValueError("Text and Markdown files must use UTF-8 encoding.") from exc
+        if len(extracted) < 20:
+            raise ValueError("The document needs at least 20 characters of readable text.")
+
+        UPLOADS_DIR.mkdir(parents=True, exist_ok=True)
+        manifest = json.loads(UPLOAD_MANIFEST.read_text(encoding="utf-8")) if UPLOAD_MANIFEST.exists() else []
+        digest = hashlib.sha256(content).hexdigest()
+        if any(d["sha256"] == digest and d.get("case_id", "") == (case_id or "") for d in manifest):
+            raise ValueError("This same file is already in the library for that scope.")
+        scope_hash = hashlib.sha256((case_id or "shared").encode()).hexdigest()[:6].upper()
+        doc_id = f"USR-{digest[:10].upper()}-{scope_hash}"
+        original_name = Path(filename).name[:180]
+        original_path = UPLOADS_DIR / f"{doc_id}{suffix}"
+        text_path = UPLOADS_DIR / f"{doc_id}.txt"
+        original_path.write_bytes(content)
+        text_path.write_text(extracted, encoding="utf-8")
+        item = {
+            "document_id": doc_id, "title": title.strip() or original_name,
+            "source": original_name, "original_filename": original_name,
+            "stored_filename": original_path.name, "text_filename": text_path.name,
+            "jurisdiction": jurisdiction.strip() or "Unspecified", "publication_date": "",
+            "section": "User provided", "case_id": case_id or "", "sha256": digest,
+            "category": "user",
+        }
+        manifest.append(item)
+        UPLOAD_MANIFEST.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+        try:
+            self.rebuild_index()
+        except Exception:
+            manifest.pop()
+            UPLOAD_MANIFEST.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+            original_path.unlink(missing_ok=True)
+            text_path.unlink(missing_ok=True)
+            self.rebuild_index()
+            raise
+        return {k: v for k, v in item.items() if k not in {"sha256", "stored_filename", "text_filename"}}
+
+    def link_upload(self, document_id: str, case_id: str | None) -> dict:
+        if not UPLOAD_MANIFEST.exists():
+            raise KeyError(document_id)
+        manifest = json.loads(UPLOAD_MANIFEST.read_text(encoding="utf-8"))
+        doc = next((item for item in manifest if item["document_id"] == document_id), None)
+        if doc is None:
+            raise KeyError(document_id)
+        previous = doc.get("case_id", "")
+        doc["case_id"] = case_id or ""
+        UPLOAD_MANIFEST.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+        try:
+            self.rebuild_index()
+        except Exception:
+            doc["case_id"] = previous
+            UPLOAD_MANIFEST.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+            self.rebuild_index()
+            raise
+        return {key: doc.get(key) for key in (
+            "document_id", "title", "source", "original_filename", "jurisdiction",
+            "publication_date", "section",
+        )} | {"category": "user", "case_id": doc.get("case_id") or None}
+
+    def remove_upload(self, document_id: str) -> dict:
+        """Remove a contributed source and rebuild search before deleting its files."""
+        if not UPLOAD_MANIFEST.exists():
+            raise KeyError(document_id)
+        original_manifest = json.loads(UPLOAD_MANIFEST.read_text(encoding="utf-8"))
+        removed = next((item for item in original_manifest if item.get("document_id") == document_id), None)
+        if removed is None:
+            raise KeyError(document_id)
+
+        upload_root = UPLOADS_DIR.resolve()
+        file_paths = []
+        for key in ("stored_filename", "text_filename"):
+            filename = removed.get(key)
+            if not filename:
+                continue
+            path = (UPLOADS_DIR / filename).resolve()
+            if path.parent != upload_root:
+                raise RuntimeError("Refusing to remove an upload outside the managed knowledge folder.")
+            file_paths.append(path)
+
+        next_manifest = [item for item in original_manifest if item.get("document_id") != document_id]
+        UPLOAD_MANIFEST.write_text(json.dumps(next_manifest, indent=2), encoding="utf-8")
+        try:
+            self.rebuild_index()
+        except Exception:
+            UPLOAD_MANIFEST.write_text(json.dumps(original_manifest, indent=2), encoding="utf-8")
+            try:
+                self.rebuild_index()
+            except Exception as restore_error:
+                raise RuntimeError("Index rebuild failed and the previous index could not be restored.") from restore_error
+            raise
+
+        # Only remove files named by this user-upload manifest, and verify
+        # resolved paths stay inside the managed uploads directory.
+        for path in file_paths:
+            path.unlink(missing_ok=True)
+        return {key: removed.get(key) for key in (
+            "document_id", "title", "source", "original_filename", "case_id",
+        )}
 
     def stats(self) -> dict:
         return {

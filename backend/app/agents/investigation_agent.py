@@ -113,7 +113,7 @@ def run(state: FraudCaseState, graph_store: GraphStore, knowledge_base: Knowledg
         queries = ["fraud investigation risk indicators"]
     retrieved = []
     for q in queries:
-        retrieved.extend(knowledge_base.query(q, top_k=2))
+        retrieved.extend(knowledge_base.query(q, top_k=2, case_id=case_id))
     seen = set()
     deduped = []
     for r in retrieved:

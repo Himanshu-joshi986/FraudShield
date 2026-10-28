@@ -16,6 +16,7 @@ from __future__ import annotations
 import time
 
 from app.agents.state import FraudCaseState
+from app.agents.sentinel_agent import VELOCITY_HIGH_COUNT
 
 HIGH_THRESHOLD = 0.65
 MEDIUM_THRESHOLD = 0.35
@@ -69,7 +70,15 @@ def run(state: FraudCaseState) -> FraudCaseState:
     # signals sitting at zero.
     velocity_override = "high_transaction_velocity" in signals
     if velocity_override:
-        conditions_triggered.append("velocity_override: high transaction velocity burst detected")
+        burst_count = state.get("velocity_burst_count")
+        window_seconds = state.get("velocity_window_seconds")
+        if burst_count is not None and window_seconds is not None:
+            conditions_triggered.append(
+                f"velocity_override: {burst_count} distinct customer events within "
+                f"the trailing {window_seconds // 60} minutes (threshold {VELOCITY_HIGH_COUNT})"
+            )
+        else:
+            conditions_triggered.append("velocity_override: high transaction velocity burst detected")
 
     if no_available_signals:
         decision = "HUMAN_REVIEW"

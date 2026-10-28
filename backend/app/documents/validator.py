@@ -154,7 +154,22 @@ def validate_document(image_path: str | Path, claim_amount: float,
     marked `degraded=True` with an explicit reason and ZERO risk score --
     we never fabricate a document_risk from a document we couldn't read.
     """
-    backend = get_ocr_backend(backend_name)
+    try:
+        backend = get_ocr_backend(backend_name)
+    except Exception as e:
+        # no usable OCR engine on this machine at all -- degrade the same
+        # way a failed read degrades, rather than failing the whole
+        # investigation over one unreadable document.
+        findings = DocumentFindings(
+            case_id=case_id,
+            image_path=str(image_path),
+            ocr_backend="none",
+            degraded=True,
+            degraded_reason=str(e),
+        )
+        findings.flags.append("ocr_unavailable")
+        return findings
+
     result: OCRResult = backend.extract(image_path)
 
     findings = DocumentFindings(

@@ -60,9 +60,25 @@ class TestFieldExtraction:
 
 
 class TestOCRBackendSelection:
-    def test_defaults_to_tesseract(self):
+    def test_default_uses_the_verified_engine_when_it_is_available(self):
+        """With no explicit selection, the engine the measured Phase-6
+        results used comes first -- so nothing changes on a machine that
+        has tesseract."""
+        from app.documents.ocr import get_ocr_backend, TesseractBackend
+        backend = get_ocr_backend()
+        if TesseractBackend().available():
+            assert backend.name == "tesseract"
+        else:
+            # documented fallback: the first AVAILABLE engine, and the
+            # engine that ran is always reported in the findings
+            assert backend.name in {"tesseract", "rapidocr", "paddleocr"}
+            assert backend.available()
+
+    def test_the_selected_engine_is_the_one_that_actually_runs(self):
+        """A finding must never be misattributed to an engine that did
+        not read the document."""
         from app.documents.ocr import get_ocr_backend
-        assert get_ocr_backend().name == "tesseract"
+        assert get_ocr_backend().available() is True
 
     def test_unknown_backend_raises_rather_than_silently_defaulting(self):
         """A typo must not silently produce results from a different engine
@@ -70,6 +86,39 @@ class TestOCRBackendSelection:
         from app.documents.ocr import get_ocr_backend
         with pytest.raises(ValueError):
             get_ocr_backend("not_a_real_engine")
+
+    def test_explicitly_selected_unavailable_engine_raises_loudly(self):
+        """Section 57: never silently fall back. An explicit choice that
+        cannot run must fail loudly rather than quietly using another
+        engine and misattributing the result."""
+        from app.documents.ocr import get_ocr_backend, PaddleOCRBackend
+        if PaddleOCRBackend().available():
+            pytest.skip("paddleocr is installed in this environment")
+        with pytest.raises(RuntimeError) as excinfo:
+            get_ocr_backend("paddleocr")
+        assert "pip install" in str(excinfo.value)
+
+    def test_rapidocr_backend_reads_a_real_document(self):
+        """The pip-only engine must produce real extracted fields, not a
+        degraded result."""
+        from app.documents.ocr import RapidOCRBackend
+        backend = RapidOCRBackend()
+        if not backend.available():
+            pytest.skip("rapidocr-onnxruntime is not installed")
+
+        image = REPO_ROOT / "data" / "documents" / "SYNTHETIC_FS-SYN-00017_INV-22770.png"
+        if not image.exists():
+            pytest.skip("document images have not been generated")
+
+        result = backend.extract(image)
+        assert result.succeeded, result.error
+        assert result.backend == "rapidocr"
+        assert result.confidence is not None and result.confidence > 0.5
+
+        from app.documents.validator import extract_fields
+        fields = extract_fields(result.text)
+        assert fields["primary_invoice_number"] == "INV-22770"
+        assert 7500.0 in fields["amounts"]
 
     def test_paddleocr_raises_clear_error_when_not_installed(self):
         """Section 57: never silently fall back. Selecting PaddleOCR

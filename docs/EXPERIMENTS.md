@@ -582,11 +582,154 @@ incomplete and must not be inferred from the measured experiments:
 - **Knowledge-base document upload** — listing and search are implemented;
   upload is not.
 - **Dashboard completeness** — case detail includes a connected-entity
-  graph. Evidence has an expandable structured source-reference trace,
-  but no direct source-document/record links. There is no separate Fraud
-  Ring Explorer page, KB document upload flow, or ROI calculator.
+  graph, a signal scorecard, a policy trace, score counterfactuals, a
+  side-by-side document comparison and a case activity timeline (Phase
+  19). Evidence has an expandable structured source-reference trace, and
+  the document dossier links the OCR fields back to the document image
+  itself. There is still no separate Fraud Ring Explorer page, KB
+  document upload flow, or ROI calculator.
 - **Business-value/ROI figures** — not evaluated; any future calculator
   must use user-provided assumptions and label results as estimates.
 - **Scenario 6** remains below its expected MEDIUM routing threshold on
   address-only evidence. This was intentionally not curve-fit; policy
   calibration requires more cases/outcomes.
+
+---
+
+## 23. Phase 19 - Case intelligence, and two real bugs it surfaced
+
+Phase 19 added the layer between "the pipeline produced a number" and "a
+reviewer can act on it". No new model was trained, so there are no new
+accuracy metrics here; what there IS is a set of **measured checks on
+the existing pipeline's own output**, and two real bugs that the work
+exposed.
+
+### 23.1 The scorecard is a decomposition, and it checks out
+
+The dashboard's signal scorecard claims to explain a case's risk score
+by splitting it into the signals that produced it. That claim is
+verifiable, and it is verified by a test rather than asserted:
+
+- `FS-SYN-00016` (fraud ring): risk_score **0.7037** = graph 0.6667 +
+  temporal 0.0371. The parts sum to the whole to within 1e-4 (the
+  fused score is rounded to 4 decimals by `risk_fusion.fuse`).
+- `FS-SYN-00019` (duplicate invoice): risk_score **0.2103** = graph
+  0.0000 + temporal 0.0262 + document 0.1850.
+
+A signal that was not available for a case is shown as **absent with the
+reason**, never as zero — an unavailable signal is excluded from the
+weighted average entirely (`risk_fusion.py`), and drawing it as 0.00
+would misrepresent the arithmetic.
+
+### 23.2 A 0.21 case that is escalated — and why that is correct
+
+`FS-SYN-00019` scores **0.21 (LOW)** and is nevertheless **ESCALATED**.
+The policy trace explains it: two independent overrides fired.
+
+```
+duplicate_invoice_override:  shared invoice number across claims
+document_mismatch_override:  claim amount does not match invoice
+```
+
+Both come from KB-003's override rules, which escalate regardless of the
+computed score. Before Phase 19 this case's dashboard showed a LOW RISK
+stamp next to DONE · ESCALATED with nothing in between, which reads
+like a bug rather than a policy decision. The scorecard + policy trace
+make the distinction visible, and the counterfactual panel says so
+explicitly: "this case scored 0.21 — already under the MEDIUM
+threshold, so there is no score change that would lower it further.
+The disposition was set by the duplicate-invoice override and document
+amount-mismatch override instead."
+
+### 23.3 Counterfactuals are arithmetic, not estimates
+
+Fusion is a weighted mean, so the value a single signal needs in order
+to pull the score under a threshold is exactly solvable:
+
+```
+x = (T * W - S + v_k * w_k) / w_k
+```
+
+For `FS-SYN-00016` (score 0.70, graph 1.00, temporal 0.11, weights
+0.30/0.15): graph connectivity would have to fall from 1.00 to 0.47 for
+the case to score below the MEDIUM band, or to 0.92 to fall below HIGH.
+The panel also states when a change would **not** help — because an
+active override applies regardless of the score — rather than implying
+the score alone controls the outcome.
+
+### 23.4 The document comparison reads the real invoices
+
+Three cases filed invoice `INV-81793` (FS-SYN-00018, -00019, -00020)
+under three different claimant names. The dashboard shows the three
+real invoice images side by side with the differing fields highlighted;
+the claimant-name row is the finding, and it is marked as different
+because it is. The OCR engine that produced the fields is reported with
+its confidence (rapidocr, 0.85–0.88 on this machine).
+
+### 23.5 Bug 1: the coordinated-ring override never fired
+
+**Found by** reading the policy trace of a case that clearly had a ring
+and no override.
+
+LangGraph builds its state channels from the `FraudCaseState` schema
+and **silently drops** any node update for a key that is not declared
+there. Sentinel writes `n_override_eligible_connections` and the Case
+Commander reads it to apply the coordinated-ring override — but the key
+was missing from the schema, so the commander always saw zero
+connections and the "escalate regardless of score" ring rule was dead
+code. Every ring case was being routed on its score alone.
+
+After the fix, `FS-SYN-00016` routes with
+`ring_override: 5 connected customers >= 3` recorded in the policy
+conditions, and the policy trace reports it as override-driven rather
+than score-driven. Guarded by a test that asserts **every** state key
+written by any agent is declared in the schema, so the same class of
+bug cannot return silently.
+
+### 23.6 Bug 2: concurrent graph requests returned HTTP 500
+
+**Found by** loading a case in the browser while the parallel case
+loading was in place, and reading the server log.
+
+kuzu takes an **exclusive lock** on its database file. Two graph
+handles open at the same time in one process fail with
+`IO exception: Could not set lock on file`, and the dashboard's
+parallel load made that overlap routine. The fix serializes graph
+access per process and releases the file lock as soon as the request
+finishes, with a short retry when another process holds the file.
+
+A first attempt at this fix — a process-wide singleton that held the
+embedded database open for the life of the process — was **wrong**, and
+the test suite caught it: it made the embedded database a permanent
+lock holder, so the test process (and any other process) blocked
+indefinitely waiting for it. The second design holds the lock only for
+the duration of actual graph work, which also means the graph is not
+locked out during the OCR and LLM calls in the middle of an
+investigation.
+
+Verified: 8 concurrent `/api/cases/{id}/graph` requests all returned
+200, and the full test suite passes with the dev server running
+(219 passed, 1 failed — the one failure is the pre-existing
+`test_pdf_files_actually_exist_on_disk` byte-size check, which also
+fails on a clean checkout of HEAD on this machine).
+
+### 23.7 A second OCR engine, and a shared document cache
+
+`rapidocr` (PP-OCRv4 on onnxruntime) was added as a third backend: a
+pure pip install with no system binary, so the document features are
+usable on a machine without tesseract. The engine preference is
+tesseract → rapidocr → paddleocr; an **explicit** `OCR_BACKEND` choice
+that cannot run still raises a clear error rather than silently using a
+different engine, and every finding records which engine produced it.
+
+OCR findings are now cached by file modification time and shared
+between the pipeline and the dashboard, and the documents are read
+concurrently. Previously every investigate call re-ran tesseract over
+every document (~10.5s). Now it runs once, at startup, and is reused —
+and re-runs automatically if a document actually changes on disk.
+
+**Not measured:** the Phase-6 document metrics in §7 were produced with
+tesseract 5.3.4 on the Linux build machine. The rapidocr path is
+verified functionally — real fields extracted from the real images, real
+mismatch and duplicate detection — but has not been benchmarked against
+tesseract for accuracy, and no claim is made that it matches it.

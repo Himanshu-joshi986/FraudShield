@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import csv
 import io
+import re
 from datetime import datetime, timezone
 
 from fastapi import APIRouter, Depends, HTTPException
@@ -11,7 +12,7 @@ from sqlalchemy.orm import Session
 
 from app.database import models
 from app.database.session import get_db
-from app.graph.store import get_graph_store
+from app.graph.store import graph_session
 
 router = APIRouter(prefix="/api/data", tags=["data"])
 
@@ -49,6 +50,7 @@ def import_csv(payload: CsvImport, db: Session = Depends(get_db)):
     created: list[models.Case] = []
     graph_rows: list[dict] = []
     case_number = db.query(models.Case).count()
+    reserved_case_ids: set[str] = set()
     try:
         for index, row in enumerate(normalized, start=2):
             try:
@@ -75,14 +77,24 @@ def import_csv(payload: CsvImport, db: Session = Depends(get_db)):
             label_raw = _value(row, "is_fraud", "fraud_label", "label")
             label = None if label_raw is None else label_raw.lower() in {"1", "true", "yes", "fraud"}
             known = {"amount", "customer_id", "entity_id", "customer_name", "transaction_id", "claim_id",
-                "record_id", "id", "timestamp", "date", "event_time", "is_fraud", "fraud_label", "label",
+                "record_id", "id", "case_id", "timestamp", "date", "event_time", "is_fraud", "fraud_label", "label",
                 "account_id", "device_id", "merchant_id", "policy_id", "address_id", "broker_id", "email"}
             features = {k: v for k, v in row.items() if k and k not in known and v not in (None, "")}
-            while True:
-                case_number += 1
-                case_id = f"FS-{case_number:05d}"
-                if not db.query(models.Case).filter_by(case_id=case_id).first():
-                    break
+            requested_case_id = _value(row, "case_id")
+            if requested_case_id:
+                case_id = requested_case_id
+                if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_-]{0,63}", case_id):
+                    raise HTTPException(400, f"Row {index}: case_id may contain letters, numbers, hyphens, and underscores.")
+                if case_id in reserved_case_ids or db.query(models.Case).filter_by(case_id=case_id).first():
+                    raise HTTPException(409, f"Row {index}: case ID {case_id} already exists.")
+                reserved_case_ids.add(case_id)
+            else:
+                while True:
+                    case_number += 1
+                    case_id = f"FS-{case_number:05d}"
+                    if case_id not in reserved_case_ids and not db.query(models.Case).filter_by(case_id=case_id).first():
+                        reserved_case_ids.add(case_id)
+                        break
             if is_claim:
                 db.add(models.Claim(claim_id=record_id, customer_id=customer_id,
                     policy_id=_value(row, "policy_id"), amount=amount, date=timestamp,
@@ -110,29 +122,27 @@ def import_csv(payload: CsvImport, db: Session = Depends(get_db)):
     # Shared identifiers connect imported customers, giving case investigations
     # a persistent graph to inspect across multiple uploads.
     graph_warning = None
-    graph = None
     try:
-        graph = get_graph_store()
-        graph.initialize_schema()
-        for item in graph_rows:
-            cid = item["customer_id"]
-            if not cid:
-                continue
-            graph.add_customer(cid, item["name"], data_source="user_uploaded")
-            record_type, rel = ("Claim", "FILED") if is_claim else ("Transaction", "MADE")
-            graph.add_entity(record_type, item["record_id"], amount=item["amount"], timestamp=item["timestamp"])
-            graph.link(rel, "Customer", cid, record_type, item["record_id"])
-            for key, entity_type, relation in [("account_id", "Account", "OWNS_ACCOUNT"),
-                ("device_id", "Device", "USES_DEVICE"), ("address_id", "Address", "HAS_ADDRESS"),
-                ("broker_id", "Broker", "FILED_VIA"), ("email", "Email", "HAS_EMAIL")]:
-                if item[key]:
-                    graph.add_entity(entity_type, item[key])
-                    graph.link(relation, "Customer", cid, entity_type, item[key])
+        # graph_session serializes access to the embedded graph database
+        # and releases its exclusive file lock as soon as this is done.
+        with graph_session() as graph:
+            graph.initialize_schema()
+            for item in graph_rows:
+                cid = item["customer_id"]
+                if not cid:
+                    continue
+                graph.add_customer(cid, item["name"], data_source="user_uploaded")
+                record_type, rel = ("Claim", "FILED") if is_claim else ("Transaction", "MADE")
+                graph.add_entity(record_type, item["record_id"], amount=item["amount"], timestamp=item["timestamp"])
+                graph.link(rel, "Customer", cid, record_type, item["record_id"])
+                for key, entity_type, relation in [("account_id", "Account", "OWNS_ACCOUNT"),
+                    ("device_id", "Device", "USES_DEVICE"), ("address_id", "Address", "HAS_ADDRESS"),
+                    ("broker_id", "Broker", "FILED_VIA"), ("email", "Email", "HAS_EMAIL")]:
+                    if item[key]:
+                        graph.add_entity(entity_type, item[key])
+                        graph.link(relation, "Customer", cid, entity_type, item[key])
     except Exception as exc:
         graph_warning = str(exc)
-    finally:
-        if graph:
-            graph.close()
 
     return {"imported": len(created), "domain": payload.domain,
         "case_ids": [row.case_id for row in created], "graph_warning": graph_warning}

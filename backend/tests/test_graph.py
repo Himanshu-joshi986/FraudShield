@@ -6,6 +6,7 @@ against a live server in the separate database smoke test.
 import json
 import shutil
 import sys
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import pytest
@@ -22,6 +23,7 @@ def store(tmp_path):
     s = get_graph_store("kuzu", db_path=tmp_path / "test_graph")
     s.initialize_schema(reset=False)
     yield s
+    # close() releases the embedded database (and its file lock)
     s.close()
 
 
@@ -30,12 +32,56 @@ class TestGraphStoreBasics:
         from app.graph.store import get_graph_store
         s = get_graph_store()
         assert s.name == "kuzu"
-        s.close()
+        s.close()  # release the embedded database's file lock
 
     def test_unknown_backend_raises(self):
         from app.graph.store import get_graph_store
         with pytest.raises(ValueError):
             get_graph_store("mongodb")
+
+    def test_the_embedded_store_is_serialized_not_shared(self):
+        """Regression guard for a real 500 found live.
+
+        kuzu takes an EXCLUSIVE lock on its database file, so opening it
+        twice at the same time fails with "Could not set lock on file".
+        The dashboard loads a case's graph at the same time as its
+        insights and evidence, so two graph handles could be live at once
+        and one request would fail. Access is therefore serialized per
+        process, and the file lock is released as soon as the request
+        finishes so other processes are not locked out.
+        """
+        from app.graph.store import GRAPH_ACCESS_LOCK, graph_session
+        assert GRAPH_ACCESS_LOCK is not None
+
+        # two sessions must not overlap: the second one waits
+        import threading
+        active = []
+        overlaps = []
+
+        def use(_):
+            with graph_session() as store:
+                active.append(1)
+                if len(active) > 1:
+                    overlaps.append(len(active))
+                store.query("MATCH (c:Customer) RETURN c.id AS id LIMIT 1")
+                active.pop()
+
+        with ThreadPoolExecutor(max_workers=4) as pool:
+            list(pool.map(use, range(4)))
+        assert not overlaps, "two graph sessions were open at the same time"
+
+    def test_concurrent_queries_do_not_fail(self, store):
+        """Two overlapping graph reads must not raise a lock error."""
+        store.add_customer("C-CONC", "Concurrent", data_source="synthetic", scenario_id="FS-SC-001")
+
+        def read(_):
+            return store.query(
+                "MATCH (c:Customer) WHERE c.id = $cid RETURN c.name AS name", {"cid": "C-CONC"}
+            )
+
+        with ThreadPoolExecutor(max_workers=4) as pool:
+            results = list(pool.map(read, range(8)))
+        assert all(r and r[0]["name"] == "Concurrent" for r in results)
 
     def test_add_and_query_customer(self, store):
         store.add_customer("C1", "Alice", data_source="synthetic", scenario_id="FS-SC-001")

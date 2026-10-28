@@ -20,12 +20,23 @@ from langgraph.graph import StateGraph, END
 
 from app.agents.state import FraudCaseState
 from app.agents import sentinel_agent, investigation_agent, evidence_agent, report_agent, case_commander
-from app.graph.store import GraphStore
+from app.graph.store import GraphStore, graph_session
 from app.rag.knowledge_base import KnowledgeBase
 
 
-def build_graph(graph_store: GraphStore, knowledge_base: KnowledgeBase, document_paths: dict[str, str],
+def build_graph(graph_store: GraphStore | None, knowledge_base: KnowledgeBase, document_paths: dict[str, str],
                 all_cases: list[dict] | None = None, duplicate_invoice_case_ids: set | None = None):
+    """
+    `graph_store`: an already-open store, or None.
+
+    When None, each agent that needs the graph opens one for exactly as
+    long as its own graph work takes. The embedded kuzu database is a
+    single-writer resource (it takes an exclusive file lock), so holding
+    that lock for a whole 5-agent investigation -- which includes OCR and
+    LLM calls that have nothing to do with the graph -- would lock out
+    every other reader of the graph for the duration. Scripts that
+    already hold a store pass it in and it is used as-is.
+    """
     """
     `document_paths`: {case_id: image_path} for cases that have a
     document to validate (Scenarios 4/5/7/8). Cases without an entry
@@ -44,13 +55,28 @@ def build_graph(graph_store: GraphStore, knowledge_base: KnowledgeBase, document
     batch and passed in.
     """
 
+    def _with_store(fn):
+        """Runs an agent with a graph store, opening one only if needed."""
+        if graph_store is not None:
+            return fn(graph_store)
+        with graph_session() as store:
+            return fn(store)
+
     def sentinel_node(state: FraudCaseState) -> FraudCaseState:
         doc_path = document_paths.get(state["case_id"])
-        return sentinel_agent.run(state, graph_store, document_path=doc_path,
-                                  all_cases=all_cases, duplicate_invoice_case_ids=duplicate_invoice_case_ids)
+
+        def run(store):
+            return sentinel_agent.run(state, store, document_path=doc_path,
+                                      all_cases=all_cases,
+                                      duplicate_invoice_case_ids=duplicate_invoice_case_ids)
+
+        return _with_store(run)
 
     def investigation_node(state: FraudCaseState) -> FraudCaseState:
-        return investigation_agent.run(state, graph_store, knowledge_base)
+        def run(store):
+            return investigation_agent.run(state, store, knowledge_base)
+
+        return _with_store(run)
 
     def evidence_node(state: FraudCaseState) -> FraudCaseState:
         return evidence_agent.run(state)

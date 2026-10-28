@@ -1,36 +1,59 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { api } from "../services/api";
 import { RiskStamp, DecisionStamp, caseStatusLabel, investigationComplete } from "../components/RiskStamp";
 import ExhibitList from "../components/ExhibitList";
 import FraudGraph from "../components/FraudGraph";
+import SignalScorecard from "../components/SignalScorecard";
+import PolicyTrace from "../components/PolicyTrace";
+import DocumentCompare from "../components/DocumentCompare";
+import PipelineStepper from "../components/PipelineStepper";
+import CaseActivityTimeline from "../components/CaseActivityTimeline";
+import ReportView from "../components/ReportView";
 
 const TABS = ["Overview", "Evidence", "Fraud graph", "Timeline", "Report"];
 
-export default function CaseDetail({ caseId, onBack, onCaseUpdated }) {
+export default function CaseDetail({ caseId, onBack, onCaseUpdated, onCaseRemoved }) {
   const [detail, setDetail] = useState(null);
   const [graph, setGraph] = useState(null);
+  const [insights, setInsights] = useState(null);
+  const [dossier, setDossier] = useState(null);
   const [investigating, setInvestigating] = useState(false);
   const [error, setError] = useState(null);
   const [loadError, setLoadError] = useState(null);
   const [liveEvents, setLiveEvents] = useState([]);
   const [tab, setTab] = useState("Overview");
+  const [focusEvidence, setFocusEvidence] = useState([]);
+  const [confirmation, setConfirmation] = useState(null);
+  const [removing, setRemoving] = useState(false);
   const wsRef = React.useRef(null);
 
-  async function load() {
+  const load = useCallback(async () => {
     try {
-      const d = await api.caseDetail(caseId);
-      setDetail(d);
-      setLoadError(null);
-      if (d.case.customer_id) {
-        const g = await api.caseGraph(caseId).catch(() => null);
-        setGraph(g);
+      // One round trip's worth of latency instead of four sequential ones:
+      // the case record, the entity graph, the scorecard and the document
+      // dossier are independent, so they are fetched in parallel. Each
+      // one is allowed to fail on its own without taking the page down.
+      const [detailResult, graphResult, insightsResult, dossierResult] = await Promise.allSettled([
+        api.caseDetail(caseId),
+        api.caseGraph(caseId).catch(() => null),
+        api.caseInsights(caseId).catch(() => null),
+        api.caseDocuments(caseId).catch(() => null),
+      ]);
+
+      if (detailResult.status === "rejected") {
+        throw detailResult.reason;
       }
+      setDetail(detailResult.value);
+      setGraph(graphResult.status === "fulfilled" ? graphResult.value : null);
+      setInsights(insightsResult.status === "fulfilled" ? insightsResult.value : null);
+      setDossier(dossierResult.status === "fulfilled" ? dossierResult.value : null);
+      setLoadError(null);
     } catch (e) {
       setLoadError(e.message || "Could not load this case.");
     }
-  }
+  }, [caseId]);
 
-  useEffect(() => { load(); }, [caseId]);
+  useEffect(() => { load(); }, [load]);
 
   async function handleInvestigate() {
     setInvestigating(true);
@@ -63,6 +86,67 @@ export default function CaseDetail({ caseId, onBack, onCaseUpdated }) {
     }
   }
 
+  function handleReinvestigate() {
+    setConfirmation("rerun");
+  }
+
+  async function confirmCaseAction() {
+    if (confirmation === "rerun") {
+      setConfirmation(null);
+      await handleInvestigate();
+      return;
+    }
+    if (confirmation === "remove") {
+      setRemoving(true);
+      setError(null);
+      try {
+        await api.deleteCase(caseId);
+        setConfirmation(null);
+        setRemoving(false);
+        await onCaseRemoved?.();
+      } catch (e) {
+        setError(e.message || "Could not remove this case.");
+        setRemoving(false);
+      }
+    }
+  }
+
+  useEffect(() => {
+    if (!confirmation || investigating || removing) return undefined;
+    function onKeyDown(event) {
+      if (event.key === "Escape") setConfirmation(null);
+    }
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [confirmation, investigating, removing]);
+
+  // Jumping to an exhibit from the report: switch to the Evidence tab and
+  // scroll the referenced exhibit into view.
+  const openEvidence = useCallback((evidenceId) => {
+    setTab("Evidence");
+    setFocusEvidence([evidenceId]);
+    window.setTimeout(() => {
+      const node = document.getElementById(`exhibit-${evidenceId}`);
+      if (node) node.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 60);
+  }, []);
+
+  const highlightedNodes = useMemo(() => {
+    // graph evidence names connected entities; surface them in the graph
+    // tab so the two views agree on what the case touched.
+    if (!detail?.evidence?.length) return [];
+    const ids = new Set();
+    for (const item of detail.evidence) {
+      if (item.type !== "graph") continue;
+      const connections = item.source_reference?.connections || [];
+      for (const connection of connections) {
+        if (connection?.connected_customer) ids.add(connection.connected_customer);
+        if (connection?.shared_entity) ids.add(connection.shared_entity);
+      }
+    }
+    return [...ids];
+  }, [detail]);
+
   if (!detail) return (
     <div className="p-10 text-ink-dim font-serif">
       {loadError ? (
@@ -77,9 +161,14 @@ export default function CaseDetail({ caseId, onBack, onCaseUpdated }) {
 
   return (
     <div className="max-w-4xl mx-auto p-10">
-      <button onClick={onBack} className="text-xs font-mono text-ink-faint hover:text-forensic mb-6">
-        &larr; back to command center
-      </button>
+      <div className="case-detail-actions">
+        <button onClick={onBack} className="text-xs font-mono text-ink-faint hover:text-forensic">
+          &larr; back to command center
+        </button>
+        <button type="button" className="case-remove-trigger" onClick={() => setConfirmation("remove")} disabled={investigating || removing}>
+          Remove case
+        </button>
+      </div>
 
       <div className="flex items-start justify-between mb-2">
         <div>
@@ -104,6 +193,9 @@ export default function CaseDetail({ caseId, onBack, onCaseUpdated }) {
           <span className="completion-check">✓</span>
           <div><strong>Investigation complete</strong><span>{caseStatusLabel(c.status)} · Risk score {Number(c.risk_score).toFixed(2)}</span></div>
           <span className="completion-date">RESULT SAVED</span>
+          <button type="button" className="completion-rerun" onClick={handleReinvestigate} disabled={investigating}>
+            {investigating ? "RE-RUNNING…" : "RE-RUN INVESTIGATION"}
+          </button>
         </div>
       )}
 
@@ -160,10 +252,29 @@ export default function CaseDetail({ caseId, onBack, onCaseUpdated }) {
           <div className="pt-6">
             {tab === "Overview" && (
               <div className="space-y-6">
+                {insights ? (
+                  <SignalScorecard insights={insights} />
+                ) : (
+                  <p className="text-sm text-ink-dim font-serif italic">
+                    The signal breakdown is unavailable for this case.
+                  </p>
+                )}
+
+                {insights?.policy && (
+                  <PolicyTrace
+                    policy={insights.policy}
+                    counterfactuals={insights.counterfactuals}
+                    scoreBelowMedium={insights.score_below_medium}
+                    riskScore={insights.risk_score}
+                    riskAdjustment={insights.fusion?.risk_adjustment}
+                  />
+                )}
+
                 <div>
-                  <SectionLabel>Why this case was flagged</SectionLabel>
+                  <SectionLabel>Top evidence</SectionLabel>
                   <ExhibitList evidence={evidence.slice().sort((a, b) => b.confidence - a.confidence).slice(0, 3)} />
                 </div>
+
                 {decision && (
                   <div>
                     <SectionLabel>Recommended disposition</SectionLabel>
@@ -177,36 +288,54 @@ export default function CaseDetail({ caseId, onBack, onCaseUpdated }) {
             )}
 
             {tab === "Evidence" && (
-              <div>
-                <SectionLabel>Evidence dossier ({evidence.length} exhibit{evidence.length !== 1 ? "s" : ""})</SectionLabel>
-                <ExhibitList evidence={evidence} />
-                <p className="text-[11px] text-ink-faint font-serif italic mt-4">
-                  This explanation describes model and evidence signals. It does not establish that
-                  fraud actually occurred.
-                </p>
+              <div className="space-y-6">
+                {dossier?.has_document && (
+                  <div>
+                    <SectionLabel>Supporting document</SectionLabel>
+                    <DocumentCompare dossier={dossier} />
+                  </div>
+                )}
+
+                <div>
+                  <SectionLabel>Evidence dossier ({evidence.length} exhibit{evidence.length !== 1 ? "s" : ""})</SectionLabel>
+                  <ExhibitList
+                    evidence={evidence}
+                    showFilters
+                    focusIds={focusEvidence}
+                    onFocusComplete={(item) => setFocusEvidence([item.evidence_id])}
+                  />
+                  <p className="text-[11px] text-ink-faint font-serif italic mt-4">
+                    This explanation describes model and evidence signals. It does not establish that
+                    fraud actually occurred.
+                  </p>
+                </div>
               </div>
             )}
 
             {tab === "Fraud graph" && (
               <div>
                 <SectionLabel>Connected entities</SectionLabel>
-                <FraudGraph nodes={graph?.nodes} edges={graph?.edges} />
+                <FraudGraph nodes={graph?.nodes} edges={graph?.edges} highlightIds={highlightedNodes} />
+                <p className="text-[11px] text-ink-faint font-serif italic mt-4">
+                  Entities highlighted in the graph are the ones named in this case's graph evidence.
+                </p>
               </div>
             )}
 
             {tab === "Timeline" && (
-              <div>
-                <SectionLabel>Agent execution timeline</SectionLabel>
-                <div className="space-y-3">
-                  {agent_executions.map((log) => (
-                    <div key={log.execution_id} className="flex gap-4 text-sm">
-                      <span className="text-[11px] font-mono text-ink-faint w-40 shrink-0">{log.agent_name}</span>
-                      <div>
-                        <p className="font-serif text-ink-text">{log.output_summary}</p>
-                        <p className="text-[10px] font-mono text-ink-faint mt-0.5">{log.duration_ms?.toFixed(1)}ms</p>
-                      </div>
-                    </div>
-                  ))}
+              <div className="space-y-8">
+                <div>
+                  <SectionLabel>Case activity</SectionLabel>
+                  <CaseActivityTimeline
+                    events={insights?.events || []}
+                    velocityClusterSize={insights?.velocity_cluster_size || 0}
+                    velocityWindowSeconds={insights?.velocity_window_seconds || 0}
+                  />
+                </div>
+
+                <div>
+                  <SectionLabel>Agent execution</SectionLabel>
+                  <PipelineStepper agents={agent_executions} />
                 </div>
               </div>
             )}
@@ -223,9 +352,7 @@ export default function CaseDetail({ caseId, onBack, onCaseUpdated }) {
                     >
                       Download PDF report
                     </a>
-                    <pre className="text-[11px] font-mono text-ink-dim whitespace-pre-wrap border-l-2 border-ink-750 pl-4">
-                      {report.content}
-                    </pre>
+                    <ReportView content={report.content} onOpenEvidence={openEvidence} />
                   </>
                 ) : (
                   <p className="text-sm text-ink-dim font-serif italic">
@@ -236,6 +363,45 @@ export default function CaseDetail({ caseId, onBack, onCaseUpdated }) {
             )}
           </div>
         </>
+      )}
+
+      {confirmation && (
+        <div className="case-dialog-backdrop" onMouseDown={(event) => {
+          if (event.target === event.currentTarget && !investigating && !removing) setConfirmation(null);
+        }}>
+          <section
+            className={`case-confirm-dialog ${confirmation === "remove" ? "is-destructive" : ""}`}
+            role={confirmation === "remove" ? "alertdialog" : "dialog"}
+            aria-modal="true"
+            aria-labelledby="case-confirm-title"
+            aria-describedby="case-confirm-description"
+          >
+            <span className="case-dialog-kicker">CASE ACTION · {c.case_id}</span>
+            <h2 id="case-confirm-title">
+              {confirmation === "rerun" ? "Run this investigation again?" : "Remove this case?"}
+            </h2>
+            <p id="case-confirm-description">
+              {confirmation === "rerun"
+                ? "A new run will replace the saved report, evidence dossier, and routing decision for this case. The current result remains saved if you cancel."
+                : "This removes the case and its saved investigation activity, evidence, report, and decision from the case register. Linked source transactions or claims and supporting source files are retained."}
+            </p>
+            {error && <p className="case-dialog-error" role="alert">{error}</p>}
+            <div className="case-dialog-actions">
+              <button type="button" className="case-dialog-cancel" onClick={() => setConfirmation(null)} disabled={investigating || removing} autoFocus={confirmation === "remove"}>
+                {confirmation === "remove" ? "Keep case" : "Cancel"}
+              </button>
+              <button
+                type="button"
+                className="case-dialog-confirm"
+                onClick={confirmCaseAction}
+                disabled={investigating || removing}
+                autoFocus={confirmation === "rerun"}
+              >
+                {removing ? "Removing…" : confirmation === "rerun" ? "Run again" : "Remove case"}
+              </button>
+            </div>
+          </section>
+        </div>
       )}
     </div>
   );

@@ -25,7 +25,7 @@ claims made here.
 
 ---
 
-## Current status: Phases 0–18
+## Current status: Phases 0–19
 
 | Phase | Status |
 |---|---|
@@ -48,6 +48,7 @@ claims made here.
 | 16. Testing (unit/integration/e2e) | ✅ |
 | 17. Docker | ✅ Compose images built and smoke-tested live |
 | 18. Final documentation | ✅ |
+| 19. Case intelligence — scorecard, policy trace, counterfactuals, document comparison, activity timeline | ✅ |
 
 All 18 phases have implementation work recorded. The currently verified
 backend test status and its limits are in `docs/TESTING.md`; the dashboard
@@ -128,17 +129,114 @@ transactions, default XGBoost + GraphSAGE + LSTM fusion scores PR-AUC
 support deploying those fusion weights as calibrated policy; details
 and limitations are in `docs/EXPERIMENTS.md`.
 
+## Phase 19 — Case intelligence (the case file, made reviewable)
+
+Phase 19 adds the layer between "the pipeline produced a number" and "a
+reviewer can act on it". Everything in it is computed from what the
+pipeline actually recorded — no invented numbers, no decorative charts.
+
+### New API
+
+| Endpoint | What it returns |
+|---|---|
+| `GET /api/cases/{id}/insights` | Signal scorecard, policy trace, counterfactuals, case activity timeline, agent run |
+| `GET /api/cases/{id}/documents` | The case's document dossier: OCR fields plus every invoice that filed the same invoice number |
+| `GET /api/documents/{file}` | The supporting-document image itself (whitelisted against the manifest — no path traversal surface) |
+
+### What the dashboard now shows
+
+- **Signal scorecard** — the case's risk score decomposed into the
+  signals that produced it, each with its value, its weight, and its
+  share of the final score. The contributions always add back up to the
+  score on the case header (asserted by a test). A signal that was *not
+  available* for the case is drawn as absent, with the reason — never
+  as zero.
+- **Policy trace** — which rule produced the routing decision, in the
+  order the Case Commander evaluated them, and whether the case was
+  routed by its score or by a policy override. This matters more than it
+  sounds: `FS-SYN-00019` scores **0.21 (LOW) and is still escalated**,
+  because a duplicate invoice number and a document amount mismatch
+  trigger two independent overrides. Without the trace, that looks like
+  a bug; with it, it is the whole point of the system.
+- **Counterfactuals** — the value a single signal would have to reach
+  for the case to score below a threshold, solved exactly from the
+  fusion arithmetic rather than estimated. The panel states plainly when
+  a change *would not* help because an override applies regardless.
+- **Document comparison** — the actual invoice images side by side with
+  the fields OCR read from them, with the differing fields highlighted.
+  For `FS-SYN-00019` this shows invoice `INV-81793` filed on three
+  different claims by three different people, which is the duplicate-
+  filing pattern the whole scenario was built around.
+- **Case activity timeline** — the business timeline (what was filed,
+  when, and which filings landed inside the velocity window) separated
+  from the **pipeline stepper** (the five agents, their durations, and
+  which one was the slow stage).
+- **Force-directed fraud graph** — connected entities are laid out as
+  clusters, so a ring reads as a ring. Hovering a node shows what it
+  shares with whom; entities named in the case's graph evidence are
+  highlighted in the graph.
+- **Structured report view** — the report renders as a document
+  (numbered sections, labelled fields) instead of a grey block, and its
+  evidence references are clickable: a claim in the report jumps to the
+  exhibit that supports it.
+
+### Two real bugs found by building this
+
+1. **The coordinated-ring override never fired.** LangGraph builds its
+   state channels from the `FraudCaseState` schema and silently drops
+   any node update for an undeclared key. Sentinel wrote
+   `n_override_eligible_connections` and Case Commander read it, but the
+   key was missing from the schema — so the commander always saw zero
+   connections and the "escalate regardless of score" rule was dead
+   code. Every ring case was being routed on its score alone. Fixed by
+   declaring the key, and locked in with a test that asserts *every*
+   state key written by an agent is declared.
+2. **Concurrent graph requests returned HTTP 500.** kuzu takes an
+   exclusive lock on its database file, so opening it twice at once
+   failed with `Could not set lock on file`. The dashboard now loads a
+   case's graph, insights and evidence in parallel, which made two graph
+   handles overlap — the failure was already there, the parallel load
+   just made it visible. Graph access is now serialized per process and
+   the file lock is released as soon as a request finishes, with a short
+   retry when another process holds the file. (A first attempt at this
+   fix — a process-wide singleton holding the database open for the life
+   of the process — was wrong: it made the embedded database a permanent
+   lock holder, and the test suite caught it blocking. The lock is now
+   held only for the length of actual graph work, which also means the
+   graph is not locked out during the OCR and LLM calls in the middle of
+   an investigation.)
+
+### A second OCR engine, and a shared document cache
+
+- **`rapidocr`** (PP-OCRv4 on onnxruntime) was added as a third OCR
+  backend. It is a pure pip install — no system binary, no admin rights
+  — so the document features work on a machine without tesseract. The
+  engine preference is tesseract → rapidocr → paddleocr; an *explicit*
+  `OCR_BACKEND` choice that cannot run still fails loudly rather than
+  silently using another engine, and every finding records which engine
+  produced it.
+- **OCR results are now cached by file modification time** and shared
+  between the pipeline and the dashboard, and the documents are read
+  concurrently. Previously every investigate call re-ran tesseract over
+  every document (~10.5s); now it runs once, at startup, and is reused
+  — and re-runs automatically if a document actually changes on disk.
+
 ## Remaining implementation and verification gaps
 
-The case-level graph, evidence dossier, and KB search exist. Evidence
-exhibits now expose their structured source references in an expandable
-trace panel, but there are no direct links into source documents/records.
-The dashboard still lacks a standalone Fraud Ring Explorer, a KB
-document-upload flow, and an ROI calculator. PostgreSQL ORM CRUD and
+The case-level graph, evidence dossier, KB search, signal scorecard,
+policy trace, counterfactuals, document comparison and activity
+timeline now exist. Evidence exhibits expose their structured source
+references in an expandable trace panel, and the document dossier links
+the OCR fields back to the document image itself.
+The dashboard still lacks a standalone Fraud Ring Explorer and an ROI
+calculator. PostgreSQL ORM CRUD and
 Neo4j adapter queries passed basic live-service smoke checks, but full
 application workflows on those backends remain unverified. A successful
-Gemini response still requires a valid API key. See `docs/PROGRESS.md`
-and `docs/EXPERIMENTS.md`.
+Gemini response still requires a valid API key. The Phase-6 document
+metrics in `docs/EXPERIMENTS.md` were measured with tesseract; the
+rapidocr path is verified functionally (real fields extracted from the
+real images) but has not been benchmarked against tesseract.
+See `docs/PROGRESS.md` and `docs/EXPERIMENTS.md`.
 
 ---
 
@@ -149,7 +247,8 @@ FraudShield/
 ├── backend/
 │   ├── app/
 │   │   ├── main.py              # FastAPI entrypoint
-│   │   ├── api/cases.py         # case CRUD endpoints
+│   │   ├── api/cases.py         # case CRUD + insights + document dossier endpoints
+│   │   ├── api/documents.py     # serves supporting-document images (manifest-whitelisted)
 │   │   ├── core/config.py       # env-driven settings (DB, graph, RAG, LLM)
 │   │   ├── database/            # SQLAlchemy models + session (Phase 1)
 │   │   ├── schemas/             # Pydantic request/response models
@@ -157,12 +256,15 @@ FraudShield/
 │   │   ├── ml/{baseline,gnn,temporal,document,fusion}/
 │   │   ├── graph/                # kuzu / Neo4j adapters
 │   │   ├── rag/                  # ChromaDB knowledge base
+│   │   ├── services/              # pipeline bridge, case insights, document cache
 │   │   └── explainability/       # SHAP, GNNExplainer, case summary
 │   └── tests/
 │       ├── test_api.py               # Phase 1 — 12 tests
 │       ├── test_data_pipeline.py     # Phase 2 — 16 tests
-│       └── test_baseline_models.py   # Phase 3 — 10 tests
+│       ├── test_baseline_models.py   # Phase 3 — 10 tests
+│       └── test_case_insights.py     # Phase 19 — 16 tests
 ├── frontend/                    # React dashboard
+│   └── src/components/           # scorecard, policy trace, documents, timelines, report
 ├── data/
 │   ├── raw/{ieee_cis,carclaims}/     # your uploaded source files
 │   ├── processed/                    # parquet splits + stats JSON (Phase 2 output)
@@ -176,7 +278,7 @@ FraudShield/
 ├── docs/
 │   ├── PROGRESS.md               # phase-by-phase status, updated every phase
 │   ├── DATASET.md                # real data documentation
-│   └── EXPERIMENTS.md            # real model metrics
+│   └── EXPERIMENTS.md            # real model metrics + Phase 19 findings
 └── .env.example
 ```
 
@@ -195,6 +297,13 @@ uvicorn app.main:app --reload --port 8000
 
 Health check: `GET http://localhost:8000/health`
 Case API: `POST/GET http://localhost:8000/api/cases` (OpenAPI docs at `/docs`)
+
+**OCR engine:** the document features need an OCR engine. `tesseract` is
+the one the measured Phase-6 results used; `rapidocr` is a pure pip
+install that needs no system binary and is selected automatically when
+tesseract is absent. Install it with `pip install rapidocr-onnxruntime`.
+Set `OCR_BACKEND` to force one explicitly — an explicit choice that
+cannot run fails loudly rather than silently using another engine.
 
 ### 2. Reproduce the dataset pipeline
 
@@ -296,6 +405,8 @@ cd backend && uvicorn app.main:app --reload --port 8000
 curl -X POST http://localhost:8000/api/cases/seed-synthetic
 curl -X POST http://localhost:8000/api/cases/FS-SYN-00016/investigate
 curl http://localhost:8000/api/cases/FS-SYN-00016/graph
+curl http://localhost:8000/api/cases/FS-SYN-00016/insights
+curl http://localhost:8000/api/cases/FS-SYN-00019/documents
 curl http://localhost:8000/api/cases/FS-SYN-00016/report/pdf -o report.pdf
 curl http://localhost:8000/api/analytics
 ```
@@ -329,7 +440,18 @@ cd backend
 python3 -m pytest tests/ -v
 ```
 
-Current verified result: `196 passed, 0 skipped` in this environment.
+Current verified result: `219 passed, 1 failed` in this environment. The
+one failure is `test_report_generation.py::test_pdf_files_actually_exist_on_disk`,
+which compares the regenerated PDFs' byte size against the checked-in
+`docs/report_generation_metrics.json` — an artifact measured on the Linux
+build machine. It fails on a clean checkout of HEAD here too, so it is an
+environment artifact rather than a regression.
+
+Note: the embedded kuzu graph database is a single-writer resource. The
+test suite and a running dev server can therefore contend for it; the
+server holds the lock only while it is actually querying the graph, and
+opens retry briefly if the file is held elsewhere, so both can run at
+the same time.
 
 ---
 

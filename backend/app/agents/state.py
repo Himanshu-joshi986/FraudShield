@@ -18,6 +18,26 @@ class FraudCaseState(TypedDict, total=False):
     risk_level: str                      # LOW | MEDIUM | HIGH
     signals: list[str]                   # named risk indicators, e.g. "high_transaction_velocity"
 
+    # Number of DISTINCT customers connected to this one through an
+    # override-eligible shared entity (Account or Device). Sentinel
+    # computes it; Case Commander reads it to apply the coordinated-ring
+    # override.
+    #
+    # THIS KEY MUST BE DECLARED HERE. LangGraph builds its state channels
+    # from this schema, and silently DROPS any node update for a key
+    # that is not declared -- so while this field was missing, the
+    # ring override always saw 0 connections and never fired, and every
+    # ring case was routed on its score alone. Found while building the
+    # case insights (the policy trace showed an escalation with no
+    # override on a case that clearly had a ring). Regression-tested in
+    # tests/test_agents.py.
+    n_override_eligible_connections: int
+
+    # Number of distinct customer events in the trailing velocity window,
+    # including the current event exactly once; None when not computable.
+    velocity_burst_count: int | None
+    velocity_window_seconds: int
+
     graph_findings: dict                 # Investigation Agent's Cypher query results
     investigation_findings: dict         # observed_fact / inference / external_knowledge / uncertainty
     retrieved_knowledge: list[dict]      # RAG results with provenance

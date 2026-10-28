@@ -65,6 +65,58 @@ class TestRiskFusion:
         assert high["risk_level"] == "HIGH"
 
 
+class TestAgentStateSchema:
+    """
+    Regression guard for a real bug found while building the case insights.
+
+    LangGraph builds its state channels from the FraudCaseState schema and
+    SILENTLY DROPS any node update for a key that is not declared there.
+    Sentinel writes `n_override_eligible_connections` and Case Commander
+    reads it to apply the coordinated-ring override -- but the key was
+    missing from the schema, so the commander always saw 0 connections and
+    the ring override never fired. Every ring case was routed on its score
+    alone, and the policy trace showed no override on cases that clearly
+    had one.
+    """
+
+    def test_ring_override_key_is_declared_in_the_state_schema(self):
+        from app.agents.state import FraudCaseState
+        assert "n_override_eligible_connections" in FraudCaseState.__annotations__
+
+    def test_every_state_key_written_by_an_agent_is_declared(self):
+        """Guards against the same class of bug returning in another key."""
+        import re
+        from app.agents.state import FraudCaseState
+
+        agents_dir = REPO_ROOT / "backend" / "app" / "agents"
+        declared = set(FraudCaseState.__annotations__)
+        written = set()
+        for path in agents_dir.glob("*.py"):
+            source = path.read_text(encoding="utf-8")
+            written.update(re.findall(r'state\[["\']([a-z_]+)["\']\]\s*=', source))
+            written.update(
+                m for m in re.findall(r'state\.setdefault\(["\']([a-z_]+)["\']', source)
+            )
+
+        # agent_logs / errors are appended to, not replaced, but they are
+        # declared too -- so every key written must be in the schema.
+        undeclared = written - declared
+        assert not undeclared, f"state keys written but not declared: {sorted(undeclared)}"
+
+    def test_ring_override_fires_when_connections_reach_the_threshold(self):
+        from app.agents.case_commander import run
+        state = {
+            "case_id": "T-RING",
+            "risk_score": 0.10,  # well below the HIGH threshold
+            "n_override_eligible_connections": 4,
+            "signals": [],
+            "model_results": {"fusion": {"available_signals": ["graph_risk"], "degraded": False}},
+        }
+        result = run(state)
+        assert result["routing_decision"]["decision"] == "ESCALATE"
+        assert "ring_override" in result["routing_decision"]["reason"]
+
+
 class TestLLMClientDegradation:
     def test_missing_api_key_degrades_cleanly(self):
         from app.agents.llm_client import GeminiClient

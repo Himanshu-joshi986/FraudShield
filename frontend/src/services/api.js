@@ -35,9 +35,26 @@ export const api = {
 
   caseDetail: (caseId) => fetch(`${BASE}/cases/${caseId}`).then(handle),
 
+  deleteCase: (caseId) => fetch(`${BASE}/cases/${encodeURIComponent(caseId)}`, { method: "DELETE" }).then((res) => {
+    if (!res.ok) return handle(res);
+    return null;
+  }),
+
   investigate: (caseId) => fetch(`${BASE}/cases/${caseId}/investigate`, { method: "POST" }).then(handle),
 
   caseGraph: (caseId) => fetch(`${BASE}/cases/${caseId}/graph`).then(handle),
+
+  // Signal scorecard, policy trace, counterfactuals and case timeline.
+  caseInsights: (caseId) => fetch(`${BASE}/cases/${caseId}/insights`).then(handle),
+
+  // The case's document dossier: OCR fields + the invoices that filed the
+  // same invoice number, for the side-by-side comparison.
+  caseDocuments: (caseId) => fetch(`${BASE}/cases/${caseId}/documents`).then(handle),
+
+  // Document images live at /api/documents/<file>, so they resolve from
+  // the same base as every other request -- absolute in dev, proxied in
+  // a production build.
+  documentImageUrl: (fileName) => `${BASE}/documents/${encodeURIComponent(fileName)}`,
 
   reportPdfUrl: (caseId) => `${BASE}/cases/${caseId}/report/pdf`,
 
@@ -45,8 +62,21 @@ export const api = {
 
   knowledgeBase: () => fetch(`${BASE}/knowledge`).then(handle),
 
-  knowledgeQuery: (question, topK = 3) =>
-    fetch(`${BASE}/knowledge/query?question=${encodeURIComponent(question)}&top_k=${topK}`, {
+  knowledgeQuery: (question, topK = 3, caseId = "") =>
+    fetch(`${BASE}/knowledge/query?question=${encodeURIComponent(question)}&top_k=${topK}${caseId ? `&case_id=${encodeURIComponent(caseId)}` : ""}`, {
       method: "POST",
     }).then(handle),
+
+  uploadKnowledgeDocument: (formData) =>
+    fetch(`${BASE}/knowledge/documents`, { method: "POST", body: formData }).then(handle),
+
+  linkKnowledgeDocument: (documentId, caseId) =>
+    fetch(`${BASE}/knowledge/documents/${encodeURIComponent(documentId)}/link`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ case_id: caseId || null }),
+    }).then(handle),
+
+  removeKnowledgeDocument: (documentId) =>
+    fetch(`${BASE}/knowledge/documents/${encodeURIComponent(documentId)}`, { method: "DELETE" }).then(handle),
 };

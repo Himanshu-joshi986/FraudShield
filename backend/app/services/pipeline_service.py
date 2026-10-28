@@ -9,7 +9,6 @@ previously touched the database at all.
 """
 from __future__ import annotations
 
-import json
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -22,61 +21,36 @@ from app.agents.graph_pipeline import build_graph
 from app.services.websocket_manager import run_case_streaming
 from app.explainability.explain_case import explain_case
 from app.services.report_generator import generate_report_pdf
+from app.services import document_store
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 DOCUMENTS_MANIFEST = REPO_ROOT / "data" / "documents" / "manifest.json"
 
 
 def _load_document_paths() -> dict:
-    if not DOCUMENTS_MANIFEST.exists():
-        return {}
-    with open(DOCUMENTS_MANIFEST) as f:
-        manifest = json.load(f)
     paths = {}
-    for entry in manifest:
+    for entry in document_store.load_manifest():
         paths.setdefault(entry["case_id"], str(REPO_ROOT / entry["image_path"]))
     return paths
 
 
-_duplicate_cache: set | None = None
-
-
 def _load_duplicate_invoice_case_ids() -> set:
     """
-    Cached at module level: this previously re-ran OCR (tesseract) on
-    every document in the manifest on EVERY investigate call, which made
-    each investigation take ~12 seconds -- a real performance bug found
-    while testing the dashboard live. Documents don't change between
-    calls in this environment, so computing this once and reusing it is
-    correct, not just faster.
+    Which cases share an invoice number with at least one other case.
+
+    This previously re-ran OCR (tesseract) on every document in the
+    manifest on EVERY investigate call, which made each investigation
+    take ~12 seconds -- a real performance bug found while testing the
+    dashboard live. It now reads the shared, mtime-aware cache in
+    app/services/document_store.py, so OCR runs once and is reused by
+    both this pipeline and the dashboard's document dossier. The cache is
+    invalidated automatically when a document actually changes on disk,
+    which the previous permanent module-level cache could not do.
     """
-    global _duplicate_cache
-    if _duplicate_cache is not None:
-        return _duplicate_cache
-
-    if not DOCUMENTS_MANIFEST.exists():
-        _duplicate_cache = set()
-        return _duplicate_cache
-
-    from app.documents.validator import validate_document, detect_duplicate_documents
-
-    with open(DOCUMENTS_MANIFEST) as f:
-        manifest = json.load(f)
-    findings_list = [
-        validate_document(
-            image_path=REPO_ROOT / entry["image_path"],
-            claim_amount=entry["claim_amount_on_file"],
-            claimant_name=entry.get("customer_name", ""),
-            case_id=entry["case_id"],
-        )
-        for entry in manifest
-    ]
-    detect_duplicate_documents(findings_list)
-    _duplicate_cache = {f.case_id for f in findings_list if "duplicate_invoice_across_cases" in f.flags}
-    return _duplicate_cache
+    return document_store.duplicate_invoice_case_ids()
 
 
-async def investigate_case(db: Session, case_row: models.Case, graph_store: GraphStore,
+async def investigate_case(db: Session, case_row: models.Case, graph_store: GraphStore | None,
                            knowledge_base: KnowledgeBase) -> dict:
     """
     Runs the real 5-agent pipeline on one case via LangGraph's streaming
@@ -84,9 +58,16 @@ async def investigate_case(db: Session, case_row: models.Case, graph_store: Grap
     as each agent actually executes -- see websocket_manager.py) and
     persists every agent's execution, the evidence dossier, the generated
     PDF report, and the routing decision to the database.
+
+    `graph_store` may be None, in which case the graph is opened for
+    exactly as long as each agent's graph work takes -- the embedded
+    graph database takes an exclusive file lock, and holding it for the
+    whole investigation would lock out every other reader.
     """
     all_cases = [
-        {"customer_id": c.customer_id, "timestamp": c.timestamp.isoformat() if c.timestamp else None}
+        {"case_id": c.case_id, "customer_id": c.customer_id,
+         "timestamp": c.timestamp.isoformat() if c.timestamp else None,
+         "amount": c.amount, "domain": c.domain}
         for c in db.query(models.Case).all()
     ]
     document_paths = _load_document_paths()

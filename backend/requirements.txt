@@ -1,5 +1,6 @@
 # Core backend
 fastapi>=0.110
+python-multipart>=0.0.9      # multipart uploads for user-provided knowledge documents
 uvicorn[standard]>=0.29
 sqlalchemy>=2.0
 psycopg[binary]>=3.2        # PostgreSQL backend for FRAUDSHIELD_DB_URL

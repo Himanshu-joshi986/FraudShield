@@ -69,6 +69,12 @@ export default function App() {
     refresh();
   }
 
+  async function handleCaseRemoved() {
+    setActiveCaseId(null);
+    setPage("home");
+    await refresh();
+  }
+
   function navigateTo(nextPage) {
     setActiveCaseId(null);
     setPage(nextPage);
@@ -107,7 +113,7 @@ export default function App() {
         {page === "home" && (
           <CommandCenter cases={cases} analytics={analytics} onSeed={handleSeed} onOpenCase={openCase} loading={loading} />
         )}
-        {page === "case" && activeCaseId && <CaseDetail caseId={activeCaseId} onBack={goHome} onCaseUpdated={refresh} />}
+        {page === "case" && activeCaseId && <CaseDetail caseId={activeCaseId} onBack={goHome} onCaseUpdated={refresh} onCaseRemoved={handleCaseRemoved} />}
         {page === "analytics" && <Analytics analytics={analytics} error={appError} />}
         {page === "knowledge" && <KnowledgeBase />}
         {page === "data" && <DataIntake onImported={refresh} />}
