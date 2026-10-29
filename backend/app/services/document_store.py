@@ -3,11 +3,9 @@ Shared, cached access to the Phase-6 document layer (real OCR findings).
 
 Why this module exists
 ----------------------
-The document evidence in FraudShield comes from real OCR (tesseract) over
-the invoice PNGs in data/documents/. Running OCR is EXPENSIVE: reading all
-9 manifest documents took ~10.5 seconds the first time it ran, which was
-found while testing the dashboard live (that cost used to be paid on every
-investigate call -- it is now paid once at startup instead).
+The document evidence in FraudShield comes from real OCR over the invoice
+images in data/documents/. OCR is deferred until an investigation or
+document view requests findings, then cached for reuse.
 
 Two places need those findings:
 
@@ -15,7 +13,7 @@ Two places need those findings:
   2. the dashboard's document dossier (side-by-side invoice comparison)
 
 If each of them ran its own OCR pass, the dashboard would pay the cost
-again on every request. So both read from this one cache.
+again on every request. Both therefore read from this shared cache.
 
 CACHE INVALIDATION
 ------------------
@@ -29,7 +27,6 @@ from __future__ import annotations
 
 import json
 import threading
-from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from app.documents.validator import validate_document, detect_duplicate_documents
@@ -38,10 +35,8 @@ REPO_ROOT = Path(__file__).resolve().parents[3]
 DOCUMENTS_DIR = REPO_ROOT / "data" / "documents"
 MANIFEST_PATH = DOCUMENTS_DIR / "manifest.json"
 
-# OCR is the slowest thing in the document layer, and the documents are
-# independent of each other -- so they are read concurrently rather than
-# one after another. The engine is shared and thread-safe.
-_OCR_WORKERS = 4
+# Keep document OCR sequential to limit peak memory on small hosting
+# instances. The OCR engine and resulting findings are cached after use.
 
 _lock = threading.Lock()
 _cache: dict | None = None
@@ -117,10 +112,7 @@ def get_document_findings() -> dict:
             )
 
         if manifest:
-            with ThreadPoolExecutor(max_workers=_OCR_WORKERS) as pool:
-                # map() preserves input order, so the findings list stays
-                # in manifest order regardless of which read finishes first.
-                findings_list = list(pool.map(read, manifest))
+            findings_list = [read(entry) for entry in manifest]
         else:
             findings_list = []
 

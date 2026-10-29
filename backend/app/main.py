@@ -11,15 +11,8 @@ from app.services.websocket_manager import manager as ws_manager
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     init_db()
-    # Warm the duplicate-invoice-detection cache at startup rather than
-    # on the first investigate request: it runs OCR (tesseract) across
-    # every document in the manifest, which took ~10.5s the first time it
-    # ran -- found while testing the dashboard live, where it made the
-    # first case investigation in a session feel broken/hung. Paying that
-    # cost once at boot instead of on a user-facing request is the
-    # correct fix, not just a faster one.
-    from app.services.pipeline_service import _load_duplicate_invoice_case_ids
-    _load_duplicate_invoice_case_ids()
+    # Document OCR stays lazy: load OCR engines and inspect documents only
+    # when an investigation or document view actually requests findings.
     yield
     # release the embedded graph store's file lock on shutdown
     from app.graph.store import close_graph_stores
