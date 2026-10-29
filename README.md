@@ -46,7 +46,6 @@ claims made here.
 | 14. Synthetic scenario engine | ✅ (delivered in Phase 2, cross-referenced) |
 | 15. Full integration — API wired to the real pipeline, verified live over HTTP | ✅ |
 | 16. Testing (unit/integration/e2e) | ✅ |
-| 17. Docker | ✅ Compose images built and smoke-tested live |
 | 18. Final documentation | ✅ |
 | 19. Case intelligence — scorecard, policy trace, counterfactuals, document comparison, activity timeline | ✅ |
 
@@ -461,13 +460,13 @@ the same time.
 - **`docs/TESTING.md`** — precisely what 71% coverage does and doesn't mean, broken down by test file.
 - **`docs/PROGRESS.md`** — the phase-by-phase build log, updated after every phase actually ran.
 - **`docs/DATASET.md`, `docs/EXPERIMENTS.md`** — every real dataset statistic and model metric in this project, with honest framing (including the unflattering numbers).
-- **`docs/RUN_GNN.md`, `docs/RUN_TEMPORAL.md`, `docs/RUN_DOCKER.md`** — reproducible training and deployment guides, including the measured CPU runs.
+- **`docs/RUN_GNN.md`, `docs/RUN_TEMPORAL.md`** — reproducible model training guides, including the measured CPU runs.
 
 ## Design decisions carried over from environment constraints
 
 - **SQLite is the default database**; PostgreSQL 16.15 schema creation and
-  ORM CRUD have also passed a live adapter smoke test. Full API/Compose
-  deployment with PostgreSQL is not yet verified.
+  ORM CRUD have also passed a live adapter smoke test. Full API deployment
+  with PostgreSQL is not yet verified.
 - **Single-CPU-aware model sizes** — `n_estimators`/`max_depth` bounded in
   `scripts/train_baseline.py` because this environment reports 1 CPU core.
 - **LLM provider is Gemini (free tier)**, not a paid API — the eventual

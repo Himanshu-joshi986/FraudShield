@@ -19,7 +19,7 @@ xgboost>=2.0,<3.0
 joblib>=1.3
 
 # Document AI (Phase 6) -- also requires the tesseract-ocr system package
-# (apt install tesseract-ocr / see docker/backend.Dockerfile)
+# (apt install tesseract-ocr on Debian/Ubuntu hosts)
 pytesseract>=0.3
 pillow>=10.0
 

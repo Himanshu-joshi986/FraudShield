@@ -234,7 +234,7 @@ If OCR fails or returns nothing, `validate_document()` returns `degraded=True`, 
 
 **Status: fully built and RUN.** Backend is **kuzu 0.11.3**, a real embedded graph database executing genuine Cypher — not networkx wearing a graph-DB costume. Multi-hop pattern matching like `MATCH (a:Customer)-[:USES_DEVICE]->(d)<-[:USES_DEVICE]-(b:Customer)` is executed by the database engine.
 
-Neo4j (the store named in the spec) is implemented against the real `neo4j` Python driver but **not run** — it needs a server + JVM + Docker, none available here. Selecting it without the driver installed raises a clear error with install instructions rather than silently falling back.
+Neo4j (the store named in the spec) is implemented against the real `neo4j` Python driver but **not run** — it needs a separately running server, which was unavailable during that experiment. Selecting it without the driver installed raises a clear error with install instructions rather than silently falling back.
 
 ### Ingested graph (synthetic scenario library)
 

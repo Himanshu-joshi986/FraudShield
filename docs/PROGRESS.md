@@ -24,8 +24,7 @@ phase's tests were actually executed in this environment.
 | 14 | Synthetic scenario engine | ✅ Done (built in Phase 2) | The spec's Phase 14 goal ('create controlled end-to-end cases') is exactly what Phase 2's `scripts/generate_synthetic_scenarios.py` already delivers — 8 scenarios, 3 CSVs, full provenance. No separate rebuild; see `docs/DATASET.md` §3. Interactive graph/document/agent execution against these scenarios is what Phases 7-13 each verified live. |
 | 15 | Full integration | ✅ Done | `test_integration.py` — 13 passing; includes manual intake with no available signals routed to human review; seeded workflow verified live over real HTTP |
 | 16 | Testing (unit/integration/e2e) | ✅ | 196 passed, 0 skipped in the current complete suite; current coverage not remeasured — see `docs/TESTING.md` |
-| 17 | Docker | ✅ Done | `docker compose config`, image build, startup graph/RAG initialization, `/health`, dashboard HTTP, synthetic seed, and full case investigation verified live; see `docs/RUN_DOCKER.md` |
-| 18 | Final documentation | ✅ Done | `docs/ARCHITECTURE.md` (with diagram), `docs/TESTING.md`, `docs/RUN_DOCKER.md` added this phase; all other docs updated incrementally throughout — see the full `docs/` directory |
+| 18 | Final documentation | ✅ Done | `docs/ARCHITECTURE.md` (with diagram) and `docs/TESTING.md` added this phase; all other docs updated incrementally throughout — see the full `docs/` directory |
 | 19 | Case intelligence (scorecard / policy trace / counterfactuals / document comparison / activity timeline) | ✅ Done | `tests/test_case_insights.py` — 16 passing; `tests/test_graph.py` — 22 passing; `tests/test_agents.py` — 31 passing; `tests/test_document_ai.py` — 24 passing. Verified live in the browser against the running stack: scorecard contributions sum to the case's own risk_score, the policy trace shows the two overrides that escalate a 0.21 case, the document dossier renders three invoices side by side, the force-directed graph shows the ring as a cluster, and a report evidence reference jumps to its exhibit. Two real bugs found and fixed while building it (see below). |
 
 ### Phase 19 — what was added, and what it found
@@ -103,10 +102,9 @@ by the Phase 19 changes.
 
 ## Remaining external verification
 
-Docker Compose has been built and smoke-tested on its SQLite/kuzu defaults.
 PostgreSQL ORM CRUD and Neo4j graph queries passed direct live-service smoke
-checks, but the complete API/Compose workflow has not been run with those
-alternative backends. Gemini-backed responses require a valid
+checks, but the complete API workflow has not been run with those alternative
+backends. Gemini-backed responses require a valid
 `GEMINI_API_KEY`; no key was provided. The Phase-6 document metrics in
 `docs/EXPERIMENTS.md` were measured with tesseract 5.3.4; the Phase-19
 `rapidocr` backend is verified functionally (real invoice fields read

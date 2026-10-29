@@ -85,7 +85,7 @@ or generalization beyond the stated sample sizes.
 ## Live alternative-database smoke checks
 
 These checks were run separately from the complete test suite against disposable
-services on the Docker network:
+PostgreSQL and Neo4j services:
 
 - PostgreSQL 16.15: SQLAlchemy connected using `postgresql+psycopg`,
   created the application schema, and passed a `Case` ORM insert/read/delete.
